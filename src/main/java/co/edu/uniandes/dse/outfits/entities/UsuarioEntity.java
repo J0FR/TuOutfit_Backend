@@ -15,7 +15,7 @@ import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 @Getter
 @Setter
 @Entity
-public class Usuario extends BaseEntity {
+public class UsuarioEntity extends BaseEntity {
 
     private String nombre;
     private String genero;
