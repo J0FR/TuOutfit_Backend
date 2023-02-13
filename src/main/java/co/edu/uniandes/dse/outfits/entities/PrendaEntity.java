@@ -37,8 +37,10 @@ public class PrendaEntity extends BaseEntity {
     @ManyToMany
     private List<OutfitEntity> outfits = new ArrayList<>();
 
-    @OneToMany
-    private List<MarcaEntity> marcas = new ArrayList<>();
+
+    @ManyToOne
+    private MarcaEntity marca;
+
 
     public enum Color {
         ROJO,

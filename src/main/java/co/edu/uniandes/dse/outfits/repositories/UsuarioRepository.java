@@ -11,5 +11,7 @@ import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 @Repository
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
+    //List<OutfitEntity> findByName(String nombre);
+
 
 }
