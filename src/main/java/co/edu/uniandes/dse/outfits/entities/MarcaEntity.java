@@ -15,7 +15,8 @@ import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 @Getter
 @Setter
 @Entity
-public class MarcaEntity {
+public class MarcaEntity extends BaseEntity {
+
     private String nombre;
     private String url_sitio_web;
     private String logo; /* No es string sino es imagen */
