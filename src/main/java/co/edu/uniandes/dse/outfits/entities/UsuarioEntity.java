@@ -26,7 +26,7 @@ public class UsuarioEntity extends BaseEntity {
     private int edad;
     private String email;
 
-    @OneToMany(mappedBy = "Author", fetch = FetchType.LAZY)
+    @OneToMany
     private List<ComentarioEntity> comentarios = new ArrayList<>();
 
     @OneToMany

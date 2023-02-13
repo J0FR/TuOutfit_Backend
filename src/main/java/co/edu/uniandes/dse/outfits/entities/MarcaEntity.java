@@ -26,10 +26,10 @@ public class MarcaEntity extends BaseEntity {
     private String logo; /* No es string sino es imagen */
     private String detalle_de_marca;
 
-    @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+    @OneToMany
     private List<ComentarioEntity> prendas = new ArrayList<>();
 
-    @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+    @OneToMany
     private List<ComentarioEntity> tiendas_fisicas = new ArrayList<>();
 
 }

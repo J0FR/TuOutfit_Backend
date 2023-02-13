@@ -13,7 +13,7 @@ public class TiendaFisicaEntity extends BaseEntity {
     private String nombre;
     private String horarios;
 
-    @OneToOne(mappedBy = "tiendaFisica")
+    @OneToOne
     private UbicacionEntity ubicacion;
 
     @ManyToOne
