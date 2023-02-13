@@ -13,8 +13,4 @@ import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 
 public interface MarcaRepository extends JpaRepository<MarcaEntity, Long> {
 
-    List<TiendaFisicaEntity> findByNameTienda(String nombre);
-
-    List<PrendaEntity> findByNamePrenda(String nombre);
-
 }
