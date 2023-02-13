@@ -1,7 +1,11 @@
 package co.edu.uniandes.dse.outfits.entities;
 
-import javax.persistence.Entity;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
@@ -21,5 +25,11 @@ public class UsuarioEntity extends BaseEntity {
     private String genero;
     private int edad;
     private String email;
+
+    @OneToMany(mappedBy = "Author", fetch = FetchType.LAZY)
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
+
+    @OneToMany
+    private List<OutfitEntity> favoritos = new ArrayList<>();
 
 }
