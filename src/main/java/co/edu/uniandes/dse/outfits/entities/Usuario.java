@@ -7,7 +7,7 @@ import lombok.Setter;
 import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 
 /**
- * Clase que representa una marca en la persistencia
+ * Clase que representa un usuario en la persistencia
  * 
  * @author Daniel Pedroza
  **/
