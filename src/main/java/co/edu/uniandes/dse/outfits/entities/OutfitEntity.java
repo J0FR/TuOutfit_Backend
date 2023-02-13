@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class OutfitEntity extends BaseEntity {
-    private String ad;
+    private String descripcion;
 
     @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
     private ArrayList<ComentarioEntity> comentarios = new ArrayList<>();
