@@ -1,6 +1,7 @@
 package co.edu.uniandes.dse.outfits.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,10 +17,12 @@ import lombok.Setter;
 public class OutfitEntity extends BaseEntity {
     private String descripcion;
 
+    @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
+
+    @ManyToMany(mappedBy="outfit",fetch = FetchType.LAZY)
+    private List<ComentarioEntity> prenda = new ArrayList<>();
 }
-
-
-
 
 
 
