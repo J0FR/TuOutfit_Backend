@@ -17,11 +17,13 @@ import lombok.Setter;
 public class OutfitEntity extends BaseEntity {
     private String descripcion;
 
-    @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
+    @OneToMany
     private List<ComentarioEntity> comentarios = new ArrayList<>();
+
 
     @ManyToMany(mappedBy="outfits",fetch = FetchType.LAZY)
     private List<PrendaEntity> prendas = new ArrayList<>();
+
 }
 
 
