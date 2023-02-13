@@ -13,6 +13,6 @@ public class UbicacionEntity extends BaseEntity {
     private float latitud;
     private float longitud;
 
-    @OneToOne(mappedBy = "ubicacion")
+    @OneToOne
     private TiendaFisicaEntity tiendaFisica;
 }

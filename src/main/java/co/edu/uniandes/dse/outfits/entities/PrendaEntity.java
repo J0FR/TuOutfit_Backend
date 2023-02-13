@@ -2,6 +2,7 @@ package co.edu.uniandes.dse.outfits.entities;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,11 +34,11 @@ public class PrendaEntity extends BaseEntity {
     @ManyToOne
     private ComentarioEntity commentario;
     
-    @ManyToMany(mappedBy="outfit",fetch= FetchType.LAZY)
-    private ArrayList<OutfitEntity> outfits = new ArrayList<>();
+    @ManyToMany
+    private List<OutfitEntity> outfits = new ArrayList<>();
 
-    @OneToMany(mappedBy="marca",fetch=FetchType.LAZY)
-    private ArrayList<MarcaEntity> marcas = new ArrayList<>();
+    @ManyToOne
+    private MarcaEntity marca;
 
     public enum Color {
         ROJO,

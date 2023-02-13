@@ -20,8 +20,8 @@ public class OutfitEntity extends BaseEntity {
     @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
     private List<ComentarioEntity> comentarios = new ArrayList<>();
 
-    @ManyToMany(mappedBy="outfit",fetch = FetchType.LAZY)
-    private List<ComentarioEntity> prenda = new ArrayList<>();
+    @ManyToMany(mappedBy="outfits",fetch = FetchType.LAZY)
+    private List<PrendaEntity> prendas = new ArrayList<>();
 }
 
 
