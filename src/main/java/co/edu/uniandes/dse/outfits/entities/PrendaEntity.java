@@ -26,6 +26,7 @@ public class PrendaEntity extends BaseEntity {
     private RangoEdad rango_edad;
     private String foto;
     private String talla;
+    
 
     @ManyToOne
     private ComentarioEntity commentario;
