@@ -1,6 +1,12 @@
 package co.edu.uniandes.dse.outfits.entities;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +15,12 @@ import lombok.Setter;
 @Entity
 public class OutfitEntity extends BaseEntity {
     private String ad;
+
+    @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
+    private ArrayList<ComentarioEntity> comentarios = new ArrayList<>();
+
+    @ManyToMany(mappedBy="outfit",fetch = FetchType.LAZY)
+    private ArrayList<ComentarioEntity> prenda = new ArrayList<>();
 }
 
 
