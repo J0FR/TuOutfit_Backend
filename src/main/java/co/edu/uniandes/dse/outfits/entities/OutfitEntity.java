@@ -15,6 +15,7 @@ import lombok.Setter;
 @Entity
 public class OutfitEntity extends BaseEntity {
     private String descripcion;
+
 }
 
 
