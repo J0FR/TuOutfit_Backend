@@ -15,7 +15,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+
 public class PrendaEntity extends BaseEntity {
+
     private String url_sitio_web_compra;
     private String imagen;
     private String nombre;
