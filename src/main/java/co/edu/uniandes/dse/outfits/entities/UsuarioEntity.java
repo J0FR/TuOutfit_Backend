@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
 
 /**
  * Clase que representa un usuario en la persistencia

@@ -7,6 +7,4 @@ import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 @Repository
 public interface PrendaRepository extends JpaRepository<PrendaEntity, Long>  {
 
-
-    
 }

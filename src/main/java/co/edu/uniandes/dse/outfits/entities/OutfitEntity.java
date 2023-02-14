@@ -14,12 +14,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class OutfitEntity extends BaseEntity {
+public class OutfitEntity extends ProductoEntity {
     private String descripcion;
 
     @OneToMany
     private List<ComentarioEntity> comentarios = new ArrayList<>();
-
 
     @ManyToMany(mappedBy="outfits",fetch = FetchType.LAZY)
     private List<PrendaEntity> prendas = new ArrayList<>();

@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,19 +14,9 @@ import lombok.Setter;
 @Setter
 @Entity
 
-public class PrendaEntity extends BaseEntity {
+public class PrendaEntity extends ProductoEntity {
 
     private String url_sitio_web_compra;
-    private String imagen;
-    private String nombre;
-    private Integer precio;
-    private Color colores;
-    private Genero genero;
-    private Ocacion ocaciones;
-    private RangoEdad rango_edad;
-    private String foto;
-    private String talla;
-    
 
     @ManyToOne
     private ComentarioEntity commentario;
@@ -37,45 +24,10 @@ public class PrendaEntity extends BaseEntity {
     @ManyToMany
     private List<OutfitEntity> outfits = new ArrayList<>();
 
-
     @ManyToOne
     private MarcaEntity marca;
 
 
-    public enum Color {
-        ROJO,
-        AZUL,
-        DORADO,
-        VERDE,
-        PLATA,
-        AMARILLO,
-        CAFE,
-        BLANCO,
-        NEGRO
-    }
-
-    public enum Genero {
-        HOMBRE,
-        MUJER,
-        UNISEX
-    }
-
-    public enum RangoEdad {
-        BEBE,
-        NIÑO,
-        ADOLECENTE,
-        JOVEN,
-        ADULTO,
-        ABUELOS
-    }
-
-    public enum Ocacion {
-        BODA,
-        FIESTA,
-        CENA,
-        CASUAL,
-        FORMAL,
-        GRADO
-    }
+    
 
 }
