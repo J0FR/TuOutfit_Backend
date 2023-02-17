@@ -22,7 +22,6 @@ public class OutfitEntity extends ProductoEntity {
 
     @ManyToMany(mappedBy="outfits",fetch = FetchType.LAZY)
     private List<PrendaEntity> prendas = new ArrayList<>();
-
 }
 
 
