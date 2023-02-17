@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * Clase que representa un usuario en la persistencia
@@ -27,10 +29,11 @@ public class UsuarioEntity extends BaseEntity {
 
 
     @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY)
-
+    @PodamExclude
     private List<ComentarioEntity> comentarios = new ArrayList<>();
 
-    @OneToMany
+    @ManyToMany(mappedBy="usuarios",fetch = FetchType.LAZY)
+    @PodamExclude
     private List<OutfitEntity> favoritos = new ArrayList<>();
 
 }
