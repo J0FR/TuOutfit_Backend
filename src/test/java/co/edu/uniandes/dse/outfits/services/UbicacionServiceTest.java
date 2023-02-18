@@ -125,6 +125,7 @@ class UbicacionServiceTest {
         UbicacionEntity entity = ubicacionList.get(0);
         UbicacionEntity pojoEntity = factory.manufacturePojo(UbicacionEntity.class);
         pojoEntity.setId(entity.getId());
+        pojoEntity.setTiendaFisica(entity.getTiendaFisica());
         ubicacionService.updateUbicacion(entity.getId(), pojoEntity);
 
         UbicacionEntity resp = entityManager.find(UbicacionEntity.class, entity.getId());
