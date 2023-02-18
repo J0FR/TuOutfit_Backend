@@ -22,6 +22,9 @@ public class UbicacionService {
     @Autowired
     UbicacionRepository ubicacionRepository;
 
+    @Autowired
+    TiendaFisicaRepository tiendaFisicaRepository;
+
     @Transactional
     public UbicacionEntity createUbicacion(UbicacionEntity ubicacion) throws IllegalOperationException {
         log.info("Inicia proceso de creación de la ubicación");
@@ -52,8 +55,9 @@ public class UbicacionService {
     public UbicacionEntity updateUbicacion(Long ubicacionId, UbicacionEntity ubicacion) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de actualizar la ubicación con id = {0}", ubicacionId);
         Optional<UbicacionEntity> ubicacionEntity = ubicacionRepository.findById(ubicacionId);
-        if (ubicacionEntity.isEmpty())
+        if (ubicacionEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.UBICACION_NOT_FOUND);
+        }
         if (ubicacion.getTiendaFisica() == null) {
             throw new IllegalOperationException("La ubicación no tiene una tienda asociada");
         }
