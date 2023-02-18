@@ -5,6 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Getter
 @Setter
@@ -14,8 +15,10 @@ public class TiendaFisicaEntity extends BaseEntity {
     private String horarios;
 
     @OneToOne
+    @PodamExclude
     private UbicacionEntity ubicacion;
 
     @ManyToOne
+    @PodamExclude
     private MarcaEntity marca;
 }

@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  * Clase que representa un marca en la persistencia
@@ -27,9 +28,11 @@ public class MarcaEntity extends BaseEntity {
 
 
     @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+    @PodamExclude
     private List<PrendaEntity> prendas = new ArrayList<>();
 
     @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+    @PodamExclude
     private List<TiendaFisicaEntity> tiendas_fisicas = new ArrayList<>();
 
 
