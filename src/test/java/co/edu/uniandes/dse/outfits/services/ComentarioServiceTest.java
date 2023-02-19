@@ -39,7 +39,7 @@ public class ComentarioServiceTest {
 
     // número de entidades de prueba instanciadas
     static final int USUARIO_ENTITIES = 5;
-    static final int PRENDA_ENTITIES = 10;
+    static final int PRENDA_ENTITIES = 5;
     static final int OUTFIT_ENTITIES = 5;
     // numero de listas de comentarios a crear
     static final int COMENTARIO_LIST_SIZE = 5;
@@ -87,6 +87,7 @@ public class ComentarioServiceTest {
         // Usuario
         for (int i=0; i<USUARIO_ENTITIES; i++) {
             UsuarioEntity usuarioEntity =  factory.manufacturePojo(UsuarioEntity.class);
+            usuarioList.add(usuarioEntity);
             entityManager.persist(usuarioEntity);
         }
 
@@ -105,7 +106,6 @@ public class ComentarioServiceTest {
                 comentarioEntity.setCalificacion(3);
                 comentarioEntity.setMensaje("Comentario de prueba");
                 comentarioEntity.setPrenda(prendaEntity);
-                // elige el autor para el comentario
                 comentarioEntity.setAutor(usuarioList.get(0));
                 comentarioList.add(comentarioEntity);
                 comentariosToAdd.add(comentarioEntity);
@@ -117,7 +117,7 @@ public class ComentarioServiceTest {
         }
 
         // Comentarios añadidos a outfits
-        for (int i=0; i<COMENTARIO_ENTITIES; i++) {
+        for (int i=0; i<OUTFIT_ENTITIES; i++) {
             ArrayList <ComentarioEntity> comentariosToAdd = new ArrayList <ComentarioEntity> ();
 
             OutfitEntity outfitEntity =  factory.manufacturePojo(OutfitEntity.class);
@@ -151,6 +151,7 @@ public class ComentarioServiceTest {
         newEntity.setCalificacion(3);
         newEntity.setMensaje("Mensaje de prueba");
         newEntity.setAutor(usuarioList.get(0));
+        newEntity.setPrenda(prendaList.get(0));
 
         ComentarioEntity result = comentarioService.createComentario(newEntity);
         // creado exitosamente
@@ -279,7 +280,15 @@ public class ComentarioServiceTest {
         ComentarioEntity entity = comentarioList.get(0);
         // entidad para remplazar
         ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+
+        // configura al pojo
         pojoEntity.setId(entity.getId());
+        pojoEntity.setTitulo("Título de prueba de cambio");
+        pojoEntity.setCalificacion(1);
+        pojoEntity.setMensaje("Mensaje de prueba de cambio");
+        pojoEntity.setAutor(usuarioList.get(0));
+        pojoEntity.setPrenda(prendaList.get(0));
+        
         comentarioService.updateComentario(entity.getId(), pojoEntity);
 
         // pide la entidad actualizada

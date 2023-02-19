@@ -97,7 +97,7 @@ public class ComentarioService {
 
         // Revisa que ninguno de los atributos sea nulo.
         // Si no tienen valor, deben estar vacíos, no nulos.
-        if (comentario.getId() != null) {
+        if (comentario.getId() == null) {
             throw new IllegalOperationException("ID faltante");
         }
         else if (comentario.getAutor() == null) {
