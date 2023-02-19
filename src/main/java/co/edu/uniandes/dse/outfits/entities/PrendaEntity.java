@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -19,9 +21,9 @@ public class PrendaEntity extends ProductoEntity {
 
     private String url_sitio_web_compra;
 
-    @ManyToOne
+    @OneToMany
     @PodamExclude
-    private ComentarioEntity commentario;
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     @ManyToMany
     @PodamExclude
