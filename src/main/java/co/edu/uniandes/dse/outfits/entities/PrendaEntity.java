@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +20,10 @@ public class PrendaEntity extends ProductoEntity {
 
     private String url_sitio_web_compra;
 
-    @ManyToOne
-    private ComentarioEntity commentario;
+    //@ManyToOne
+    //private ComentarioEntity commentario;
+    @OneToMany
+    private List<ComentarioEntity> comentarios = new ArrayList<>();
     
     @ManyToMany
     private List<OutfitEntity> outfits = new ArrayList<>();
