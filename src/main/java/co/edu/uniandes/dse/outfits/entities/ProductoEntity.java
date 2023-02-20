@@ -1,13 +1,12 @@
 package co.edu.uniandes.dse.outfits.entities;
 
-import javax.persistence.Entity;
-
 import lombok.Getter;
 import lombok.Setter;
+import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
-@Entity
+@MappedSuperclass
 public abstract class ProductoEntity extends BaseEntity {
 
     private String imagen;
