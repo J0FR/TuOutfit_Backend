@@ -24,15 +24,14 @@ public class UsuarioEntity extends BaseEntity {
 
     private String nombre;
     private String genero;
-    private int edad;
+    private Integer edad;
     private String email;
-
 
     @OneToMany(mappedBy = "autor", fetch = FetchType.LAZY)
     @PodamExclude
     private List<ComentarioEntity> comentarios = new ArrayList<>();
 
-    @ManyToMany(mappedBy="usuarios",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "usuarios", fetch = FetchType.LAZY)
     @PodamExclude
     private List<OutfitEntity> favoritos = new ArrayList<>();
 
