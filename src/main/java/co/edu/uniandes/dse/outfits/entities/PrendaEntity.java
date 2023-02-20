@@ -29,6 +29,10 @@ public class PrendaEntity extends ProductoEntity {
     @PodamExclude
     private List<OutfitEntity> outfits = new ArrayList<>();
 
+    @ManyToMany
+    @PodamExclude
+    private List<PrendaEntity> prendas_asociadas = new ArrayList<>();
+
     @ManyToOne
     @PodamExclude
     private MarcaEntity marca;
