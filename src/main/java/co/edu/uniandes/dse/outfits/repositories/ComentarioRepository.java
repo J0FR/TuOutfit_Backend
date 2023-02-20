@@ -6,5 +6,5 @@ import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 
 @Repository
 public interface ComentarioRepository extends JpaRepository<ComentarioEntity, Long> {
-    
+    // TODO: crear deleteBy
 }
