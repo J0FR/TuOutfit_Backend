@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.Setter;
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Getter
 @Setter
@@ -17,11 +18,17 @@ import lombok.Setter;
 public class OutfitEntity extends ProductoEntity {
     private String descripcion;
 
-    @OneToMany
+    @OneToMany(mappedBy = "outfit", fetch = FetchType.LAZY)
+    @PodamExclude
     private List<ComentarioEntity> comentarios = new ArrayList<>();
 
     @ManyToMany(mappedBy="outfits",fetch = FetchType.LAZY)
+    @PodamExclude
     private List<PrendaEntity> prendas = new ArrayList<>();
+
+    @ManyToMany
+    @PodamExclude
+    private List<UsuarioEntity> usuarios = new ArrayList<>();
 }
 
 

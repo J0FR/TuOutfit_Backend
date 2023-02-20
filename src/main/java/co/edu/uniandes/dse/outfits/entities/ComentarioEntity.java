@@ -5,6 +5,7 @@ import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
+import uk.co.jemos.podam.common.PodamExclude;
 /**
  * Clase que representa un comentario en la persistencia
  * 
@@ -20,11 +21,14 @@ public class ComentarioEntity extends BaseEntity {
     private String mensaje;
 
     @ManyToOne
+    @PodamExclude
     private PrendaEntity prenda;
 
     @ManyToOne
+    @PodamExclude
     private OutfitEntity outfit;
 
     @ManyToOne
+    @PodamExclude
     private UsuarioEntity autor;
 }
