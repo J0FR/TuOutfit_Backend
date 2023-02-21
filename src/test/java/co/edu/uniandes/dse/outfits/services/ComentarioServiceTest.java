@@ -172,41 +172,76 @@ public class ComentarioServiceTest {
     }
 
     /**
-     * Test para crear un Comentario con algún atributo nulo
+     * Test para crear un Comentario con un autor nulo
      */
     @Test
-    public void testCreateComentarioAtributosNull() throws EntityNotFoundException, IllegalOperationException {
+    public void testCreateComentarioAutorNull() throws IllegalOperationException {
         Assertions.assertThrows(IllegalOperationException.class, () -> {
-            ComentarioEntity newEntity;
-
             // sin autor
-            newEntity = factory.manufacturePojo(ComentarioEntity.class);
+            ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setAutor(null);
             newEntity.setPrenda(prendaList.get(0));
             comentarioService.createComentario(newEntity);
+        });
+    }
 
-            // sin calificacion
-            newEntity = factory.manufacturePojo(ComentarioEntity.class);
+    /**
+     * Test para crear un Comentario con una calificación nula
+     */
+    @Test
+    public void testCreateComentarioCalificacionNull() throws IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(null);
             newEntity.setAutor(usuarioList.get(0));
             newEntity.setPrenda(prendaList.get(0));
             comentarioService.createComentario(newEntity);
+        });
+    }
 
-            // sin mensaje
-            newEntity = factory.manufacturePojo(ComentarioEntity.class);
+    /**
+     * Test para crear un Comentario con un mensaje nulo
+     */
+    @Test
+    public void testCreateComentarioMensajeNull() throws IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setMensaje(null);
             newEntity.setAutor(usuarioList.get(0));
             newEntity.setPrenda(prendaList.get(0));
             comentarioService.createComentario(newEntity);
+        });
+    }
 
-            // sin prenda y sin outfit
-            newEntity = factory.manufacturePojo(ComentarioEntity.class);
+    /**
+     * Test para crear un Comentario con una prenda y un outfit nulos
+     */
+    @Test
+    public void testCreateComentarioPrendaYOutfitNull() throws IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setAutor(usuarioList.get(0));
             newEntity.setPrenda(null);
             newEntity.setOutfit(null);
+            comentarioService.createComentario(newEntity);
+        });
+
+    }
+
+    /**
+     * Test para crear un Comentario con un título nulo
+     */
+    @Test
+    public void testCreateComentarioTituloNull() throws IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
+            newEntity.setCalificacion(3);
+            newEntity.setTitulo(null);
+            newEntity.setAutor(usuarioList.get(0));
+            newEntity.setPrenda(prendaList.get(0));
             comentarioService.createComentario(newEntity);
         });
     }
@@ -215,7 +250,7 @@ public class ComentarioServiceTest {
      * Test para crear un Comentario con prenda y outfit asignados
      */
     @Test
-    public void testCreateComentarioPrendaYOutfit() throws EntityNotFoundException, IllegalOperationException {
+    public void testCreateComentarioPrendaYOutfit() throws IllegalOperationException {
         Assertions.assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
@@ -227,24 +262,30 @@ public class ComentarioServiceTest {
     }
 
     /**
-     * Test para crear un Comentario con calificacion fuera del rango
+     * Test para crear un Comentario con calificacion por debajo del rango permitido
      */
     @Test
-    public void testCreateComentarioCalificacionRango() throws EntityNotFoundException, IllegalOperationException {
+    public void testCreateComentarioCalificacionDebajo() throws EntityNotFoundException, IllegalOperationException {
         Assertions.assertThrows(IllegalOperationException.class, () -> {
-            // calificacion por debajo
             ComentarioEntity newEntityDebajo = factory.manufacturePojo(ComentarioEntity.class);
             newEntityDebajo.setCalificacion(0);
             newEntityDebajo.setAutor(usuarioList.get(0));
             newEntityDebajo.setPrenda(prendaList.get(0));
             comentarioService.createComentario(newEntityDebajo);
+        });
+    }
 
-            // calificacion por encima
-            ComentarioEntity newEntityArriba = factory.manufacturePojo(ComentarioEntity.class);
-            newEntityArriba.setCalificacion(6);
-            newEntityArriba.setPrenda(prendaList.get(0));
-            newEntityArriba.setAutor(usuarioList.get(0));
-            comentarioService.createComentario(newEntityArriba);
+    /**
+     * Test para crear un Comentario con calificacion por encima del rango permitido
+     */
+    @Test
+    public void testCreateComentarioCalificacionEncima() throws EntityNotFoundException, IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity newEntityDebajo = factory.manufacturePojo(ComentarioEntity.class);
+            newEntityDebajo.setCalificacion(6);
+            newEntityDebajo.setAutor(usuarioList.get(0));
+            newEntityDebajo.setPrenda(prendaList.get(0));
+            comentarioService.createComentario(newEntityDebajo);
         });
     }
 
@@ -340,43 +381,59 @@ public class ComentarioServiceTest {
     }
 
     /**
-     * Test para actualizar un comentario con algún atributo nulo
+     * Test para actualizar un comentario con un autor nulo
      */
     @Test
-    public void testUpdateComentarioAtributosNull() throws EntityNotFoundException, IllegalOperationException {
+    public void testUpdateComentarioAutorNull() throws IllegalOperationException {
         Assertions.assertThrows(IllegalOperationException.class, () -> {
-
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
-            // entidad para remplazar
-            ComentarioEntity pojoEntity, resp;
 
-            // sin autor
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
             pojoEntity.setCalificacion(3);
             pojoEntity.setAutor(null);
             pojoEntity.setPrenda(prendaList.get(0));
             comentarioService.updateComentario(entity.getId(), pojoEntity);
 
             // pide la entidad actualizada
-            resp = entityManager.find(ComentarioEntity.class, entity.getId());
+            ComentarioEntity resp = entityManager.find(ComentarioEntity.class, entity.getId());
             // valida que los atributos se hayan actualizado
             compareEntidades(pojoEntity, resp);
+        });
+    }
 
-            // sin calificacion
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+    /**
+     * Test para actualizar un comentario con una calificacion nula
+     */
+    @Test
+    public void testUpdateComentarioCalificacionNull() throws IllegalOperationException {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            // entidad inicial
+            ComentarioEntity entity = comentarioList.get(0);
+
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
             pojoEntity.setCalificacion(null);
             pojoEntity.setAutor(usuarioList.get(0));
             pojoEntity.setPrenda(prendaList.get(0));
             comentarioService.updateComentario(entity.getId(), pojoEntity);
 
             // pide la entidad actualizada
-            resp = entityManager.find(ComentarioEntity.class, entity.getId());
+            ComentarioEntity resp = entityManager.find(ComentarioEntity.class, entity.getId());
             // valida que los atributos se hayan actualizado
             compareEntidades(pojoEntity, resp);
+        });
+    }
 
-            // sin mensaje
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+    /**
+     * Test para actualizar un comentario con un mensaje nulo
+     */
+    @Test
+    public void testUpdateComentarioMensajeNull() {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            // entidad inicial
+            ComentarioEntity entity = comentarioList.get(0);
+
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
             pojoEntity.setCalificacion(3);
             pojoEntity.setMensaje(null);
             pojoEntity.setAutor(usuarioList.get(0));
@@ -384,25 +441,22 @@ public class ComentarioServiceTest {
             comentarioService.updateComentario(entity.getId(), pojoEntity);
 
             // pide la entidad actualizada
-            resp = entityManager.find(ComentarioEntity.class, entity.getId());
+            ComentarioEntity resp = entityManager.find(ComentarioEntity.class, entity.getId());
             // valida que los atributos se hayan actualizado
             compareEntidades(pojoEntity, resp);
+        });
+    }
 
-            // sin prenda y outfit
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
-            pojoEntity.setCalificacion(3);
-            pojoEntity.setAutor(usuarioList.get(0));
-            pojoEntity.setPrenda(null);
-            pojoEntity.setOutfit(null);
-            comentarioService.updateComentario(entity.getId(), pojoEntity);
+    /**
+     * Test para actualizar un comentario con un titulo nulo
+     */
+    @Test
+    public void testUpdateComentarioTituloNull() {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            // entidad inicial
+            ComentarioEntity entity = comentarioList.get(0);
 
-            // pide la entidad actualizada
-            resp = entityManager.find(ComentarioEntity.class, entity.getId());
-            // valida que los atributos se hayan actualizado
-            compareEntidades(pojoEntity, resp);
-
-            // sin titulo
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
             pojoEntity.setCalificacion(3);
             pojoEntity.setTitulo(null);
             pojoEntity.setAutor(usuarioList.get(0));
@@ -410,7 +464,30 @@ public class ComentarioServiceTest {
             comentarioService.updateComentario(entity.getId(), pojoEntity);
 
             // pide la entidad actualizada
-            resp = entityManager.find(ComentarioEntity.class, entity.getId());
+            ComentarioEntity resp = entityManager.find(ComentarioEntity.class, entity.getId());
+            // valida que los atributos se hayan actualizado
+            compareEntidades(pojoEntity, resp);
+        });
+    }
+
+    /**
+     * Test para actualizar un comentario con prenda y outfit nulos
+     */
+    @Test
+    public void testUpdateComentarioPrendaYOutfitNull() {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            // entidad inicial
+            ComentarioEntity entity = comentarioList.get(0);
+
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+            pojoEntity.setCalificacion(3);
+            pojoEntity.setAutor(usuarioList.get(0));
+            pojoEntity.setPrenda(null);
+            pojoEntity.setOutfit(null);
+            comentarioService.updateComentario(entity.getId(), pojoEntity);
+
+            // pide la entidad actualizada
+            ComentarioEntity resp = entityManager.find(ComentarioEntity.class, entity.getId());
             // valida que los atributos se hayan actualizado
             compareEntidades(pojoEntity, resp);
         });
@@ -428,26 +505,36 @@ public class ComentarioServiceTest {
     }
 
     /**
-     * Test para actualizar un comentario con calificación fuera de rango
+     * Test para actualizar un comentario con calificación encima del rango
      */
     @Test
-    public void testUpdateComentarioCalificacionRango() {
+    public void testUpdateComentarioCalificacionEncima() {
         Assertions.assertThrows(IllegalOperationException.class, () -> {
-            ComentarioEntity entityt = comentarioList.get(0);
+            ComentarioEntity entity = comentarioList.get(0);
+            ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
+
+            pojoEntity.setCalificacion(6);
+            pojoEntity.setAutor(usuarioList.get(0));
+            pojoEntity.setPrenda(prendaList.get(0));
+
+            comentarioService.updateComentario(entity.getId(), pojoEntity);
+        });
+    }
+
+    /**
+     * Test para actualizar un comentario con calificación debajo del rango
+     */
+    @Test
+    public void testUpdateComentarioCalificacionDebajo() {
+        Assertions.assertThrows(IllegalOperationException.class, () -> {
+            ComentarioEntity entity = comentarioList.get(0);
             ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
 
             pojoEntity.setCalificacion(0);
             pojoEntity.setAutor(usuarioList.get(0));
             pojoEntity.setPrenda(prendaList.get(0));
 
-            comentarioService.updateComentario(entityt.getId(), pojoEntity);
-
-            pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
-            pojoEntity.setCalificacion(6);
-            pojoEntity.setAutor(usuarioList.get(0));
-            pojoEntity.setPrenda(prendaList.get(0));
-
-            comentarioService.updateComentario(entityt.getId(), pojoEntity);
+            comentarioService.updateComentario(entity.getId(), pojoEntity);
         });
     }
 
