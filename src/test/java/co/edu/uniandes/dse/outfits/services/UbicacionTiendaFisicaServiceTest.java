@@ -1,5 +1,7 @@
 package co.edu.uniandes.dse.outfits.services;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +12,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import antlr.collections.List;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.TiendaFisicaEntity;
 import co.edu.uniandes.dse.outfits.entities.UbicacionEntity;
@@ -30,9 +33,6 @@ public class UbicacionTiendaFisicaServiceTest {
     @Autowired
     private TiendaFisicaService tiendaFisicaService;
 
-    /* @Autowired
-    private MarcaEntityService marcaEntityService; */
-
     @Autowired
     private TestEntityManager entityManager;
 
@@ -40,7 +40,7 @@ public class UbicacionTiendaFisicaServiceTest {
 
     private UbicacionEntity ubicacion = new UbicacionEntity();
     private TiendaFisicaEntity tiendaFisica = new TiendaFisicaEntity();
-    /* private MarcaEntity marca = new MarcaEntity(); */
+    private MarcaEntity marca = new MarcaEntity();
 
     @BeforeEach
     void setUp() {
@@ -51,7 +51,7 @@ public class UbicacionTiendaFisicaServiceTest {
     private void clearData() {
         entityManager.getEntityManager().createQuery("delete from UbicacionEntity").executeUpdate();
         entityManager.getEntityManager().createQuery("delete from TiendaFisicaEntity").executeUpdate();
-        /* entityManager.getEntityManager().createQuery("delete from MarcaEntity").executeUpdate(); */
+        entityManager.getEntityManager().createQuery("delete from MarcaEntity").executeUpdate();
     }
 
     private void insertData() {
@@ -61,23 +61,91 @@ public class UbicacionTiendaFisicaServiceTest {
         tiendaFisica = factory.manufacturePojo(TiendaFisicaEntity.class);
         entityManager.persist(tiendaFisica);
 
-        /* marca = factory.manufacturePojo(MarcaEntity.class);
-        entityManager.persist(marca); */
+        marca = factory.manufacturePojo(MarcaEntity.class);
+        entityManager.persist(marca);
 
         ubicacion.setTiendaFisica(tiendaFisica);
         tiendaFisica.setUbicacion(ubicacion);
-        /* tiendaFisica.setMarca(marca); */
+        tiendaFisica.setMarca(marca);
     }
 
     @Test
     void testAddTiendaFisica() throws IllegalOperationException, EntityNotFoundException {
-        TiendaFisicaEntity tiendaFisicaEntity = factory.manufacturePojo(TiendaFisicaEntity.class);
-        tiendaFisicaEntity.setUbicacion(ubicacion);
-        /* tiendaFisicaEntity.setMarca(marca) */
-        tiendaFisicaService.createTiendaFisica(tiendaFisicaEntity);
+        TiendaFisicaEntity newTiendaFisica = factory.manufacturePojo(TiendaFisicaEntity.class);
+        newTiendaFisica.setUbicacion(ubicacion);
+        newTiendaFisica.setMarca(marca);
+        tiendaFisicaService.createTiendaFisica(newTiendaFisica);
 
-        ubicacionTiendaFisicaService.addTiendaFisica(ubicacion.getId(), tiendaFisicaEntity.getId());
+        TiendaFisicaEntity tiendaFisicaEntity = ubicacionTiendaFisicaService.addTiendaFisica(ubicacion.getId(), newTiendaFisica.getId());
+        assertNotNull(tiendaFisicaEntity);
+
+        assertEquals(tiendaFisicaEntity.getId(), newTiendaFisica.getId());
+        assertEquals(tiendaFisicaEntity.getNombre(), newTiendaFisica.getNombre());
+        assertEquals(tiendaFisicaEntity.getHorarios(), newTiendaFisica.getHorarios());
+        
+        TiendaFisicaEntity ultimaTiendaFisica = ubicacionTiendaFisicaService.getTiendaFisica(ubicacion.getId(), newTiendaFisica.getId());
+
+        assertEquals(ultimaTiendaFisica.getId(), newTiendaFisica.getId());
+        assertEquals(ultimaTiendaFisica.getNombre(), newTiendaFisica.getNombre());
+        assertEquals(ultimaTiendaFisica.getHorarios(), newTiendaFisica.getHorarios());
+
     }
 
+    @Test
+    void testAddTiendaFisicaInvalidUbicacion() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            TiendaFisicaEntity newTiendaFisica = factory.manufacturePojo(TiendaFisicaEntity.class);
+            newTiendaFisica.setMarca(marca);
+            newTiendaFisica.setUbicacion(ubicacion);
+            tiendaFisicaService.createTiendaFisica(newTiendaFisica);
+            newTiendaFisica.setUbicacion(null);
+            ubicacionTiendaFisicaService.addTiendaFisica(0L, newTiendaFisica.getId());
+        });
+    }
+
+    @Test
+    void testAddInvalidTiendaFisica() {
+        assertThrows(EntityNotFoundException.class, () -> {
+			ubicacionTiendaFisicaService.addTiendaFisica(ubicacion.getId(), 0L);
+		});
+    }
+
+    @Test
+    void testGetTiendaFisica() throws EntityNotFoundException, IllegalOperationException {
+        TiendaFisicaEntity tiendaFisicaEntity = tiendaFisica;
+        TiendaFisicaEntity tiendaFisica = ubicacionTiendaFisicaService.getTiendaFisica(ubicacion.getId(), tiendaFisicaEntity.getId());
+        assertNotNull(tiendaFisica);
+
+        assertEquals(tiendaFisicaEntity.getId(), tiendaFisica.getId());
+        assertEquals(tiendaFisicaEntity.getNombre(), tiendaFisica.getNombre());
+        assertEquals(tiendaFisicaEntity.getHorarios(), tiendaFisica.getHorarios());
+    }
+
+    @Test
+    void testGetTiendaFisicaInvalidUbicacion() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            ubicacionTiendaFisicaService.getTiendaFisica(0L, tiendaFisica.getId());
+        });
+    }
+
+    @Test
+    void testGetInvalidTiendaFisica() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            ubicacionTiendaFisicaService.getTiendaFisica(ubicacion.getId(), 0L);
+        });
+    }
     
+    @Test
+    void testGetTiendaFisicaNoAssociatedUbicacion() {
+        assertThrows(IllegalOperationException.class, () -> {
+            UbicacionEntity ubicacionEntity = factory.manufacturePojo(UbicacionEntity.class);
+            entityManager.persist(ubicacionEntity);
+
+            TiendaFisicaEntity tiendaFisicaEntity = factory.manufacturePojo(TiendaFisicaEntity.class);
+            tiendaFisicaEntity.setMarca(marca);
+            entityManager.persist(tiendaFisicaEntity);
+
+            ubicacionTiendaFisicaService.getTiendaFisica(ubicacionEntity.getId(), tiendaFisicaEntity.getId());
+        });
+    }
 }
