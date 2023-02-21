@@ -215,4 +215,14 @@ public class TiendaFisicaServiceTest {
             tiendaFisicaService.deleteTiendaFisica(entity.getId());
         });
     }
+
+    @Test
+    void testDeleteTiendaFisicaWithMarca() {
+        assertThrows(IllegalOperationException.class, () -> {
+            TiendaFisicaEntity entity = tiendaFisicaList.get(0);
+            UbicacionEntity ubicacion = ubicacionList.get(0);
+            entity.setUbicacion(ubicacion);
+            tiendaFisicaService.deleteTiendaFisica(entity.getId());
+        });
+    }
 }
