@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -136,16 +136,18 @@ public class ComentarioServiceTest {
             outfitEntity.setComentarios(comentariosToAdd);
             entityManager.persist(outfitEntity);
         }
+        comentarioList.get(1).setOutfit(outfitList.get(0));
+        comentarioList.get(1).setPrenda(null);
     }
 
     /**
      * Compara los atributos propios de dos entidades
      */
     private void compareEntidades(ComentarioEntity a, ComentarioEntity b) throws EntityNotFoundException, IllegalOperationException {
-        Assertions.assertEquals(a.getId(), b.getId());
-        Assertions.assertEquals(a.getTitulo(), b.getTitulo());
-        Assertions.assertEquals(a.getCalificacion(), b.getCalificacion());
-        Assertions.assertEquals(a.getMensaje(), b.getMensaje());
+        assertEquals(a.getId(), b.getId());
+        assertEquals(a.getTitulo(), b.getTitulo());
+        assertEquals(a.getCalificacion(), b.getCalificacion());
+        assertEquals(a.getMensaje(), b.getMensaje());
     }
 
     /**
@@ -161,11 +163,11 @@ public class ComentarioServiceTest {
 
         ComentarioEntity result = comentarioService.createComentario(newEntity);
         // creado exitosamente
-        Assertions.assertNotNull(result);
+        assertNotNull(result);
 
         ComentarioEntity entity = entityManager.find(ComentarioEntity.class, result.getId());
         // recuperado exitosamente
-        Assertions.assertNotNull(entity);
+        assertNotNull(entity);
 
         // verifica que los atributos coinciden
         compareEntidades(newEntity, entity);
@@ -176,7 +178,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioAutorNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // sin autor
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
@@ -191,7 +193,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioCalificacionNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(null);
             newEntity.setAutor(usuarioList.get(0));
@@ -205,7 +207,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioMensajeNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setMensaje(null);
@@ -220,7 +222,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioPrendaYOutfitNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setAutor(usuarioList.get(0));
@@ -236,7 +238,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioTituloNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setTitulo(null);
@@ -251,7 +253,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioPrendaYOutfit() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
             newEntity.setCalificacion(3);
             newEntity.setAutor(usuarioList.get(0));
@@ -266,7 +268,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioCalificacionDebajo() throws EntityNotFoundException, IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntityDebajo = factory.manufacturePojo(ComentarioEntity.class);
             newEntityDebajo.setCalificacion(0);
             newEntityDebajo.setAutor(usuarioList.get(0));
@@ -280,7 +282,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testCreateComentarioCalificacionEncima() throws EntityNotFoundException, IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity newEntityDebajo = factory.manufacturePojo(ComentarioEntity.class);
             newEntityDebajo.setCalificacion(6);
             newEntityDebajo.setAutor(usuarioList.get(0));
@@ -295,7 +297,7 @@ public class ComentarioServiceTest {
     @Test
     public void testGetComentarios() {
         List <ComentarioEntity> list = comentarioService.getComentarios();
-        Assertions.assertEquals(comentarioList.size(), list.size());
+        assertEquals(comentarioList.size(), list.size());
 
         for (ComentarioEntity entity : list) {
             boolean found = false;
@@ -304,7 +306,7 @@ public class ComentarioServiceTest {
                     found = true;
                 }
             }
-            Assertions.assertTrue(found);
+            assertTrue(found);
         }
     }
 
@@ -317,13 +319,13 @@ public class ComentarioServiceTest {
         ComentarioEntity resultEntity = comentarioService.getComentario(entity.getId());
 
         // se obtuvo exitosamente
-        Assertions.assertNotNull(resultEntity);
+        assertNotNull(resultEntity);
 
         // verifica que los atributos coinciden
-        Assertions.assertEquals(entity.getId(), resultEntity.getId());
-        Assertions.assertEquals(entity.getTitulo(), resultEntity.getTitulo());
-        Assertions.assertEquals(entity.getCalificacion(), resultEntity.getCalificacion());
-        Assertions.assertEquals(entity.getMensaje(), resultEntity.getMensaje());
+        assertEquals(entity.getId(), resultEntity.getId());
+        assertEquals(entity.getTitulo(), resultEntity.getTitulo());
+        assertEquals(entity.getCalificacion(), resultEntity.getCalificacion());
+        assertEquals(entity.getMensaje(), resultEntity.getMensaje());
     }
 
     /**
@@ -331,7 +333,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testGetComentarioIdInvalid() {
-        Assertions.assertThrows(EntityNotFoundException.class, () -> {
+        assertThrows(EntityNotFoundException.class, () -> {
             comentarioService.getComentario(0L);
         });
     }
@@ -364,7 +366,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioPrendaYOutfit() throws EntityNotFoundException, IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
             // entidad para remplazar
@@ -385,7 +387,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioAutorNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
 
@@ -407,7 +409,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioCalificacionNull() throws IllegalOperationException {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
 
@@ -429,7 +431,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioMensajeNull() {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
 
@@ -452,7 +454,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioTituloNull() {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
 
@@ -475,7 +477,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioPrendaYOutfitNull() {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             // entidad inicial
             ComentarioEntity entity = comentarioList.get(0);
 
@@ -498,7 +500,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioIdInvalido() {
-        Assertions.assertThrows(EntityNotFoundException.class, () -> {
+        assertThrows(EntityNotFoundException.class, () -> {
             ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
             comentarioService.updateComentario(0L, pojoEntity); 
         });
@@ -509,7 +511,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioCalificacionEncima() {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity entity = comentarioList.get(0);
             ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
 
@@ -526,7 +528,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testUpdateComentarioCalificacionDebajo() {
-        Assertions.assertThrows(IllegalOperationException.class, () -> {
+        assertThrows(IllegalOperationException.class, () -> {
             ComentarioEntity entity = comentarioList.get(0);
             ComentarioEntity pojoEntity = factory.manufacturePojo(ComentarioEntity.class);
 
@@ -542,11 +544,19 @@ public class ComentarioServiceTest {
      * Test para borrar un comentario
      */
     @Test
-    public void testDeleteComentario() throws EntityNotFoundException, IllegalOperationException {
+    public void testDeleteComentarioWithPrenda() throws EntityNotFoundException, IllegalOperationException {
         ComentarioEntity entity = comentarioList.get(0);
         comentarioService.deleteComentario(entity.getId());
         ComentarioEntity deleted = entityManager.find(ComentarioEntity.class, entity.getId());
-        Assertions.assertNull(deleted);
+        assertNull(deleted);
+    }
+
+    @Test
+    public void testDeleteComentarioWithOutfit() throws EntityNotFoundException, IllegalOperationException {
+        ComentarioEntity entity = comentarioList.get(1);
+        comentarioService.deleteComentario(entity.getId());
+        ComentarioEntity deleted = entityManager.find(ComentarioEntity.class, entity.getId());
+        assertNull(deleted);
     }
 
     /**
@@ -554,7 +564,7 @@ public class ComentarioServiceTest {
      */
     @Test
     public void testDeleteComentarioInvalid() {
-        Assertions.assertThrows(EntityNotFoundException.class, () -> {
+        assertThrows(EntityNotFoundException.class, () -> {
             comentarioService.deleteComentario(0L);
         });
     }

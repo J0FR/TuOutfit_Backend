@@ -21,11 +21,7 @@ public class ComentarioService {
 
     private boolean validarReglasDeNegocio(ComentarioEntity comentarioEntity) {
         // la calificación está entre 1 y 5
-        if (comentarioEntity.getCalificacion() < 1 || comentarioEntity.getCalificacion() > 5) {
-            return false;
-        }
-
-        return true;
+        return (1 <= comentarioEntity.getCalificacion() && comentarioEntity.getCalificacion() <= 5);
     }
 
     @Transactional
@@ -34,10 +30,7 @@ public class ComentarioService {
 
         // Revisa que ninguno de los atributos sea nulo.
         // Si no tienen valor, deben estar vacíos, no nulos.
-        if (comentarioEntity.getId() != null) {
-            throw new IllegalOperationException("ID faltante");
-        }
-        else if (comentarioEntity.getAutor() == null) {
+        if (comentarioEntity.getAutor() == null) {
             throw new IllegalOperationException("Autor faltante");
         }
         else if (comentarioEntity.getCalificacion() == null) {
