@@ -207,7 +207,7 @@ public class TiendaFisicaServiceTest {
     }
 
     @Test
-    void testDeleteTiendaFisicaWithUbicacion() throws EntityNotFoundException, IllegalOperationException {
+    void testDeleteTiendaFisicaWithUbicacion() {
         assertThrows(IllegalOperationException.class, () -> {
             TiendaFisicaEntity entity = tiendaFisicaList.get(0);
             UbicacionEntity ubicacion = ubicacionList.get(0);
@@ -218,7 +218,7 @@ public class TiendaFisicaServiceTest {
     }
 
     @Test
-    void testDeleteTiendaFisicaWithMarca() throws EntityNotFoundException, IllegalOperationException {
+    void testDeleteTiendaFisicaWithMarca() {
         assertThrows(IllegalOperationException.class, () -> {
             TiendaFisicaEntity entity = tiendaFisicaList.get(0);
             MarcaEntity marca = marcaList.get(0);
