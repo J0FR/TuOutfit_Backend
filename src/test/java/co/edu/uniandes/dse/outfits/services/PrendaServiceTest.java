@@ -98,6 +98,7 @@ class PrendaServiceTest {
     void testCreatePrenda() throws EntityNotFoundException, IllegalOperationException {
         PrendaEntity prendaEntity = factory.manufacturePojo(PrendaEntity.class);
         prendaEntity.setMarca(marcaList.get(0));
+        prendaEntity.setCommentario(comentarioList);
         PrendaEntity result = prendaService.createPrenda(prendaEntity);
         assertNotNull(result);
         PrendaEntity entity = entityManager.find(PrendaEntity.class, result.getId());
@@ -113,207 +114,277 @@ class PrendaServiceTest {
         assertEquals(prendaEntity.getColores(), entity.getColores());//
         assertEquals(prendaEntity.getPrecio(), entity.getPrecio());//
         assertEquals(prendaEntity.getRango_edad(), entity.getRango_edad());//
+        assertEquals(prendaEntity.getTalla(), entity.getTalla());//
     }
     //Test de marca    
     @Test
-    void testCreatePrendaWithNoValidMarca() {
+    void testCreatePrendaWithNullMarca() {
         assertThrows(IllegalOperationException.class, () -> {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-            newEntity.setNombre("Nombre Prueba");
-            newEntity.setGenero(Genero.HOMBRE);
             newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
-            newEntity.setPrecio(20000);
-            newEntity.setColores(Color.ROJO);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
             newEntity.setMarca(null);
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
     }
-   //Test de Nombre
-   @Test
-   void testCreatePrendaWithNoValidNombre(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setNombre(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   @Test
-   void testCreatePrendaWithNoValidNombre2(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setNombre("");
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test de Colores
-   @Test
-   void testCreatePrendaWithNoValidColores(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setPrecio(20000);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setColores(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test de precio
-   @Test
-   void testCreatePrendaWithNoValidPrecio(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setPrecio(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-@Test
-   void testCreatePrendaWithNoValidPrecio2(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setPrecio(0);
-        prendaService.createPrenda(newEntity);
-});
 
-   }
-    //Test de Rango de edades
     @Test
-   void testCreatePrendaWithNoValidRangoEdad(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setId(1L);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setRango_edad(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test URL
-   @Test
-   void testCreatePrendaWithNoValidURL(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setId(1L);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setUrl_sitio_web_compra(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   @Test
-   void testCreatePrendaWithNoValidURL2(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setId(1L);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setNombre("Nombre Prueba");
-        newEntity.setUrl_sitio_web_compra("");
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test ID
-   @Test
-   void testCreatePrendaWithNoValidId(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setNombre("Nombre Prueba");
-	  newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setId(null);
-        prendaService.createPrenda(newEntity);
-}); 
+    void testCreatePrendaWithNullColores() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(null);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.createPrenda(newEntity);
+    });
+    }
 
-   }
-   //Test Genero
-   @Test
-   void testCreatePrendaWithNoValidGenero(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setId(1L);
-        newEntity.setOcaciones(Ocacion.BODA);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setNombre("Nombre Prueba");
-	  newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setGenero(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test ocasiones
-   @Test
-   void testCreatePrendaWithNoValidOcasiones(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setId(1L);
-        newEntity.setPrecio(20000);
-        newEntity.setColores(Color.ROJO);
-        newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-        newEntity.setNombre("Nombre Prueba");
-	  newEntity.setUrl_sitio_web_compra("link_prueba");
-        newEntity.setGenero(Genero.HOMBRE);
-        newEntity.setOcaciones(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
-   //Test imagen
-   @Test
-   void testCreatePrendaWithNoValidImagen(){
-    assertThrows(IllegalOperationException.class, () -> {
-        PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-        newEntity.setImagen(null);
-        prendaService.createPrenda(newEntity);
-});
-   }
+    @Test
+    void testCreatePrendaWithNullNombre() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre(null);
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithVacioNombre() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNullOcaciones() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(null);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNoValidRangoEdad() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(null);
+            newEntity.setTalla("A1");
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNullTalla() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla(null);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithVacioTalla() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("");
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNullUrl() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra(null);
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithVacioUrl() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNullFoto() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto(null);
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithVacioFoto() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
+    @Test
+    void testCreatePrendaWithNullComentario() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(null);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.createPrenda(newEntity);
+    });
+    }
+
 
    @Test
    void testGetPrendas() {
@@ -386,24 +457,306 @@ class PrendaServiceTest {
             prendaService.updatePrenda(0L, pojEntity);
         });
     }
+
+    // Inicia
+
     @Test
-    void testUpdatePrendaWithNoValidMarca(){
+    void testUpdatePrendaWithNullMarca() {
         assertThrows(IllegalOperationException.class, () -> {
             PrendaEntity entity = prendaList.get(0);
-            PrendaEntity pojoEntity = factory.manufacturePojo(PrendaEntity.class);
-            pojoEntity.setId(entity.getId());
-            pojoEntity.setId(1L);
-            pojoEntity.setOcaciones(Ocacion.BODA);
-            pojoEntity.setPrecio(20000);
-            pojoEntity.setColores(Color.ROJO);
-            pojoEntity.setRango_edad(RangoEdad.ADOLECENTE);
-            pojoEntity.setNombre("Nombre Prueba");
-	        pojoEntity.setUrl_sitio_web_compra("link_prueba");
-            pojoEntity.setGenero(Genero.HOMBRE);
-            pojoEntity.setMarca(null);
-            prendaService.updatePrenda(entity.getId(), pojoEntity);
-        });
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(null);
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
     }
+
+    @Test
+    void testUpdatePrendaWithNullColores() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(null);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullNombre() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre(null);
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithVacioNombre() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullOcaciones() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(null);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNoValidRangoEdad() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(null);
+            newEntity.setTalla("A1");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullTalla() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla(null);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithVacioTalla() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setTalla("");
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullUrl() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra(null);
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithVacioUrl() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullFoto() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto(null);
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithVacioFoto() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(comentarioList);;
+            newEntity.setFoto("");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    @Test
+    void testUpdatePrendaWithNullComentario() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity entity = prendaList.get(0);
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setId(entity.getId());
+            newEntity.setId(1L);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setCommentario(null);;
+            newEntity.setFoto("foto");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setMarca(marcaList.get(0));
+            newEntity.setOutfits(outfitList);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setColores(Color.ROJO);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            prendaService.updatePrenda(entity.getId(), newEntity);
+    });
+    }
+
+    // Finaliza
+
+
     @Test
     void testDeletePrenda() throws EntityNotFoundException, IllegalOperationException {
         PrendaEntity entity = prendaList.get(1);
