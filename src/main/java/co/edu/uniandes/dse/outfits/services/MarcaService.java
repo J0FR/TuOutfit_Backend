@@ -32,13 +32,13 @@ public class MarcaService {
     @Transactional
     public MarcaEntity createMarca(MarcaEntity marca) throws IllegalOperationException {
         log.info("Inicia proceso de creación de la marca");
-        if (marca.getNombre() == null || marca.getNombre() == "")
+        if (marca.getNombre() == null || marca.getNombre().equals(""))
             throw new IllegalOperationException("La marca no tiene un nombre valido");
-        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web() == "")
+        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web().equals(""))
             throw new IllegalOperationException("La marca no tiene un URL_Sitio_Web valido");
-        if (marca.getLogo() == null || marca.getLogo() == "")
+        if (marca.getLogo() == null || marca.getLogo().equals(""))
             throw new IllegalOperationException("La marca no tiene un URL de logo valido");
-        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca() == "")
+        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
             throw new IllegalOperationException("La marca no tiene detalles de la marca valido");
         if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().size() == 0)
             throw new IllegalOperationException("La marca no tiene tiendas fisicas");
@@ -72,13 +72,13 @@ public class MarcaService {
         Optional<MarcaEntity> outfitEntity = marcaRepository.findById(marcaId);
         if (outfitEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-        if (marca.getNombre() == null || marca.getNombre() == "")
+        if (marca.getNombre() == null || marca.getNombre().equals(""))
             throw new IllegalOperationException("nombre no valido");
-        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web() == "")
+        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web().equals(""))
             throw new IllegalOperationException("URL_Sitio_Web no valido");
-        if (marca.getLogo() == null || marca.getLogo() == "")
+        if (marca.getLogo() == null || marca.getLogo().equals(""))
             throw new IllegalOperationException("URL de logo no valido");
-        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca() == "")
+        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
             throw new IllegalOperationException("detalle de la marca no valido");
         if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().size() == 0)
             throw new IllegalOperationException("La marca no tiene tiendas fisicas");
@@ -92,13 +92,19 @@ public class MarcaService {
 
     @Transactional
     public void deleteMarca(Long marcaId) throws EntityNotFoundException, IllegalOperationException {
-        log.info("Inicia proceso de borrarla marca con id = {0}", marcaId);
-        Optional<MarcaEntity> usuarioEntity = marcaRepository.findById(marcaId);
-        if (usuarioEntity.isEmpty())
+        log.info("Inicia proceso de borrar la marca con id = {0}", marcaId);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
+        if (marcaEntity.get().getPrendas().size() != 0) {
+            throw new IllegalOperationException("La marca tiene prendas asociados");
+        }
+        if (marcaEntity.get().getTiendas_fisicas().size() != 0) {
+            throw new IllegalOperationException("La marca tiene Tiendas fisicas asociados");
+        }
 
         marcaRepository.deleteById(marcaId);
-        log.info("Terminas proceso de borrar el usuario con id = {0}", marcaId);
+        log.info("Terminas proceso de borrar la marca con id = {0}", marcaId);
     }
 
 }
