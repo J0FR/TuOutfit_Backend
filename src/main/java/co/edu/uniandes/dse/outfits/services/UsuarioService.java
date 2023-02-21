@@ -32,13 +32,13 @@ public class UsuarioService {
     @Transactional
     public UsuarioEntity createUsuario(UsuarioEntity usuario) throws IllegalOperationException {
         log.info("Inicia proceso de creación del Usuario");
-        if (usuario.getNombre() == null || usuario.getNombre() == "") {
+        if (usuario.getNombre() == null || usuario.getNombre().equals("")) {
             throw new IllegalOperationException("El usuario no tiene nombre valido");
         }
         if (usuario.getGenero() == null) {
             throw new IllegalOperationException("El usuario no tiene genero");
         }
-        if (usuario.getEmail() == null || usuario.getEmail() == "") {
+        if (usuario.getEmail() == null || usuario.getEmail().equals("")) {
             throw new IllegalOperationException("El usuario no tiene Email valido");
         }
         if (usuario.getEdad() == null || usuario.getEdad() < 0 || usuario.getEdad() > 100) {
@@ -75,13 +75,13 @@ public class UsuarioService {
         if (usuarioEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
 
-        if (usuario.getNombre() == null || usuario.getNombre() == "") {
+        if (usuario.getNombre() == null || usuario.getNombre().equals("")) {
             throw new IllegalOperationException("Nombre no valido");
         }
         if (usuario.getGenero() == null) {
             throw new IllegalOperationException("Genero no valido");
         }
-        if (usuario.getEmail() == null || usuario.getEmail() == "") {
+        if (usuario.getEmail() == null || usuario.getEmail().equals("")) {
             throw new IllegalOperationException("Email no valido");
         }
         if (usuario.getEdad() == null || usuario.getEdad() < 0 || usuario.getEdad() > 100) {
