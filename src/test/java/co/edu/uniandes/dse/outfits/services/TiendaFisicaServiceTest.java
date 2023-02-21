@@ -210,8 +210,9 @@ public class TiendaFisicaServiceTest {
     void testDeleteTiendaFisicaWithUbicacion() {
         assertThrows(IllegalOperationException.class, () -> {
             TiendaFisicaEntity entity = tiendaFisicaList.get(0);
-            MarcaEntity marca = marcaList.get(0);
-            entity.setMarca(marca);
+            UbicacionEntity ubicacion = ubicacionList.get(0);
+            entity.setUbicacion(ubicacion);
+            entity.setMarca(null);
             tiendaFisicaService.deleteTiendaFisica(entity.getId());
         });
     }
@@ -220,8 +221,9 @@ public class TiendaFisicaServiceTest {
     void testDeleteTiendaFisicaWithMarca() {
         assertThrows(IllegalOperationException.class, () -> {
             TiendaFisicaEntity entity = tiendaFisicaList.get(0);
-            UbicacionEntity ubicacion = ubicacionList.get(0);
-            entity.setUbicacion(ubicacion);
+            MarcaEntity marca = marcaList.get(0);
+            entity.setMarca(marca);
+            entity.setUbicacion(null);
             tiendaFisicaService.deleteTiendaFisica(entity.getId());
         });
     }
