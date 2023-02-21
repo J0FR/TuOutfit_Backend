@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -21,9 +22,17 @@ public class PrendaEntity extends ProductoEntity {
 
     private String url_sitio_web_compra;
 
+
+   
+    
+    @OneToMany(mappedBy = "prenda", fetch = FetchType.LAZY)
+    @PodamExclude
+    private List<ComentarioEntity> commentario= new ArrayList<>();;
+
     @OneToMany
     @PodamExclude
     private List<ComentarioEntity> comentarios = new ArrayList<>();
+
     
     @ManyToMany
     @PodamExclude
