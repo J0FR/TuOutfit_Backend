@@ -42,7 +42,7 @@ public class UsuarioService {
             throw new IllegalOperationException("El usuario no tiene Email valido");
         }
         if (usuario.getEdad() == null || usuario.getEdad() < 0 || usuario.getEdad() > 100) {
-            throw new IllegalOperationException("El usuario no tiene edad valida" + usuario.getEdad());
+            throw new IllegalOperationException("El usuario no tiene edad valida");
         }
 
         log.info("Termina proceso de creación del Usuario");
