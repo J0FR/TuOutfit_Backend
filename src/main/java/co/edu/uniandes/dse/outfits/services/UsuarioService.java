@@ -32,13 +32,13 @@ public class UsuarioService {
     @Transactional
     public UsuarioEntity createUsuario(UsuarioEntity usuario) throws IllegalOperationException {
         log.info("Inicia proceso de creación del Usuario");
-        if (usuario.getNombre() == null || usuario.getNombre() == "") {
+        if (usuario.getNombre() == null || usuario.getNombre().equals("")) {
             throw new IllegalOperationException("El usuario no tiene nombre valido");
         }
         if (usuario.getGenero() == null) {
             throw new IllegalOperationException("El usuario no tiene genero");
         }
-        if (usuario.getEmail() == null || usuario.getEmail() == "") {
+        if (usuario.getEmail() == null || usuario.getEmail().equals("")) {
             throw new IllegalOperationException("El usuario no tiene Email valido");
         }
         if (usuario.getEdad() == null || usuario.getEdad() < 0 || usuario.getEdad() > 100) {
@@ -62,7 +62,7 @@ public class UsuarioService {
         if (usuarioEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
         }
-        log.info("Termina proceso de consultar la ubicación con id = {0}", usuarioId);
+        log.info("Termina proceso de consultar la usuario con id = {0}", usuarioId);
         return usuarioEntity.get();
     }
 
@@ -75,13 +75,13 @@ public class UsuarioService {
         if (usuarioEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
 
-        if (usuario.getNombre() == null || usuario.getNombre() == "") {
+        if (usuario.getNombre() == null || usuario.getNombre().equals("")) {
             throw new IllegalOperationException("Nombre no valido");
         }
         if (usuario.getGenero() == null) {
             throw new IllegalOperationException("Genero no valido");
         }
-        if (usuario.getEmail() == null || usuario.getEmail() == "") {
+        if (usuario.getEmail() == null || usuario.getEmail().equals("")) {
             throw new IllegalOperationException("Email no valido");
         }
         if (usuario.getEdad() == null || usuario.getEdad() < 0 || usuario.getEdad() > 100) {
@@ -97,9 +97,12 @@ public class UsuarioService {
     public void deleteUsuario(Long usuarioId) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de borrar el usuario con id = {0}", usuarioId);
         Optional<UsuarioEntity> usuarioEntity = usuarioRepository.findById(usuarioId);
-        if (usuarioEntity.isEmpty())
+        if (usuarioEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
-
+        }
+        if (usuarioEntity.get().getComentarios().size() != 0) {
+            throw new IllegalOperationException("El usuario tiene comentarios asociados");
+        }
         usuarioRepository.deleteById(usuarioId);
         log.info("Terminas proceso de borrar el usuario con id = {0}", usuarioId);
     }

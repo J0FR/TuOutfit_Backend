@@ -98,6 +98,7 @@ class PrendaServiceTest {
     void testCreatePrenda() throws EntityNotFoundException, IllegalOperationException {
         PrendaEntity prendaEntity = factory.manufacturePojo(PrendaEntity.class);
         prendaEntity.setMarca(marcaList.get(0));
+        prendaEntity.setCommentario(comentarioList);
         PrendaEntity result = prendaService.createPrenda(prendaEntity);
         assertNotNull(result);
         PrendaEntity entity = entityManager.find(PrendaEntity.class, result.getId());
@@ -125,8 +126,28 @@ class PrendaServiceTest {
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setPrecio(20000);
             newEntity.setColores(Color.ROJO);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
             newEntity.setUrl_sitio_web_compra("link_prueba");
-            newEntity.setMarca(null);
+            newEntity.setMarca(marcaList.get(0));
+            prendaService.createPrenda(newEntity);
+    });
+    }
+    //Test de Comentario
+    @Test
+    void testCreatePrendaWithNoValidComentario() {
+        assertThrows(IllegalOperationException.class, () -> {
+            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
+            newEntity.setNombre("Nombre Prueba");
+            newEntity.setGenero(Genero.HOMBRE);
+            newEntity.setId(1L);
+            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setPrecio(20000);
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setColores(Color.ROJO);
+            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setMarca(marcaList.get(0));
+            
+            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }

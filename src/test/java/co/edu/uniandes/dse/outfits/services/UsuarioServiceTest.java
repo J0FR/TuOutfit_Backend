@@ -77,6 +77,7 @@ class UsuarioServiceTest {
             entityManager.persist(outfitEntity);
             outfitsList.add(outfitEntity);
         }
+
     }
 
     @Test
@@ -323,6 +324,25 @@ class UsuarioServiceTest {
     void testDeleteUsuarioInvalid() {
         assertThrows(EntityNotFoundException.class, () -> {
             usuarioService.deleteUsuario(0L);
+        });
+    }
+
+    /*
+     * @Test
+     * void testDeleteUbicacionWithTiendaFisica() throws EntityNotFoundException,
+     * IllegalOperationException{
+     * assertThrows(IllegalOperationException.class, () -> {
+     * UbicacionEntity entity = ubicacionList.get(0);
+     * ubicacionService.deleteUbicacion(entity.getId());
+     * });
+     * }
+     */
+    @Test
+    void testDeleteUsuarioWithComentarios() throws EntityNotFoundException, IllegalOperationException {
+        assertThrows(IllegalOperationException.class, () -> {
+            UsuarioEntity entity = usuarioList.get(0);
+            entity.setComentarios(comentariosList);
+            usuarioService.deleteUsuario(entity.getId());
         });
     }
 
