@@ -6,14 +6,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.ElementCollection;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
-import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
+
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
@@ -49,28 +47,28 @@ public class PrendaService {
         if (prendaEntity.getColores()== null){
             throw new IllegalOperationException("La prenda no tiene colores asociados ");
         }
-        if (prendaEntity.getNombre()== null){
+        if (prendaEntity.getNombre()== null  || prendaEntity.getNombre().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene un nombre asociado");
         }
-        if (prendaEntity.getPrecio()== null){
+        if (prendaEntity.getPrecio()== null  || prendaEntity.getPrecio() == 0){
             throw new IllegalOperationException("La prenda no tiene un precio asociado");
         }
-        if (prendaEntity.getOcaciones()== null){
+        if (prendaEntity.getOcaciones() == null  || prendaEntity.getOcaciones().name().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una ocasion asociada");
         }
         if (prendaEntity.getRango_edad()== null){
             throw new IllegalOperationException("La prenda no tiene un rando de edad asociado");
         }
-        if (prendaEntity.getTalla() == null){
+        if (prendaEntity.getTalla() == null  || prendaEntity.getTalla().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una talla asociada");
         }
-        if (prendaEntity.getUrl_sitio_web_compra()== null){
+        if (prendaEntity.getUrl_sitio_web_compra()== null  || prendaEntity.getUrl_sitio_web_compra() == ""){
             throw new IllegalOperationException("La prenda no tiene un URL asociado");
         }
-        if (prendaEntity.getFoto()== null){
+        if (prendaEntity.getFoto()== null  || prendaEntity.getFoto().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una foto asociada");
         }    
-        if (prendaEntity.getCommentario()== null){
+        if (prendaEntity.getCommentario()== null  || prendaEntity.getCommentario().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene un comentario asociado");
         }
 
