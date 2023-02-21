@@ -62,7 +62,7 @@ public class UsuarioService {
         if (usuarioEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
         }
-        log.info("Termina proceso de consultar la ubicación con id = {0}", usuarioId);
+        log.info("Termina proceso de consultar la usuario con id = {0}", usuarioId);
         return usuarioEntity.get();
     }
 
@@ -97,9 +97,12 @@ public class UsuarioService {
     public void deleteUsuario(Long usuarioId) throws EntityNotFoundException, IllegalOperationException {
         log.info("Inicia proceso de borrar el usuario con id = {0}", usuarioId);
         Optional<UsuarioEntity> usuarioEntity = usuarioRepository.findById(usuarioId);
-        if (usuarioEntity.isEmpty())
+        if (usuarioEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
-
+        }
+        if (usuarioEntity.get().getComentarios().size() != 0) {
+            throw new IllegalOperationException("El usuario tiene comentarios asociados");
+        }
         usuarioRepository.deleteById(usuarioId);
         log.info("Terminas proceso de borrar el usuario con id = {0}", usuarioId);
     }
