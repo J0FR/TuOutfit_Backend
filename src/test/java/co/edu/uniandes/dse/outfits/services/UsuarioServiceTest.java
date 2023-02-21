@@ -216,7 +216,7 @@ class UsuarioServiceTest {
     }
 
     @Test
-    void testUpdateUsuarioInvalid() {
+    void testUpdateUsuarioInvalId() {
         assertThrows(EntityNotFoundException.class, () -> {
             UsuarioEntity pojoEntity = factory.manufacturePojo(UsuarioEntity.class);
             pojoEntity.setId(0L);
