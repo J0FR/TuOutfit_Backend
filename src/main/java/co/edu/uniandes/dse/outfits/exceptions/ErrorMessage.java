@@ -7,6 +7,7 @@ public final class ErrorMessage {
   public static final String USUARIO_NOT_FOUND = "El usuario no existe";
   public static final String PRENDA_NOT_FOUND = "La prenda no existe";
   public static final String MARCA_NOT_FOUND = "La marca no existe";
+  public static final String COMENTARIO_NOT_FOUND = "El comentario no existe";
 
   private ErrorMessage() {
     throw new IllegalStateException("Utility class");
