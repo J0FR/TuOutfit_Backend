@@ -56,7 +56,7 @@ public class ComentarioPrendaService {
             throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
         }
 
-        prendaEntity.get().getComentarios().add(comentarioEntity.get());
+        comentarioEntity.get().setPrenda(prendaEntity.get());
         log.info("Finaliza asociación de prenda a comentario");
         return prendaEntity.get();
     }
@@ -106,7 +106,7 @@ public class ComentarioPrendaService {
         }
 
         // desasocia el prenda del comentario
-        comentarioEntity.get().setAutor(null);
+        comentarioEntity.get().setPrenda(null);
         log.info("Finaliza borrado de prenda del comentario");
         return;
     }

@@ -56,7 +56,7 @@ public class ComentarioUsuarioService {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
         }
 
-        usuarioEntity.get().getComentarios().add(comentarioEntity.get());
+        comentarioEntity.get().setAutor(usuarioEntity.get());
         log.info("Finaliza asociación de usuario a comentario");
         return usuarioEntity.get();
     }

@@ -56,7 +56,7 @@ public class ComentarioOutfitService {
             throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
         }
 
-        outfitEntity.get().getComentarios().add(comentarioEntity.get());
+        comentarioEntity.get().setOutfit(outfitEntity.get());
         log.info("Finaliza asociación del outfit a comentario");
         return outfitEntity.get();
     }
@@ -106,7 +106,7 @@ public class ComentarioOutfitService {
         }
 
         // desasocia el outfit del comentario
-        comentarioEntity.get().setAutor(null);
+        comentarioEntity.get().setOutfit(null);
         log.info("Finaliza borrado del outfit del comentario");
         return;
     }
