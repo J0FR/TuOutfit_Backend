@@ -152,31 +152,31 @@ public class OutfitComentarioServiceTest {
 	 * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
 	 */
 	@Test
-	public void testRemoveOutfit() throws EntityNotFoundException {
+	public void testRemoveComentario() throws EntityNotFoundException {
 		outfitComentarioService.removeComentario(outfitsList.get(0).getId(), comentariosList.get(0).getId());
 		OutfitEntity outfit = entityManager.find(OutfitEntity.class, outfitsList.get(0).getId());
 		assertEquals(comentariosList.get(0).getId(), outfit.getComentarios().get(0).getId());
 	}
 	
 	/**
-	 * Prueba para desasociar un outfit que no existe de un comentario existente.
+	 * Prueba para desasociar un comentario inexistente de un outfit existente
 	 * 
 	 * @throws EntityNotFoundException
 	 *
 	 * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
 	 */
 	@Test
-	public void testRemoveInvalidOutfit(){
+	public void testRemoveInvalidComentario(){
 		assertThrows(NoSuchElementException.class, ()->{
 			outfitComentarioService.removeComentario(outfitsList.get(0).getId(), 0L);
 		});
 	}
 
 	/**
-	 * Prueba para desasociar un Prize existente de un comentario existente.
+	 * Prueba para desasociar un comentario existente de un outfit inexistente
 	 */
 	@Test
-	void testRemoveComment() {
+	void testRemoveComentarioInvalidOutfit() {
 		assertThrows(EntityNotFoundException.class, () -> {
 			outfitComentarioService.removeComentario(0L, comentariosList.get(0).getId());
 		});
