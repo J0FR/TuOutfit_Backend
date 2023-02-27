@@ -25,8 +25,8 @@ public class OutfitComentarioService {
     /**
 	 * Agregar un comentario a un outfit
 	 *
-	 * @param ourfitId  El id premio a guardar
-	 * @param comentarioId El id del autor al cual se le va a guardar el premio.
+	 * @param ourfitId  El id outfit a guardar
+	 * @param comentarioId El id del comentario al cual se le va a guardar el premio.
 	 * @return El comentario agregado al outfit.
 	 * @throws EntityNotFoundException
 	 */
@@ -50,7 +50,7 @@ public class OutfitComentarioService {
 	 *
 	 * Obtener los comentarios pertenecientes al id del outfit dado.
 	 *
-	 * @param outfitId id del premio a ser buscado.
+	 * @param outfitId id del outfit a ser buscado.
 	 * @return los comentarios asociados.
 	 * @throws EntityNotFoundException
 	 */
@@ -63,8 +63,8 @@ public class OutfitComentarioService {
 
         List<ComentarioEntity> comentarioEntity = outfitEntity.get().getComentarios();
 
-		if (comentarioEntity == null)
-			throw new EntityNotFoundException("The comment was not found");
+		if (comentarioEntity.size() == 0)
+			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
 
 		log.info("Termina proceso de consultar los comentarios del outfit con id = {0}", outfitId);
 		return comentarioEntity;
@@ -75,7 +75,7 @@ public class OutfitComentarioService {
 	 *
 	 * @param outfitId El id del outfit.
 	 * @param comentarioId El comentario que se desea borrar del outfit.
-	 * @throws EntityNotFoundException si el premio no tiene autor
+	 * @throws EntityNotFoundException si el outfit no tiene autor
 	 */
 	@Transactional
 	public void removeComentario(Long outfitId, Long comentarioId) throws EntityNotFoundException {
@@ -85,13 +85,16 @@ public class OutfitComentarioService {
 			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
 
         List<ComentarioEntity> comentariosEntity = outfitEntity.get().getComentarios();
-        ComentarioEntity comentarioToFind = comentarioRepository.findById(comentarioId).get();
+        Optional<ComentarioEntity> comentarioToFind = comentarioRepository.findById(comentarioId);
 
-        if (comentarioToFind != null && comentariosEntity.contains(comentarioToFind)){
-            int index = comentariosEntity.indexOf(comentarioToFind);
+		if (comentarioToFind.isEmpty())
+			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+
+        if (comentariosEntity.contains(comentarioToFind.get())){
+            int index = comentariosEntity.indexOf(comentarioToFind.get());
             comentariosEntity.remove(index);
         } else {
-            throw new EntityNotFoundException("Comment not found.");
+            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
         }
 
 		log.info("Termina proceso de borrar el autor del premio con id = " + comentarioId);
