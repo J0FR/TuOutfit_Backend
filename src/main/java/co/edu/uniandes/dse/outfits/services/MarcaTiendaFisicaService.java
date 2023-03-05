@@ -55,6 +55,12 @@ public class MarcaTiendaFisicaService {
         Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
+
+        List<TiendaFisicaEntity> tiendaFisicaEntities = marcaEntity.get().getTiendas_fisicas();
+
+        if (tiendaFisicaEntities.size() == 0)
+            throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
+
         log.info("Finaliza proceso de consultar todas las tiendas fisicas de la marca con id = {0}", marcaId);
         return marcaEntity.get().getTiendas_fisicas();
     }
@@ -79,18 +85,22 @@ public class MarcaTiendaFisicaService {
     }
 
     @Transactional
-    public void removeOutfit(Long marcaId, Long tiendaFisicaId) throws EntityNotFoundException {
+    public void removeTiendaFisica(Long marcaId, Long tiendaFisicaId) throws EntityNotFoundException {
         log.info("Inicia proceso de borrar un comentario del usuario con id = {0}", marcaId);
-        Optional<TiendaFisicaEntity> tiendaFisicaEntity = tiendaFisicaRepository.findById(tiendaFisicaId);
         Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
-
-        if (tiendaFisicaEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
-
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        marcaEntity.get().getTiendas_fisicas().remove(tiendaFisicaEntity.get());
+        List<TiendaFisicaEntity> tiendaFisicaEntity = marcaEntity.get().getTiendas_fisicas();
+        Optional<TiendaFisicaEntity> tiendaFisicaToFind = tiendaFisicaRepository.findById(tiendaFisicaId);
+        if (tiendaFisicaToFind.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
+        if (tiendaFisicaEntity.contains(tiendaFisicaToFind.get())) {
+            int index = tiendaFisicaEntity.indexOf(tiendaFisicaToFind.get());
+            tiendaFisicaEntity.remove(index);
+        } else {
+            throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
+        }
 
         log.info("Termina proceso de borrar una tienda fisica de la marca con id = {0}", marcaId);
     }

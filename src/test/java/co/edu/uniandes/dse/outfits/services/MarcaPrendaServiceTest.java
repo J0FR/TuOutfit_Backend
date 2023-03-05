@@ -28,7 +28,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @Transactional
 @Import(MarcaPrendaService.class)
 public class MarcaPrendaServiceTest {
-    private PodamFactory factory = new PodamFactoryImpl();
+	private PodamFactory factory = new PodamFactoryImpl();
 
 	@Autowired
 	private MarcaPrendaService marcaPrendaService;
@@ -36,16 +36,16 @@ public class MarcaPrendaServiceTest {
 	@Autowired
 	private TestEntityManager entityManager;
 
-    private List<MarcaEntity> marcaList = new ArrayList<>();
-    private List<PrendaEntity> prendasList = new ArrayList<>();
+	private List<MarcaEntity> marcaList = new ArrayList<>();
+	private List<PrendaEntity> prendasList = new ArrayList<>();
 
-    @BeforeEach
+	@BeforeEach
 	void setUp() {
 		clearData();
 		insertData();
 	}
 
-    private void clearData() {
+	private void clearData() {
 		entityManager.getEntityManager().createQuery("delete from PrendaEntity").executeUpdate();
 		entityManager.getEntityManager().createQuery("delete from OutfitEntity").executeUpdate();
 	}
@@ -92,8 +92,8 @@ public class MarcaPrendaServiceTest {
 	@Test
 	void testAddInvalidPrenda() {
 		assertThrows(EntityNotFoundException.class, () -> {
-			MarcaEntity outfitEntity = marcaList.get(1);
-			marcaPrendaService.addPrenda(0L, outfitEntity.getId());
+			MarcaEntity marcaEntity = marcaList.get(1);
+			marcaPrendaService.addPrenda(0L, marcaEntity.getId());
 		});
 	}
 
@@ -129,7 +129,7 @@ public class MarcaPrendaServiceTest {
 	 * @throws EntityNotFoundException
 	 */
 	@Test
-	void testGetComentarioInvalidMarca() throws EntityNotFoundException {
+	void testGetPrendaInvalidMarca() throws EntityNotFoundException {
 		assertThrows(EntityNotFoundException.class, () -> {
 			marcaPrendaService.getPrendas(0L);
 		});
@@ -155,7 +155,7 @@ public class MarcaPrendaServiceTest {
 		MarcaEntity marca = entityManager.find(MarcaEntity.class, marcaList.get(0).getId());
 		assertEquals(prendasList.get(0).getId(), marca.getPrendas().get(0).getId());
 	}
-	
+
 	/**
 	 * Prueba para desasociar un prenda inexistente de una marca existente
 	 * 
@@ -164,8 +164,8 @@ public class MarcaPrendaServiceTest {
 	 * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
 	 */
 	@Test
-	public void testRemoveInvalidPrenda(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	public void testRemoveInvalidPrenda() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			marcaPrendaService.removePrenda(marcaList.get(0).getId(), 0L);
 		});
 	}
@@ -190,6 +190,3 @@ public class MarcaPrendaServiceTest {
 		});
 	}
 }
-
-
-

@@ -81,21 +81,21 @@ public class MarcaPrendaService {
     @Transactional
     public void removePrenda(Long marcaId, Long prendaId) throws EntityNotFoundException {
         log.info("Inicia proceso de borrar el prenda del marca con id = {0}", marcaId);
-        Optional<MarcaEntity> outfitEntity = marcaRepository.findById(marcaId);
-        if (outfitEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        List<PrendaEntity> comentariosEntity = outfitEntity.get().getPrendas();
-        Optional<PrendaEntity> comentarioToFind = prendaRepository.findById(prendaId);
+        List<PrendaEntity> prendaEntity = marcaEntity.get().getPrendas();
+        Optional<PrendaEntity> prendaToFind = prendaRepository.findById(prendaId);
 
-        if (comentarioToFind.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+        if (prendaToFind.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
-        if (comentariosEntity.contains(comentarioToFind.get())) {
-            int index = comentariosEntity.indexOf(comentarioToFind.get());
-            comentariosEntity.remove(index);
+        if (prendaEntity.contains(prendaToFind.get())) {
+            int index = prendaEntity.indexOf(prendaToFind.get());
+            prendaEntity.remove(index);
         } else {
-            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
         }
 
         log.info("Termina proceso de borrar el prenda del marca con id = " + prendaId);
