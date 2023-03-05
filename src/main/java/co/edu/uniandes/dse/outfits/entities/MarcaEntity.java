@@ -35,5 +35,8 @@ public class MarcaEntity extends BaseEntity {
     @PodamExclude
     private List<TiendaFisicaEntity> tiendas_fisicas = new ArrayList<>();
 
+    public void addPrenda(PrendaEntity prenda) {
+        prendas.add(prenda);
+    }
 
 }
