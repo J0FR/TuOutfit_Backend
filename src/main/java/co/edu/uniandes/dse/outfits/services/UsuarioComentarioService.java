@@ -79,7 +79,7 @@ public class UsuarioComentarioService {
     }
 
     @Transactional
-    public void removeOutfit(Long usuarioId, Long comentarioId) throws EntityNotFoundException {
+    public void removeComentario(Long usuarioId, Long comentarioId) throws EntityNotFoundException {
         log.info("Inicia proceso de borrar un comentario del usuario con id = {0}", usuarioId);
         Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioId);
         Optional<UsuarioEntity> usuarioEntity = usuarioRepository.findById(usuarioId);
