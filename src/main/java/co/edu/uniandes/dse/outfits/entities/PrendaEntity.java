@@ -46,7 +46,4 @@ public class PrendaEntity extends ProductoEntity {
     @PodamExclude
     private MarcaEntity marca;
 
-
-    
-
 }
