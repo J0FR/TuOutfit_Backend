@@ -40,9 +40,9 @@ public class MarcaService {
             throw new IllegalOperationException("La marca no tiene un URL de logo valido");
         if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
             throw new IllegalOperationException("La marca no tiene detalles de la marca valido");
-        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().size() == 0)
+        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().isEmpty())
             throw new IllegalOperationException("La marca no tiene tiendas fisicas");
-        if (marca.getPrendas() == null || marca.getPrendas().size() == 0)
+        if (marca.getPrendas() == null || marca.getPrendas().isEmpty())
             throw new IllegalOperationException("La marca no tiene prendas");
         log.info("Termina proceso de creación de la marca");
         return marcaRepository.save(marca);
@@ -80,9 +80,9 @@ public class MarcaService {
             throw new IllegalOperationException("URL de logo no valido");
         if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
             throw new IllegalOperationException("detalle de la marca no valido");
-        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().size() == 0)
+        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().isEmpty())
             throw new IllegalOperationException("La marca no tiene tiendas fisicas");
-        if (marca.getPrendas() == null || marca.getPrendas().size() == 0)
+        if (marca.getPrendas() == null || marca.getPrendas().isEmpty())
             throw new IllegalOperationException("La marca no tiene prendas");
 
         marca.setId(marcaId);
@@ -96,10 +96,10 @@ public class MarcaService {
         Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
-        if (marcaEntity.get().getPrendas().size() != 0) {
+        if (!marcaEntity.get().getPrendas().isEmpty()) {
             throw new IllegalOperationException("La marca tiene prendas asociados");
         }
-        if (marcaEntity.get().getTiendas_fisicas().size() != 0) {
+        if (!marcaEntity.get().getTiendas_fisicas().isEmpty()) {
             throw new IllegalOperationException("La marca tiene Tiendas fisicas asociados");
         }
 
