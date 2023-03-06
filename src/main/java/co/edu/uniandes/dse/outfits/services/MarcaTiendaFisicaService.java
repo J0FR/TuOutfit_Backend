@@ -50,7 +50,7 @@ public class MarcaTiendaFisicaService {
     }
 
     @Transactional
-    public List<TiendaFisicaEntity> getTiendaFisicas(Long marcaId) throws EntityNotFoundException {
+    public List<TiendaFisicaEntity> getTiendasFisicas(Long marcaId) throws EntityNotFoundException {
         log.info("Inicia proceso de consultar todas las tiendas fisicas de la marca con id = {0}", marcaId);
         Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
         if (marcaEntity.isEmpty())
@@ -58,7 +58,7 @@ public class MarcaTiendaFisicaService {
 
         List<TiendaFisicaEntity> tiendaFisicaEntities = marcaEntity.get().getTiendas_fisicas();
 
-        if (tiendaFisicaEntities.size() == 0)
+        if (tiendaFisicaEntities.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
 
         log.info("Finaliza proceso de consultar todas las tiendas fisicas de la marca con id = {0}", marcaId);

@@ -22,6 +22,8 @@ import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.entities.TiendaFisicaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
+import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
+import javassist.expr.NewArray;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -119,9 +121,9 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws EntityNotFoundException
      */
     @Test
-    void testGetTiendaFisicas() throws EntityNotFoundException {
+    void testGetTiendasFisicas() throws EntityNotFoundException {
         MarcaEntity entity = marcaList.get(0);
-        List<TiendaFisicaEntity> resultEntity = marcaTiendaFisicaService.getTiendaFisicas(entity.getId());
+        List<TiendaFisicaEntity> resultEntity = marcaTiendaFisicaService.getTiendasFisicas(entity.getId());
         assertNotNull(resultEntity);
         assertEquals(entity.getTiendas_fisicas(), resultEntity);
     }
@@ -132,16 +134,71 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws EntityNotFoundException
      */
     @Test
-    void testGetTiendaFisicaInvalidMarca() throws EntityNotFoundException {
+    void testGetTiendasFisicasInvalidMarca() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
-            marcaTiendaFisicaService.getTiendaFisicas(0L);
+            marcaTiendaFisicaService.getTiendasFisicas(0L);
+        });
+    }
+
+    /**
+     * Prueba para consultar un comentario de un usuario.
+     *
+     * @throws throws EntityNotFoundException, IllegalOperationException
+     */
+    @Test
+    void testGetTiendaFisica() throws EntityNotFoundException, IllegalOperationException {
+        TiendaFisicaEntity tiendaFisicaEntity = tiendaFisicaList.get(0);
+        TiendaFisicaEntity tiendaFisica = marcaTiendaFisicaService.getTiendaFisica(marcaList.get(0).getId(),
+                tiendaFisicaEntity.getId());
+        assertNotNull(marcaList.get(0));
+
+        assertEquals(tiendaFisicaEntity.getId(), tiendaFisica.getId());
+    }
+
+    /**
+     * Prueba para consultar un comentario que no existe de un usuario.
+     *
+     * @throws throws EntityNotFoundException, IllegalOperationException
+     */
+    @Test
+    void testGetInvalidTiendaFisica() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            marcaTiendaFisicaService.getTiendaFisica(marcaList.get(0).getId(), 0L);
+        });
+    }
+
+    /**
+     * Prueba para consultar un comentario de un usuario que no existe.
+     *
+     * @throws throws EntityNotFoundException, IllegalOperationException
+     */
+    @Test
+    void testGetTiendaFisicaInvalidMarca() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            TiendaFisicaEntity tiendaFisicaEntity = tiendaFisicaList.get(0);
+            marcaTiendaFisicaService.getTiendaFisica(0L, tiendaFisicaEntity.getId());
+        });
+    }
+
+    /**
+     * Prueba para obtener un comentario no asociado a un usuario.
+     *
+     */
+    @Test
+    void testGetNotAssociatedComentario() {
+        assertThrows(IllegalOperationException.class, () -> {
+            MarcaEntity newMarca = factory.manufacturePojo(MarcaEntity.class);
+            entityManager.persist(newMarca);
+            TiendaFisicaEntity tiendaFisica = factory.manufacturePojo(TiendaFisicaEntity.class);
+            entityManager.persist(tiendaFisica);
+            marcaTiendaFisicaService.getTiendaFisica(newMarca.getId(), tiendaFisica.getId());
         });
     }
 
     @Test
     void testCeroTiendaFisicaMarca() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
-            marcaTiendaFisicaService.getTiendaFisicas(marcaList.get(1).getId());
+            marcaTiendaFisicaService.getTiendasFisicas(marcaList.get(1).getId());
         });
     }
 
