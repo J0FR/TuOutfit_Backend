@@ -121,11 +121,23 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws EntityNotFoundException
      */
     @Test
-    void testGetTiendaFisicas() throws EntityNotFoundException {
+    void testGetTiendasFisicas() throws EntityNotFoundException {
         MarcaEntity entity = marcaList.get(0);
-        List<TiendaFisicaEntity> resultEntity = marcaTiendaFisicaService.getTiendaFisicas(entity.getId());
+        List<TiendaFisicaEntity> resultEntity = marcaTiendaFisicaService.getTiendasFisicas(entity.getId());
         assertNotNull(resultEntity);
         assertEquals(entity.getTiendas_fisicas(), resultEntity);
+    }
+
+    /**
+     * Prueba para consultar una Tienda Fisica de una marca que no existe.
+     * 
+     * @throws EntityNotFoundException
+     */
+    @Test
+    void testGetTiendasFisicasInvalidMarca() throws EntityNotFoundException {
+        assertThrows(EntityNotFoundException.class, () -> {
+            marcaTiendaFisicaService.getTiendasFisicas(0L);
+        });
     }
 
     /**
@@ -149,7 +161,7 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws throws EntityNotFoundException, IllegalOperationException
      */
     @Test
-    void testGetInvalidComentario() {
+    void testGetInvalidTiendaFisica() {
         assertThrows(EntityNotFoundException.class, () -> {
             marcaTiendaFisicaService.getTiendaFisica(marcaList.get(0).getId(), 0L);
         });
@@ -161,7 +173,7 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws throws EntityNotFoundException, IllegalOperationException
      */
     @Test
-    void testGetComentarioInvalidUsuario() {
+    void testGetTiendaFisicaInvalidMarca() {
         assertThrows(EntityNotFoundException.class, () -> {
             TiendaFisicaEntity tiendaFisicaEntity = tiendaFisicaList.get(0);
             marcaTiendaFisicaService.getTiendaFisica(0L, tiendaFisicaEntity.getId());
@@ -183,22 +195,10 @@ public class MarcaTiendaFisicaServiceTest {
         });
     }
 
-    /**
-     * Prueba para consultar una Tienda Fisica de una marca que no existe.
-     * 
-     * @throws EntityNotFoundException
-     */
-    @Test
-    void testGetTiendaFisicaInvalidMarca() throws EntityNotFoundException {
-        assertThrows(EntityNotFoundException.class, () -> {
-            marcaTiendaFisicaService.getTiendaFisicas(0L);
-        });
-    }
-
     @Test
     void testCeroTiendaFisicaMarca() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
-            marcaTiendaFisicaService.getTiendaFisicas(marcaList.get(1).getId());
+            marcaTiendaFisicaService.getTiendasFisicas(marcaList.get(1).getId());
         });
     }
 
