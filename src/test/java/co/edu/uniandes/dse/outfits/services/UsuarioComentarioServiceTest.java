@@ -146,6 +146,16 @@ class UsuarioComentarioServiceTest {
     }
 
     /**
+     * Prueba para consultar la lista de comentarios de un usuario que no existe.
+     */
+    @Test
+    void testGetComentariosInvalidUsuario() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            usuarioComentarioService.getComentarios(0L);
+        });
+    }
+
+    /**
      * Prueba para consultar un comentario de un usuario.
      *
      * @throws throws EntityNotFoundException, IllegalOperationException

@@ -144,6 +144,16 @@ class UsuarioOutfitServiceTest {
     }
 
     /**
+     * Prueba para consultar la lista de comentarios de un usuario que no existe.
+     */
+    @Test
+    void testGetOutfitsInvalidUsuario() {
+        assertThrows(EntityNotFoundException.class, () -> {
+            usuarioOutfitService.getOutfits(0L);
+        });
+    }
+
+    /**
      * Prueba para consultar un outfit de un usuario.
      *
      * @throws throws EntityNotFoundException, IllegalOperationException
