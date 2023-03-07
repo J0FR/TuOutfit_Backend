@@ -29,18 +29,6 @@ public class OutfitEntity extends ProductoEntity {
     @ManyToMany
     @PodamExclude
     private List<UsuarioEntity> usuarios = new ArrayList<>();
-
-    public void addUsuario(UsuarioEntity usuario) {
-        usuarios.add(usuario);
-    }
-
-    public void addComentario(ComentarioEntity comentario) {
-        comentarios.add(comentario);
-    }
-
-    public void addPrenda(PrendaEntity prenda) {
-        prendas.add(prenda);
-    }
 }
 
 
