@@ -88,7 +88,7 @@ class PrendaServiceTest {
             outfitList.add(outfitEntity);
         }
         prendaList.get(0).setMarca(marcaList.get(0));
-        prendaList.get(0).setCommentario(comentarioList);
+        prendaList.get(0).setComentarios(comentarioList);
         prendaList.get(0).setOutfits(outfitList);
         marcaList.get(0).setPrendas(prendaList);
         comentarioList.get(0).setPrenda(prendaList.get(0));
@@ -98,13 +98,13 @@ class PrendaServiceTest {
     void testCreatePrenda() throws EntityNotFoundException, IllegalOperationException {
         PrendaEntity prendaEntity = factory.manufacturePojo(PrendaEntity.class);
         prendaEntity.setMarca(marcaList.get(0));
-        prendaEntity.setCommentario(comentarioList);
+        prendaEntity.setComentarios(comentarioList);
         PrendaEntity result = prendaService.createPrenda(prendaEntity);
         assertNotNull(result);
         PrendaEntity entity = entityManager.find(PrendaEntity.class, result.getId());
         assertEquals(prendaEntity.getId(), entity.getId());//
         assertEquals(prendaEntity.getNombre(),entity.getNombre());//
-        assertEquals(prendaEntity.getCommentario(),entity.getCommentario());//
+        assertEquals(prendaEntity.getComentarios(),entity.getComentarios());//
         assertEquals(prendaEntity.getFoto(),entity.getFoto());
         assertEquals(prendaEntity.getGenero(),entity.getGenero());//
         assertEquals(prendaEntity.getOcaciones(), entity.getOcaciones());//
@@ -123,7 +123,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -144,7 +144,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -165,7 +165,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre(null);
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -186,7 +186,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -207,7 +207,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(null);
@@ -228,7 +228,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -249,7 +249,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -270,7 +270,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -291,7 +291,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -311,7 +311,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -331,7 +331,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto(null);
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -351,7 +351,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -371,7 +371,7 @@ class PrendaServiceTest {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(null);;
+            newEntity.setComentarios(null);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -407,7 +407,7 @@ class PrendaServiceTest {
     assertNotNull(resultEntity);
     assertEquals(entity.getId(), resultEntity.getId());
     assertEquals(entity.getNombre(),resultEntity.getNombre());//
-    assertEquals(entity.getCommentario(),resultEntity.getCommentario());//
+    assertEquals(entity.getComentarios(),resultEntity.getComentarios());//
     assertEquals(entity.getFoto(),resultEntity.getFoto());
     assertEquals(entity.getGenero(),resultEntity.getGenero());//
     assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());//
@@ -437,7 +437,7 @@ class PrendaServiceTest {
         PrendaEntity resp = entityManager.find(PrendaEntity.class, entity.getId());
         assertEquals(pojoEntity.getId(), resp.getId());
         assertEquals(pojoEntity.getNombre(),resp.getNombre());//
-        assertEquals(pojoEntity.getCommentario(),resp.getCommentario());//
+        assertEquals(pojoEntity.getComentarios(),resp.getComentarios());//
         assertEquals(pojoEntity.getFoto(),resp.getFoto());
         assertEquals(pojoEntity.getGenero(),resp.getGenero());//
         assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());//
@@ -468,7 +468,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -491,7 +491,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -514,7 +514,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre(null);
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -537,7 +537,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -560,7 +560,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(null);
@@ -583,7 +583,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -606,7 +606,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -629,7 +629,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -652,7 +652,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -674,7 +674,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -696,7 +696,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto(null);
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -718,7 +718,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(comentarioList);;
+            newEntity.setComentarios(comentarioList);
             newEntity.setFoto("");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
@@ -740,7 +740,7 @@ class PrendaServiceTest {
             newEntity.setId(entity.getId());
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
-            newEntity.setCommentario(null);;
+            newEntity.setComentarios(null);
             newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);

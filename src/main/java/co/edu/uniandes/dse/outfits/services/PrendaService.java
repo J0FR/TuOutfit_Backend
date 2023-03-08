@@ -77,7 +77,7 @@ public class PrendaService {
         if (prendaEntity.getFoto().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una foto asociada empty");
         }    
-        if (prendaEntity.getCommentario()== null){
+        if (prendaEntity.getComentarios()== null){
             throw new IllegalOperationException("La prenda no tiene un comentario asociado null");
         }
 
@@ -145,7 +145,7 @@ public class PrendaService {
         if (prenda.getFoto().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una foto asociada empty");
         }    
-        if (prenda.getCommentario()== null){
+        if (prenda.getComentarios()== null){
             throw new IllegalOperationException("La prenda no tiene un comentario asociado null");
         }
         
