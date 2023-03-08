@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
+import co.edu.uniandes.dse.outfits.exceptions.ErrorMessage;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.repositories.ComentarioRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -72,7 +73,7 @@ public class ComentarioService {
         Optional <ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioID);
 
         if (comentarioEntity.isEmpty()) {
-            throw new EntityNotFoundException("TODO Añadir mensaje");
+            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
         }
 
         log.info("Finaliza consulta del comentario con id = {0}", comentarioID);
@@ -85,13 +86,13 @@ public class ComentarioService {
 
         Optional <ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioID);
         if (comentarioEntity.isEmpty()) {
-            throw new EntityNotFoundException ("Entidad no encontrada");
+            throw new EntityNotFoundException (ErrorMessage.COMENTARIO_NOT_FOUND);
         }
 
         // Revisa que ninguno de los atributos sea nulo.
         // Si no tienen valor, deben estar vacíos, no nulos.
         if (comentario.getAutor() == null) {
-            throw new IllegalOperationException("Autor faltante");
+            throw new IllegalOperationException(ErrorMessage.USUARIO_NOT_FOUND);
         }
         else if (comentario.getCalificacion() == null) {
             throw new IllegalOperationException("Calificación faltante");
@@ -126,7 +127,7 @@ public class ComentarioService {
         Optional <ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioID);
 
         if (comentarioEntity.isEmpty()) {
-            throw new EntityNotFoundException("TODO: Mensaje");
+            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
         }
 
         // borra el comentario de la prenda

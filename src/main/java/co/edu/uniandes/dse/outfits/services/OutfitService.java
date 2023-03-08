@@ -1,7 +1,6 @@
 package co.edu.uniandes.dse.outfits.services;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -9,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
-import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.ErrorMessage;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.repositories.OutfitRepository;
-import co.edu.uniandes.dse.outfits.repositories.PrendaRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

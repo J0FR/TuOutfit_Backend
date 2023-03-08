@@ -44,6 +44,7 @@ public class PrendaEntity extends ProductoEntity {
     @PodamExclude
     private MarcaEntity marca;
 
+
     public void addComentario(ComentarioEntity comentario) {
         comentarios.add(comentario);
     }
