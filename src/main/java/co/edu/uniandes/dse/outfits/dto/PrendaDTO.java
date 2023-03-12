@@ -1,14 +1,13 @@
-package co.edu.uniandes.dse.outfits.entities;
+package co.edu.uniandes.dse.outfits.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
-@MappedSuperclass
-public abstract class ProductoEntity extends BaseEntity {
-
+public class PrendaDTO {
+    private Long id;
+    private String url_sitio_web_compra;
     private String imagen;
     private String nombre;
     private Integer precio;
