@@ -119,7 +119,7 @@ public class OutfitPrendaService {
 	 * Desasocia un Prenda existente de un Outfit existente
 	 *
 	 * @param outfitId   
-	 * @param comentarioId 
+	 * @param prendaId 
 	 */
 	public void removePrenda(Long outfitId, Long prendaId) throws EntityNotFoundException {
 		log.info("Inicia proceso de borrar un Prenda del outfit con id = {0}", outfitId);
