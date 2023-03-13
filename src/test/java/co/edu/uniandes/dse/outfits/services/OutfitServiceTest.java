@@ -86,7 +86,7 @@ public class OutfitServiceTest {
                 OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                 newEntity.setNombre("Outfit - #1");
                 newEntity.setPrendas(prendasList);
-                newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
+                newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
                 newEntity.setDescripcion("Descripcion");
                 OutfitEntity result = outfitService.createOutfit(newEntity);
                 assertNotNull(result);
@@ -99,7 +99,7 @@ public class OutfitServiceTest {
                 assertEquals(newEntity.getGenero(), entity.getGenero());
                 assertEquals(newEntity.getOcaciones(), entity.getOcaciones());
                 assertEquals(newEntity.getRango_edad(), entity.getRango_edad());
-                assertEquals(newEntity.getImagen(), entity.getImagen());
+                assertEquals(newEntity.getFoto(), entity.getFoto());
                 assertEquals(newEntity.getTalla(), entity.getTalla());
         }
 
@@ -112,7 +112,7 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre("");
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
                         newEntity.setDescripcion("Descripcion");
                         outfitService.createOutfit(newEntity);
                 });
@@ -127,42 +127,42 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre(null);
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
                         newEntity.setDescripcion("Descripcion");
                         outfitService.createOutfit(newEntity);
                 });
         }
 
-        // /**
-        //  * Prueba creacion oufit sin prendas.
-        //  */
-        // @Test
-        // void testCreateBookWithNoPrendas() {
-        //         assertThrows(IllegalOperationException.class, () -> {
-        //                 OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
-        //                 List<PrendaEntity> prendasListVacio = new ArrayList<>();
-        //                 newEntity.setNombre("Outfit - #1");
-        //                 newEntity.setPrendas(prendasListVacio);
-        //                 newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
-        //                 newEntity.setDescripcion("Descripcion");
-        //                 outfitService.createOutfit(newEntity);
-        //         });
-        // }
+        /**
+         * Prueba creacion oufit sin prendas.
+         */
+        @Test
+        void testCreateBookWithNoPrendas() {
+                assertThrows(IllegalOperationException.class, () -> {
+                        OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
+                        List<PrendaEntity> prendasListVacio = new ArrayList<>();
+                        newEntity.setNombre("Outfit - #1");
+                        newEntity.setPrendas(prendasListVacio);
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setDescripcion("Descripcion");
+                        outfitService.createOutfit(newEntity);
+                });
+        }
 
-        // /**
-        //  * Prueba creacion oufit con prenda null.
-        //  */
-        // @Test
-        // void testCreateOutfitWithPrendaNull() {
-        //         assertThrows(IllegalOperationException.class, () -> {
-        //                 OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
-        //                 newEntity.setNombre("Outfit - #1");
-        //                 newEntity.setPrendas(null);
-        //                 newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
-        //                 newEntity.setDescripcion("Descripcion");
-        //                 outfitService.createOutfit(newEntity);
-        //         });
-        // }
+        /**
+         * Prueba creacion oufit con prenda null.
+         */
+        @Test
+        void testCreateOutfitWithPrendaNull() {
+                assertThrows(IllegalOperationException.class, () -> {
+                        OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
+                        newEntity.setNombre("Outfit - #1");
+                        newEntity.setPrendas(null);
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setDescripcion("Descripcion");
+                        outfitService.createOutfit(newEntity);
+                });
+        }
 
         /**
          * Prueba creacion oufit con descripcion string vacio.
@@ -173,7 +173,7 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre("Outfit - #1");
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
                         newEntity.setDescripcion("");
                         outfitService.createOutfit(newEntity);
                 });
@@ -188,7 +188,7 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre("Outfit - #1");
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
+                        newEntity.setFoto("../imagenes/imagenOutfit1.jpg");
                         newEntity.setDescripcion(null);
                         outfitService.createOutfit(newEntity);
                 });
@@ -203,7 +203,7 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre("Outfit - #1");
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen("");
+                        newEntity.setFoto("");
                         newEntity.setDescripcion("Descripcion");
                         outfitService.createOutfit(newEntity);
                 });
@@ -218,7 +218,7 @@ public class OutfitServiceTest {
                         OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
                         newEntity.setNombre("Outfit - #1");
                         newEntity.setPrendas(prendasList);
-                        newEntity.setImagen(null);
+                        newEntity.setFoto(null);
                         newEntity.setDescripcion("Descripcion");
                         outfitService.createOutfit(newEntity);
                 });
@@ -258,7 +258,7 @@ public class OutfitServiceTest {
                 assertEquals(entity.getGenero(), resultEntity.getGenero());
                 assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());
                 assertEquals(entity.getRango_edad(), resultEntity.getRango_edad());
-                assertEquals(entity.getImagen(), resultEntity.getImagen());
+                assertEquals(entity.getFoto(), resultEntity.getFoto());
                 assertEquals(entity.getTalla(), resultEntity.getTalla());
         }
 
@@ -291,7 +291,7 @@ public class OutfitServiceTest {
                 assertEquals(pojoEntity.getGenero(), resp.getGenero());
                 assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());
                 assertEquals(pojoEntity.getRango_edad(), resp.getRango_edad());
-                assertEquals(pojoEntity.getImagen(), resp.getImagen());
+                assertEquals(pojoEntity.getFoto(), resp.getFoto());
                 assertEquals(pojoEntity.getTalla(), resp.getTalla());
         }
 

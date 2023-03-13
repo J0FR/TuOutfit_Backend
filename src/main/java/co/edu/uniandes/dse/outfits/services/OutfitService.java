@@ -30,15 +30,13 @@ public class OutfitService {
                 } else if (outfitEntity.getNombre().isEmpty()) {
                         throw new IllegalOperationException(
                                         "Se esta registrando un outfit sin nombre lo cual no es valido.");
-                } 
-                // else if (outfitEntity.getPrendas() == null) {
-                //         throw new IllegalOperationException("Se esta registrando un outfit sin prendas.");
-                // } else if (outfitEntity.getPrendas().size() == 0) {
-                //         throw new IllegalOperationException("Se esta registrando un outfit sin prendas.");
-                // }
-                else if (outfitEntity.getImagen() == null) {
+                } else if (outfitEntity.getPrendas() == null) {
+                        throw new IllegalOperationException("Se esta registrando un outfit sin prendas.");
+                } else if (outfitEntity.getPrendas().size() == 0) {
+                        throw new IllegalOperationException("Se esta registrando un outfit sin prendas.");
+                } else if (outfitEntity.getFoto() == null) {
                         throw new IllegalOperationException("Se esta registrando un outfit sin foto.");
-                } else if (outfitEntity.getImagen().isEmpty()) {
+                } else if (outfitEntity.getFoto().isEmpty()) {
                         throw new IllegalOperationException("Se esta registrando un outfit sin foto.");
                 } else if (outfitEntity.getDescripcion() == null) {
                         throw new IllegalOperationException("Se esta registrando un outfit sin descripcion.");

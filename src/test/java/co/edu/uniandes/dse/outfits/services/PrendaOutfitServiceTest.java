@@ -88,6 +88,7 @@ public class PrendaOutfitServiceTest {
 		
 		OutfitEntity lastOutfit = prendaOutfitService.getOutfit(newPrenda.getId(),outfit.getId());
 		assertEquals(outfit.getId(), lastOutfit.getId());
+		assertEquals(outfit.getFoto(), lastOutfit.getFoto());
 		assertEquals(outfit.getNombre(), lastOutfit.getNombre());
 		assertEquals(outfit.getImagen(), lastOutfit.getImagen());
 		assertEquals(outfit.getGenero(), lastOutfit.getGenero());
@@ -155,6 +156,7 @@ public class PrendaOutfitServiceTest {
 		assertNotNull(outfit);
 
 		assertEquals(outfitEntity.getId(), outfit.getId());
+		assertEquals(outfitEntity.getFoto(), outfit.getFoto());
 		assertEquals(outfitEntity.getNombre(), outfit.getNombre());
 		assertEquals(outfitEntity.getImagen(), outfit.getImagen());
 		assertEquals(outfitEntity.getGenero(), outfit.getGenero());
