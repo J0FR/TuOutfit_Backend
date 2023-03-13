@@ -71,10 +71,10 @@ public class PrendaService {
         if (prendaEntity.getUrl_sitio_web_compra().equals("")){
             throw new IllegalOperationException("La prenda no tiene un URL asociado empty");
         }
-        if (prendaEntity.getFoto()== null){
+        if (prendaEntity.getImagen()== null){
             throw new IllegalOperationException("La prenda no tiene una foto asociada null");
         }   
-        if (prendaEntity.getFoto().isEmpty()){
+        if (prendaEntity.getImagen().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una foto asociada empty");
         }    
         if (prendaEntity.getComentarios()== null){
@@ -139,10 +139,10 @@ public class PrendaService {
         if (prenda.getUrl_sitio_web_compra().equals("")){
             throw new IllegalOperationException("La prenda no tiene un URL asociado empty");
         }
-        if (prenda.getFoto()== null){
+        if (prenda.getImagen()== null){
             throw new IllegalOperationException("La prenda no tiene una foto asociada null");
         }   
-        if (prenda.getFoto().isEmpty()){
+        if (prenda.getImagen().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una foto asociada empty");
         }    
         if (prenda.getComentarios()== null){
