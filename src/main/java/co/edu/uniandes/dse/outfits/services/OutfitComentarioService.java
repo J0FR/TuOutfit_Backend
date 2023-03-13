@@ -32,9 +32,9 @@ public class OutfitComentarioService {
 	 * @throws EntityNotFoundException 
 	 */
 	@Transactional
-	public ComentarioEntity addComentario(Long outfitId, Long authorId) throws EntityNotFoundException {
+	public ComentarioEntity addComentario(Long outfitId, Long comentarioId) throws EntityNotFoundException {
 		log.info("Inicia proceso de asociarle un autor al libro con id = {0}", outfitId);
-		Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(authorId);
+		Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioId);
 		if (comentarioEntity.isEmpty())
 			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
 
