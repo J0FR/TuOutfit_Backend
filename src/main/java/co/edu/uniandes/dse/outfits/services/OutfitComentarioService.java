@@ -31,20 +31,21 @@ public class OutfitComentarioService {
 	 * @return El Comentario creado.
 	 * @throws EntityNotFoundException 
 	 */
+	
 	@Transactional
-	public ComentarioEntity addComentario(Long outfitId, Long authorId) throws EntityNotFoundException {
-		log.info("Inicia proceso de asociarle un autor al libro con id = {0}", outfitId);
-		Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(authorId);
-		if (comentarioEntity.isEmpty())
+	public ComentarioEntity addComentario(Long comentarioId, Long outfitId) throws EntityNotFoundException {
+		log.info("Inicia proceso de agregarle un Comentario a la Outfit con id = {0}", outfitId);
+		
+		Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioId);
+		if(comentarioEntity.isEmpty())
 			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
-
+		
 		Optional<OutfitEntity> outfitEntity = outfitRepository.findById(outfitId);
-		if (outfitEntity.isEmpty())
+		if(outfitEntity.isEmpty())
 			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-
-		outfitEntity.get().getComentarios().add(comentarioEntity.get());
+		
 		comentarioEntity.get().setOutfit(outfitEntity.get());
-		log.info("Termina proceso de asociarle un autor al libro con id = {0}", outfitId);
+		log.info("Termina proceso de agregarle un Comentario a la Outfit con id = {0}", outfitId);
 		return comentarioEntity.get();
 	}
 
@@ -89,13 +90,13 @@ public class OutfitComentarioService {
 		log.info("Termina proceso de consultar el Comentario con id = {0} de la Outfit con id = " + outfitId, comentarioId);
 		
 		if(!outfitEntity.get().getComentarios().contains(comentarioEntity.get()))
-			throw new IllegalOperationException("The comentario is not associated to the Outfit");
+			throw new IllegalOperationException("The book is not associated to the Outfit");
 		
 		return comentarioEntity.get();
 	}
 
 	/**
-	 * Remplazar comentarios de una Outfit
+	 * Remplazar books de una Outfit
 	 *
 	 * @param comentarios        Lista de Comentarios que serán los de la Outfit.
 	 * @param outfitId El id de la Outfit que se quiere actualizar.
@@ -117,29 +118,6 @@ public class OutfitComentarioService {
 			b.get().setOutfit(outfitEntity.get());
 		}		
 		return comentarios;
-	}
-
-	@Transactional
-	/**
-	 * Desasocia un Comentario existente de un Outfit existente
-	 *
-	 * @param outfitId   
-	 * @param comentarioId 
-	 */
-	public void removeComentario(Long outfitId, Long comentarioId) throws EntityNotFoundException {
-		log.info("Inicia proceso de borrar un comentario del outfit con id = {0}", outfitId);
-		Optional<ComentarioEntity> comentarioEntity = comentarioRepository.findById(comentarioId);
-		Optional<OutfitEntity> outfitEntity = outfitRepository.findById(outfitId);
-
-		if (comentarioEntity.isEmpty())
-			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
-
-		if (outfitEntity.isEmpty())
-			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-
-		outfitEntity.get().getComentarios().remove(comentarioEntity.get());
-
-		log.info("Termina proceso de borrar un comentario del outfit con id = {0}", outfitId);
 	}
 }
 

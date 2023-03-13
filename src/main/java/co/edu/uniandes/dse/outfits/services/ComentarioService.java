@@ -31,19 +31,18 @@ public class ComentarioService {
 
         // Revisa que ninguno de los atributos sea nulo.
         // Si no tienen valor, deben estar vacíos, no nulos.
-        // if (comentarioEntity.getAutor() == null) {
-        //     throw new IllegalOperationException("Autor faltante");
-        // }
-        /*else*/
-        if (comentarioEntity.getCalificacion() == null) {
+        if (comentarioEntity.getAutor() == null) {
+            throw new IllegalOperationException("Autor faltante");
+        }
+        else if (comentarioEntity.getCalificacion() == null) {
             throw new IllegalOperationException("Calificación faltante");
         }
         else if (comentarioEntity.getMensaje() == null) {
             throw new IllegalOperationException("Mensaje faltante");
         }
-        // else if (comentarioEntity.getOutfit() == null && comentarioEntity.getPrenda() == null) {
-        //     throw new IllegalOperationException("Outfit o prenda faltante");
-        // }
+        else if (comentarioEntity.getOutfit() == null && comentarioEntity.getPrenda() == null) {
+            throw new IllegalOperationException("Outfit o prenda faltante");
+        }
         else if (comentarioEntity.getOutfit() != null && comentarioEntity.getPrenda() != null) {
             throw new IllegalOperationException("Solo se puede comentar una prenda o un outfit");
         }

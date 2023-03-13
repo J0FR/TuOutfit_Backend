@@ -97,7 +97,7 @@ class UsuarioOutfitServiceTest {
         assertEquals(outfit.getId(), lastOutfit.getId());
         assertEquals(outfit.getNombre(), outfit.getNombre());
         assertEquals(outfit.getPrendas(), outfit.getPrendas());
-        assertEquals(outfit.getImagen(), outfit.getImagen());
+        assertEquals(outfit.getFoto(), outfit.getFoto());
         assertEquals(outfit.getDescripcion(), outfit.getDescripcion());
     }
 
@@ -167,7 +167,7 @@ class UsuarioOutfitServiceTest {
         assertEquals(outfitEntity.getId(), outfit.getId());
         assertEquals(outfitEntity.getNombre(), outfit.getNombre());
         assertEquals(outfitEntity.getPrendas(), outfit.getPrendas());
-        assertEquals(outfitEntity.getImagen(), outfit.getImagen());
+        assertEquals(outfitEntity.getFoto(), outfit.getFoto());
         assertEquals(outfitEntity.getDescripcion(), outfit.getDescripcion());
     }
 

@@ -105,7 +105,7 @@ class PrendaServiceTest {
         assertEquals(prendaEntity.getId(), entity.getId());//
         assertEquals(prendaEntity.getNombre(),entity.getNombre());//
         assertEquals(prendaEntity.getComentarios(),entity.getComentarios());//
-        assertEquals(prendaEntity.getImagen(),entity.getImagen());
+        assertEquals(prendaEntity.getFoto(),entity.getFoto());
         assertEquals(prendaEntity.getGenero(),entity.getGenero());//
         assertEquals(prendaEntity.getOcaciones(), entity.getOcaciones());//
         assertEquals(prendaEntity.getMarca().getId(), entity.getMarca().getId());//
@@ -124,7 +124,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(null);
@@ -145,7 +145,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -166,7 +166,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre(null);
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -187,7 +187,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -208,7 +208,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(null);
             newEntity.setMarca(marcaList.get(0));
@@ -229,7 +229,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -250,7 +250,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -271,7 +271,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -292,7 +292,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -312,7 +312,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -332,7 +332,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen(null);
+            newEntity.setFoto(null);
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -352,7 +352,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("");
+            newEntity.setFoto("");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -372,7 +372,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(null);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -408,7 +408,7 @@ class PrendaServiceTest {
     assertEquals(entity.getId(), resultEntity.getId());
     assertEquals(entity.getNombre(),resultEntity.getNombre());//
     assertEquals(entity.getComentarios(),resultEntity.getComentarios());//
-    assertEquals(entity.getImagen(),resultEntity.getImagen());
+    assertEquals(entity.getFoto(),resultEntity.getFoto());
     assertEquals(entity.getGenero(),resultEntity.getGenero());//
     assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());//
     assertEquals(entity.getMarca().getId(), resultEntity.getMarca().getId());//
@@ -438,7 +438,7 @@ class PrendaServiceTest {
         assertEquals(pojoEntity.getId(), resp.getId());
         assertEquals(pojoEntity.getNombre(),resp.getNombre());//
         assertEquals(pojoEntity.getComentarios(),resp.getComentarios());//
-        assertEquals(pojoEntity.getImagen(),resp.getImagen());
+        assertEquals(pojoEntity.getFoto(),resp.getFoto());
         assertEquals(pojoEntity.getGenero(),resp.getGenero());//
         assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());//
         assertEquals(pojoEntity.getMarca(), resp.getMarca());//
@@ -469,7 +469,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(null);
@@ -492,7 +492,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -515,7 +515,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre(null);
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -538,7 +538,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -561,7 +561,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(null);
             newEntity.setMarca(marcaList.get(0));
@@ -584,7 +584,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -607,7 +607,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -630,7 +630,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -653,7 +653,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -675,7 +675,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -697,7 +697,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen(null);
+            newEntity.setFoto(null);
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -719,7 +719,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("");
+            newEntity.setFoto("");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
@@ -741,7 +741,7 @@ class PrendaServiceTest {
             newEntity.setId(1L);
             newEntity.setNombre("Nombre Prueba");
             newEntity.setComentarios(null);
-            newEntity.setImagen("foto");
+            newEntity.setFoto("foto");
             newEntity.setGenero(Genero.HOMBRE);
             newEntity.setOcaciones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
