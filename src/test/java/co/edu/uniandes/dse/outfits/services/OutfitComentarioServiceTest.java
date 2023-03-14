@@ -86,7 +86,7 @@ public class OutfitComentarioServiceTest {
 	void testAddComentario() throws EntityNotFoundException {
 		OutfitEntity entity = outfitList.get(0);
 		ComentarioEntity comentarioEntity = comentariosList.get(1);
-		ComentarioEntity response = outfitComentarioService.addComentario(comentarioEntity.getId(), entity.getId());
+		ComentarioEntity response = outfitComentarioService.addComentario(entity.getId(), comentarioEntity.getId());
 
 		assertNotNull(response);
 		assertEquals(comentarioEntity.getId(), response.getId());
