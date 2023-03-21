@@ -29,9 +29,12 @@ public class MarcaService {
     @Autowired
     PrendaRepository prendaRepository;
 
-    @Transactional
-    public MarcaEntity createMarca(MarcaEntity marca) throws IllegalOperationException {
-        log.info("Inicia proceso de creación de la marca");
+    /**
+     * Agrupa las validaciones de que no sean nulos o vacíos para los atributos de marca
+     * 
+     * @param marca     Entidad que se quiere revisar
+     */
+    private void validarNulos(MarcaEntity marca) throws IllegalOperationException {
         if (marca.getNombre() == null || marca.getNombre().equals(""))
             throw new IllegalOperationException("La marca no tiene un nombre valido");
         if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web().equals(""))
@@ -44,6 +47,14 @@ public class MarcaService {
             throw new IllegalOperationException("La marca no tiene tiendas fisicas");
         if (marca.getPrendas() == null || marca.getPrendas().isEmpty())
             throw new IllegalOperationException("La marca no tiene prendas");
+    }
+
+    @Transactional
+    public MarcaEntity createMarca(MarcaEntity marca) throws IllegalOperationException {
+        log.info("Inicia proceso de creación de la marca");
+
+        validarNulos(marca);
+        
         log.info("Termina proceso de creación de la marca");
         return marcaRepository.save(marca);
     }
@@ -72,18 +83,8 @@ public class MarcaService {
         Optional<MarcaEntity> outfitEntity = marcaRepository.findById(marcaId);
         if (outfitEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-        if (marca.getNombre() == null || marca.getNombre().equals(""))
-            throw new IllegalOperationException("nombre no valido");
-        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web().equals(""))
-            throw new IllegalOperationException("URL_Sitio_Web no valido");
-        if (marca.getLogo() == null || marca.getLogo().equals(""))
-            throw new IllegalOperationException("URL de logo no valido");
-        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
-            throw new IllegalOperationException("detalle de la marca no valido");
-        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().isEmpty())
-            throw new IllegalOperationException("La marca no tiene tiendas fisicas");
-        if (marca.getPrendas() == null || marca.getPrendas().isEmpty())
-            throw new IllegalOperationException("La marca no tiene prendas");
+
+        validarNulos(marca);
 
         marca.setId(marcaId);
         log.info("Termina proceso de actualizar la marca con id = {0}", marcaId);

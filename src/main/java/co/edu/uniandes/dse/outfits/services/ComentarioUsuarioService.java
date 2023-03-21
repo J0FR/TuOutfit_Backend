@@ -108,6 +108,5 @@ public class ComentarioUsuarioService {
         // desasocia el usuario del comentario
         comentarioEntity.get().setAutor(null);
         log.info("Finaliza borrado de usuario autor del comentario");
-        return;
     }
 }

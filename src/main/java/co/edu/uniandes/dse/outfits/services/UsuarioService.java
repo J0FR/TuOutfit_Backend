@@ -100,7 +100,7 @@ public class UsuarioService {
         if (usuarioEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
         }
-        if (usuarioEntity.get().getComentarios().size() != 0) {
+        if (!usuarioEntity.get().getComentarios().isEmpty()) {
             throw new IllegalOperationException("El usuario tiene comentarios asociados");
         }
         usuarioRepository.deleteById(usuarioId);
