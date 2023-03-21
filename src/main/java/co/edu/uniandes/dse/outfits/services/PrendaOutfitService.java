@@ -100,8 +100,10 @@ public class PrendaOutfitService {
 	public List<OutfitEntity> replaceOutfits(Long prendaId, List<OutfitEntity> listOutfits) throws EntityNotFoundException {
 		log.info("Inicia proceso de reemplazar los outfits de la prenda con id = {0}", prendaId);
 		Optional<PrendaEntity> prendaEntity = prendaRepository.findById(prendaId);
-		if (prendaEntity.isEmpty())
+		if (prendaEntity.isEmpty()) {
 			throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
+		}
+			
 
 		for (OutfitEntity author : listOutfits) {
 			Optional<OutfitEntity> outfitEntity = outfitRepository.findById(author.getId());
@@ -128,12 +130,14 @@ public class PrendaOutfitService {
 		Optional<PrendaEntity> prendaEntity = prendaRepository.findById(prendaId);
 		Optional<OutfitEntity> outfitEntity = outfitRepository.findById(outfitId);
 
-		if (prendaEntity.isEmpty())
+		if (prendaEntity.isEmpty()) {
 			throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
-
-		if (outfitEntity.isEmpty())
+		}
+			
+		if (outfitEntity.isEmpty()) {
 			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-
+		}
+			
         prendaEntity.get().getOutfits().remove(outfitEntity.get());
 		
 		log.info("Termina proceso de borrar un Prenda del outfit con id = {0}", outfitId);

@@ -108,6 +108,5 @@ public class ComentarioPrendaService {
         // desasocia el prenda del comentario
         comentarioEntity.get().setPrenda(null);
         log.info("Finaliza borrado de prenda del comentario");
-        return;
     }
 }

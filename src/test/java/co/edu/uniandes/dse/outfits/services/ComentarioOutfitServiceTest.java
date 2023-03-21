@@ -162,7 +162,7 @@ public class ComentarioOutfitServiceTest {
     void testGetOutfitInvalidComentario() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
             // obtiene el outfit del comentario
-            OutfitEntity ultimoOutfitEntity =     comentarioOutfitService.getOutfit(0L);
+            OutfitEntity ultimoOutfitEntity = comentarioOutfitService.getOutfit(0L);
         });
     }
 

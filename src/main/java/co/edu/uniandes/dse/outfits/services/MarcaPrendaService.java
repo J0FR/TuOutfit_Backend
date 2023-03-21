@@ -64,7 +64,7 @@ public class MarcaPrendaService {
 
         List<PrendaEntity> comentarioEntity = outfitEntity.get().getPrendas();
 
-        if (comentarioEntity.size() == 0)
+        if (comentarioEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
 
         log.info("Termina proceso de consultar las prendas del marca con id = {0}", marcaId);

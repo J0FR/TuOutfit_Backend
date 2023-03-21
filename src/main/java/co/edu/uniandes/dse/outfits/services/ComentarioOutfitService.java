@@ -108,6 +108,5 @@ public class ComentarioOutfitService {
         // desasocia el outfit del comentario
         comentarioEntity.get().setOutfit(null);
         log.info("Finaliza borrado del outfit del comentario");
-        return;
     }
 }

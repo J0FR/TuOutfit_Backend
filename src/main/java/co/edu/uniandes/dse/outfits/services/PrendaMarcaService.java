@@ -1,7 +1,6 @@
 package co.edu.uniandes.dse.outfits.services;
 
 import lombok.extern.slf4j.Slf4j;
-import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +89,5 @@ public class PrendaMarcaService {
         // desasocia el prenda del comentario
         prendaEntity.get().setMarca(null);
         log.info("Finaliza borrado de marca de prenda");
-        return;
     }
 }
