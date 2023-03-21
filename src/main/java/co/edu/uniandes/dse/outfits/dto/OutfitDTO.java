@@ -7,15 +7,15 @@ import lombok.Setter;
 @Setter
 public class OutfitDTO {
     private Long id;
-    private String descripcion;
-    private String imagen;
     private String nombre;
     private Integer precio;
     private Color colores;
     private Genero genero;
-    private Ocacion ocaciones;
+    private Ocasion ocasiones;
     private RangoEdad rango_edad;
+    private String imagen;
     private String talla;
+    private String descripcion;
 
     public enum Color {
         ROJO,
@@ -44,7 +44,7 @@ public class OutfitDTO {
         ABUELOS
     }
 
-    public enum Ocacion {
+    public enum Ocasion {
         BODA,
         FIESTA,
         CENA,

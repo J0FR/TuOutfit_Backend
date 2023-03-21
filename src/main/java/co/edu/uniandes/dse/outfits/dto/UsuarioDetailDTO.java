@@ -7,11 +7,10 @@ import lombok.Setter;
 
 /*
  * DTO de Detalles de Outfit
- * @author 
+ * @author Álvaro Bacca (c4ts0up)
  */
 @Getter
 @Setter
-public class OutfitDetailDTO extends OutfitDTO {
-    private List <PrendaDTO> prendas = new ArrayList<>();
-	private List <ComentarioDTO> comentarios = new ArrayList<>();
+public class UsuarioDetailDTO extends UsuarioDTO {
+    private List <ComentarioDTO> comentarios = new ArrayList<>();
 }
