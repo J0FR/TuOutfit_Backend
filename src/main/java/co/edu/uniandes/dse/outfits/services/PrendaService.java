@@ -41,9 +41,7 @@ public class PrendaService {
     @Transactional
     public PrendaEntity createPrenda(PrendaEntity prendaEntity) throws IllegalOperationException {
         log.info("Inicia proceso de creación de la prenda");
-        if (prendaEntity.getMarca()== null){
-            throw new IllegalOperationException("La prenda no tiene una marca asociada empty");
-        }
+        
         if (prendaEntity.getColores()== null){
             throw new IllegalOperationException("La prenda no tiene colores asociados null");
         }
