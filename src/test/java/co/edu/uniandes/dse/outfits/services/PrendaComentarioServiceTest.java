@@ -3,6 +3,7 @@ package co.edu.uniandes.dse.outfits.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
-import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
-import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
+import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.services.PrendaComentarioService;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -60,18 +60,19 @@ public class PrendaComentarioServiceTest {
 		for (int i = 0; i < 3; i++) {
 			PrendaEntity prendaEntity = factory.manufacturePojo(PrendaEntity.class);
 			entityManager.persist(prendaEntity);
-			if (i == 0) {
-				prendaEntity.setComentarios(comentarioList);
-			}
 			prendaList.add(prendaEntity);
+			if (i == 0) {
+				prendaEntity.getComentarios().add(comentarioList.get(i));
+			}
+			
 		}
 	}
 
 	@Test
 	void testAddComentario() throws EntityNotFoundException {
 		PrendaEntity entity = prendaList.get(0);
-		ComentarioEntity comentarioEntity = comentarioList.get(0);
-		ComentarioEntity response = prendaComentarioService.addComentario(entity.getId(), comentarioEntity.getId());
+		ComentarioEntity comentarioEntity = comentarioList.get(1);
+		ComentarioEntity response = prendaComentarioService.addComentario(comentarioEntity.getId(), entity.getId());
 
 		assertNotNull(response);
 		assertEquals(comentarioEntity.getId(), response.getId());
@@ -80,46 +81,90 @@ public class PrendaComentarioServiceTest {
 	@Test
 	void testAddInvalidComentario() {
 		assertThrows(EntityNotFoundException.class, () -> {
-			PrendaEntity prendaEntity = prendaList.get(1);
+			PrendaEntity prendaEntity = prendaList.get(0);
 			prendaComentarioService.addComentario(0L, prendaEntity.getId());
 		});
 	}
 
 	@Test
-	void testAddComentarioInvalidComentario() {
+	void testAddComentarioInvalidPrenda() {
 		assertThrows(EntityNotFoundException.class, () -> {
-			ComentarioEntity entity = comentarioList.get(0);
+			ComentarioEntity entity = comentarioList.get(1);
 			prendaComentarioService.addComentario(entity.getId(), 0L);
 		});
 	}
 
 	@Test
-	void testGetComentario() throws EntityNotFoundException {
-		PrendaEntity entity = prendaList.get(0);
-		List<ComentarioEntity> resultEntity = prendaComentarioService.getComentarios(entity.getId());
-		assertNotNull(resultEntity);
-		assertEquals(entity.getComentarios(), resultEntity);
+	void testGetComentarios() throws EntityNotFoundException {
+		List<ComentarioEntity> list = prendaComentarioService.getComentarios(prendaList.get(0).getId());
+		assertEquals(1, list.size());
+		
 	}
 
 	@Test
-	void testGetComentarioInvalidOutfit() throws EntityNotFoundException {
+	void testGetComentariosInvalidPrenda() {
 		assertThrows(EntityNotFoundException.class, () -> {
 			prendaComentarioService.getComentarios(0L);
 		});
 	}
 
+
+	/**
+	 * Prueba para obtener una instancia de Comentario asociada a una instancia Prenda.
+	 * 
+	 * @throws IllegalOperationException
+	 * @throws EntityNotFoundException
+	 *
+	 * @throws co.edu.uniandes.csw.Comentario.exceptions.BusinessLogicException
+	 */
 	@Test
-	void testCeroComentarioOutfit() throws EntityNotFoundException {
+	void testGetComentario() throws EntityNotFoundException , IllegalOperationException{
+		PrendaEntity entity = prendaList.get(0);
+		ComentarioEntity comentarioEntity = comentarioList.get(0);
+		ComentarioEntity response = prendaComentarioService.getComentario(entity.getId(), comentarioEntity.getId());
+
+		assertEquals(comentarioEntity.getId(), response.getId());
+		assertEquals(comentarioEntity.getCalificacion(), response.getCalificacion());
+		assertEquals(comentarioEntity.getMensaje(), response.getMensaje());
+		assertEquals(comentarioEntity.getTitulo(), response.getTitulo());
+		assertEquals(comentarioEntity.getAutor(), response.getAutor());
+	}
+	
+
+	@Test
+	void testGetComentarioInvalidPrenda() throws EntityNotFoundException {
 		assertThrows(EntityNotFoundException.class, () -> {
-			prendaComentarioService.getComentarios(prendaList.get(2).getId());
+			ComentarioEntity comentarioEntity = comentarioList.get(0);
+			prendaComentarioService.getComentario(0L, comentarioEntity.getId());
 		});
 	}
 
+	@Test 
+	void testGetComentarioInvalidComentario() throws EntityNotFoundException {
+		assertThrows(EntityNotFoundException.class, () -> {
+			PrendaEntity prendaEntity = prendaList.get(0);
+			prendaComentarioService.getComentario(prendaEntity.getId(), 0L);
+		});
+	}
+
+
+	@Test
+	public void getComentarioNoAsociadoTest(){
+		assertThrows(IllegalOperationException.class, ()->{
+			PrendaEntity entity = prendaList.get(0);
+			ComentarioEntity comentarioEntity = comentarioList.get(1);
+			prendaComentarioService.getComentario(entity.getId(), comentarioEntity.getId());
+		});
+	}
+
+
 	@Test
 	public void testRemoveComentario() throws EntityNotFoundException {
-		prendaComentarioService.removeComentario(prendaList.get(0).getId(), comentarioList.get(0).getId());
-		PrendaEntity prenda = entityManager.find(PrendaEntity.class, prendaList.get(0).getId());
-		assertEquals(comentarioList.get(0).getId(), prenda.getComentarios().get(0).getId());
+		PrendaEntity entity =prendaList.get(0);
+		prendaComentarioService.removeComentario(entity.getId(), comentarioList.get(0).getId());
+		ComentarioEntity comentario = entityManager.find(ComentarioEntity.class, comentarioList.get(0).getId());
+		assertNull(comentario.getPrenda());
+
 	}
 	
 	@Test
@@ -130,16 +175,10 @@ public class PrendaComentarioServiceTest {
 	}
 
 	@Test
-	void testRemoveComentarioInvalidOutfit() {
+	void testRemoveComentarioInvalidPrenda() {
 		assertThrows(EntityNotFoundException.class, () -> {
 			prendaComentarioService.removeComentario(0L,comentarioList.get(0).getId());
 		});
 	}
 
-	@Test
-	void testRemoveComentarioInvalidCommentListOutfit() {
-		assertThrows(EntityNotFoundException.class, () -> {
-			prendaComentarioService.removeComentario(prendaList.get(1).getId(), comentarioList.get(0).getId());
-		});
-	}
 }

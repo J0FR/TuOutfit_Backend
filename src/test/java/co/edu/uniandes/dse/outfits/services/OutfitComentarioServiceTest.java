@@ -2,6 +2,7 @@ package co.edu.uniandes.dse.outfits.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -252,6 +253,46 @@ public class OutfitComentarioServiceTest {
 		assertThrows(EntityNotFoundException.class, ()->{
 			List<ComentarioEntity> list = comentariosList.subList(1, 3);
 			outfitComentarioService.replaceComentarios(0L, list);
+		});
+	}
+
+	/**
+	 * Prueba para desasociar un comentario existente de un outfit existente.
+	 * 
+	 * @throws EntityNotFoundException
+	 *
+	 * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+	 */
+	@Test
+	public void testRemoveComentario() throws EntityNotFoundException {
+		OutfitEntity entity = outfitList.get(0);
+		outfitComentarioService.removeComentario(entity.getId(), comentariosList.get(0).getId());
+		ComentarioEntity comentario = entityManager.find(ComentarioEntity.class, comentariosList.get(0).getId());
+		assertNull(comentario.getOutfit());
+	}
+	
+	/**
+	 * Prueba para desasociar un comentario que no existe de un outfit existente.
+	 * 
+	 * @throws EntityNotFoundException
+	 *
+	 * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+	 */
+	@Test
+	public void testRemoveInvalidComentario(){
+		assertThrows(EntityNotFoundException.class, ()->{
+			OutfitEntity entity = outfitList.get(0);
+			outfitComentarioService.removeComentario(entity.getId(), 0L);
+		});
+	}
+
+	/**
+	 * Prueba para eliminar un comentario de un outfit no existente.
+	 */
+	@Test
+	void testRemoveOutfit() {
+		assertThrows(EntityNotFoundException.class, () -> {
+			outfitComentarioService.removeComentario(0L, comentariosList.get(1).getId());
 		});
 	}
 }
