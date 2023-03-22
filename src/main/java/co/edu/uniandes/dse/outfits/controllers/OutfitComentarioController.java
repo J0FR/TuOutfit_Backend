@@ -2,8 +2,6 @@ package co.edu.uniandes.dse.outfits.controllers;
 
 import java.util.List;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.uniandes.dse.outfits.dto.ComentarioDTO;
 import co.edu.uniandes.dse.outfits.dto.ComentarioDetailDTO;
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
+import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.services.OutfitComentarioService;
 
@@ -39,12 +38,12 @@ public class OutfitComentarioController {
 	 * @param comentarioId El ID del comentario que se va a asociar
 	 * @param outfitId   El ID del outfit al cual se le va a asociar el comentario
 	 * @return JSON {@link ComentarioDetailDTO} - El comentario asociado.
-	 * @throws co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException
+	 * @throws EntityNotFoundException
 	 */
 	@PostMapping(value = "/{outfitId}/comentarios/{comentarioId}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public ComentarioDetailDTO addComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("outfitId") Long outfitId)
-			throws EntityNotFoundException, co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException {
+			throws EntityNotFoundException {
 		ComentarioEntity comentarioEntity = outfitComentarioService.addComentario(outfitId, comentarioId);
 		return modelMapper.map(comentarioEntity, ComentarioDetailDTO.class);
 	}
@@ -55,12 +54,12 @@ public class OutfitComentarioController {
 	 * @param comentarioId El ID del comentario que se busca
 	 * @param outfitId   El ID del outfit del cual se busca el comentario
 	 * @return {@link ComentarioDetailDTO} - El comentario encontrado en el outfit.
-	 * @throws co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException
+	 * @throws EntityNotFoundException
 	 */
 	@GetMapping(value = "/{outfitId}/comentarios/{comentarioId}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public ComentarioDetailDTO getComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("outfitId") Long outfitId)
-			throws EntityNotFoundException, IllegalOperationException, co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException {
+			throws IllegalOperationException, EntityNotFoundException {
         ComentarioEntity authorEntity = outfitComentarioService.getComentario(outfitId, comentarioId);
 		return modelMapper.map(authorEntity, ComentarioDetailDTO.class);
 	}
@@ -73,12 +72,12 @@ public class OutfitComentarioController {
 	 * @param comentarios JSONArray {@link ComentarioDTO} - La lista de comentarios que se desea
 	 *                guardar.
 	 * @return JSONArray {@link ComentarioDetailDTO} - La lista actualizada.
-	 * @throws co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException
+	 * @throws EntityNotFoundException
 	 */
 	@PutMapping(value = "/{outfitId}/comentarios")
 	@ResponseStatus(code = HttpStatus.OK)
 	public List<ComentarioDetailDTO> addComentarios(@PathVariable("outfitId") Long outfitId, @RequestBody List<ComentarioDTO> comentarios)
-			throws EntityNotFoundException, co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException {
+			throws EntityNotFoundException {
 		List<ComentarioEntity> entities = modelMapper.map(comentarios, new TypeToken<List<ComentarioEntity>>() {
 		}.getType());
 		List<ComentarioEntity> comentariosList = outfitComentarioService.replaceComentarios(outfitId, entities);
@@ -96,7 +95,7 @@ public class OutfitComentarioController {
 	 */
 	@GetMapping(value = "/{outfitId}/comentarios")
 	@ResponseStatus(code = HttpStatus.OK)
-	public List<ComentarioDetailDTO> getComentarios(@PathVariable("outfitId") Long outfitId) throws EntityNotFoundException, co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException {
+	public List<ComentarioDetailDTO> getComentarios(@PathVariable("outfitId") Long outfitId) throws EntityNotFoundException {
 		List<ComentarioEntity> comentarioEntity = outfitComentarioService.getComentarios(outfitId);
 		return modelMapper.map(comentarioEntity, new TypeToken<List<ComentarioDetailDTO>>() {
 		}.getType());
@@ -112,7 +111,7 @@ public class OutfitComentarioController {
 	@DeleteMapping(value = "/{outfitId}/comentarios/{comentarioId}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void removeComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("outfitId") Long outfitId)
-			throws EntityNotFoundException, co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException {
+			throws EntityNotFoundException {
 		outfitComentarioService.removeComentario(outfitId, comentarioId);
 	}
 }

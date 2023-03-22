@@ -7,15 +7,15 @@ import lombok.Setter;
 @Setter
 public class PrendaDTO {
     private Long id;
-    private String url_sitio_web_compra;
-    private String imagen;
     private String nombre;
     private Integer precio;
     private Color colores;
     private Genero genero;
-    private Ocacion ocaciones;
+    private Ocasion ocasiones;
     private RangoEdad rango_edad;
+    private String imagen;
     private String talla;
+    private String url_sitio_web_compra;
 
     public enum Color {
         ROJO,
@@ -44,7 +44,7 @@ public class PrendaDTO {
         ABUELOS
     }
 
-    public enum Ocacion {
+    public enum Ocasion {
         BODA,
         FIESTA,
         CENA,

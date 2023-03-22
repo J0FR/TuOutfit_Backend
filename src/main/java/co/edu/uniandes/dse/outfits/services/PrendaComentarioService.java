@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
-import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.ErrorMessage;
 import co.edu.uniandes.dse.outfits.repositories.ComentarioRepository;
@@ -70,7 +69,7 @@ public class PrendaComentarioService {
 
 		List<ComentarioEntity> comentarioEntity = prendaEntity.get().getComentarios();
 
-		if (comentarioEntity.size() == 0)
+		if (comentarioEntity.isEmpty())
 			    throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
 
 		log.info("Termina proceso de consultar el comentario de la prenda con id = {0}", prendaId);
@@ -94,8 +93,9 @@ public class PrendaComentarioService {
         List<ComentarioEntity> comentarioEntity = prendaEntity.get().getComentarios();
         Optional<ComentarioEntity> comentarioToFind = comentarioRepository.findById(comentarioId);
 
-        if (comentarioToFind.isEmpty())
-        throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+        if (comentarioToFind.isEmpty()) {
+			throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+		}
 
         if (comentarioEntity.contains(comentarioToFind.get())){
             int index = comentarioEntity.indexOf(comentarioToFind.get());

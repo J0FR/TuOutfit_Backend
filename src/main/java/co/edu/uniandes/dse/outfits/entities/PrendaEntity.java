@@ -22,7 +22,7 @@ public class PrendaEntity extends ProductoEntity {
 
     @OneToMany(mappedBy = "prenda", fetch = FetchType.LAZY)
     @PodamExclude
-    private List<ComentarioEntity> comentarios= new ArrayList<>();;
+    private List<ComentarioEntity> comentarios= new ArrayList<>();
 
     @ManyToMany
     @PodamExclude
