@@ -2,16 +2,10 @@ package co.edu.uniandes.dse.outfits.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
-
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
@@ -41,9 +35,9 @@ public class PrendaService {
     @Transactional
     public PrendaEntity createPrenda(PrendaEntity prendaEntity) throws IllegalOperationException {
         log.info("Inicia proceso de creación de la prenda");
-        if (prendaEntity.getMarca()== null){
-            throw new IllegalOperationException("La prenda no tiene una marca asociada empty");
-        }
+        // if (prendaEntity.getMarca()== null){
+        //     throw new IllegalOperationException("La prenda no tiene una marca asociada empty");
+        // }
         if (prendaEntity.getColores()== null){
             throw new IllegalOperationException("La prenda no tiene colores asociados null");
         }
@@ -53,7 +47,7 @@ public class PrendaService {
         if (prendaEntity.getNombre().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene un nombre asociado empty");
         }
-        if (prendaEntity.getOcaciones() == null){
+        if (prendaEntity.getOcasiones() == null){
             throw new IllegalOperationException("La prenda no tiene una ocasion asociada null");
         }
         if (prendaEntity.getRango_edad()== null){
@@ -121,7 +115,7 @@ public class PrendaService {
         if (prenda.getNombre().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene un nombre asociado empty");
         }
-        if (prenda.getOcaciones() == null){
+        if (prenda.getOcasiones() == null){
             throw new IllegalOperationException("La prenda no tiene una ocasion asociada null");
         }
         if (prenda.getRango_edad()== null){
