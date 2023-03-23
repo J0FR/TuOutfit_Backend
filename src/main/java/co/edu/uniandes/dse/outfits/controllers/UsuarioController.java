@@ -100,7 +100,7 @@ public class UsuarioController {
      * @throws      IllegalOperationException
      * @throws      EntityNotFoundException
      */
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") Long id) 
         throws IllegalOperationException, EntityNotFoundException {
