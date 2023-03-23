@@ -20,10 +20,8 @@ import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
-import co.edu.uniandes.dse.outfits.services.OutfitPrendaService;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
-
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
@@ -32,7 +30,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 public class OutfitPrendaServiceTest {
 	@Autowired
 	private OutfitPrendaService outfitPrendaService;
-	
+
 	@Autowired
 	private TestEntityManager entityManager;
 
@@ -41,13 +39,12 @@ public class OutfitPrendaServiceTest {
 	private OutfitEntity outfit = new OutfitEntity();
 	private List<PrendaEntity> prendaList = new ArrayList<>();
 
-	
 	@BeforeEach
 	void setUp() {
 		clearData();
 		insertData();
 	}
-	
+
 	/**
 	 * Limpia las tablas que están implicadas en la prueba.
 	 */
@@ -68,7 +65,7 @@ public class OutfitPrendaServiceTest {
 			entityManager.persist(entity);
 			entity.getOutfits().add(outfit);
 			prendaList.add(entity);
-			outfit.getPrendas().add(entity);	
+			outfit.getPrendas().add(entity);
 		}
 	}
 
@@ -80,39 +77,39 @@ public class OutfitPrendaServiceTest {
 	void testAddPrenda() throws EntityNotFoundException, IllegalOperationException {
 		OutfitEntity newOutfit = factory.manufacturePojo(OutfitEntity.class);
 		entityManager.persist(newOutfit);
-		
+
 		PrendaEntity prenda = factory.manufacturePojo(PrendaEntity.class);
 		entityManager.persist(prenda);
-		
+
 		outfitPrendaService.addPrenda(newOutfit.getId(), prenda.getId());
-		
+
 		PrendaEntity lastPrenda = outfitPrendaService.getPrenda(newOutfit.getId(), prenda.getId());
 		assertEquals(prenda.getId(), lastPrenda.getId());
 		assertEquals(prenda.getImagen(), lastPrenda.getImagen());
 		assertEquals(prenda.getNombre(), lastPrenda.getNombre());
 		assertEquals(prenda.getGenero(), lastPrenda.getGenero());
 	}
-	
+
 	/**
 	 * Prueba para asociar un Prenda que no existe a un Outfit.
 	 *
 	 */
 	@Test
 	void testAddInvalidPrenda() {
-		assertThrows(EntityNotFoundException.class, ()->{
+		assertThrows(EntityNotFoundException.class, () -> {
 			OutfitEntity newOutfit = factory.manufacturePojo(OutfitEntity.class);
 			entityManager.persist(newOutfit);
 			outfitPrendaService.addPrenda(newOutfit.getId(), 0L);
 		});
 	}
-	
+
 	/**
 	 * Prueba para asociar un Prenda a un Outfit que no existe.
 	 *
 	 */
 	@Test
 	void testAddPrendaInvalidOutfit() throws EntityNotFoundException, IllegalOperationException {
-		assertThrows(EntityNotFoundException.class, ()->{
+		assertThrows(EntityNotFoundException.class, () -> {
 			PrendaEntity prenda = factory.manufacturePojo(PrendaEntity.class);
 			entityManager.persist(prenda);
 			outfitPrendaService.addPrenda(0L, prenda.getId());
@@ -132,13 +129,13 @@ public class OutfitPrendaServiceTest {
 			assertTrue(prendaEntities.contains(prendaList.get(0)));
 		}
 	}
-	
+
 	/**
 	 * Prueba para consultar la lista de Prendaes de un Outfit que no existe.
 	 */
 	@Test
-	void testGetPrendasInvalidOutfit(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testGetPrendasInvalidOutfit() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			outfitPrendaService.getPrendas(0L);
 		});
 	}
@@ -159,19 +156,19 @@ public class OutfitPrendaServiceTest {
 		assertEquals(prendaEntity.getNombre(), prenda.getNombre());
 		assertEquals(prendaEntity.getGenero(), prenda.getGenero());
 	}
-	
+
 	/**
 	 * Prueba para consultar un Prenda que no existe de un Outfit.
 	 *
 	 * @throws throws EntityNotFoundException, IllegalOperationException
 	 */
 	@Test
-	void testGetInvalidPrenda()  {
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testGetInvalidPrenda() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			outfitPrendaService.getPrenda(outfit.getId(), 0L);
 		});
 	}
-	
+
 	/**
 	 * Prueba para consultar un Prenda de un Outfit que no existe.
 	 *
@@ -179,19 +176,19 @@ public class OutfitPrendaServiceTest {
 	 */
 	@Test
 	void testGetPrendaInvalidOutfit() {
-		assertThrows(EntityNotFoundException.class, ()->{
+		assertThrows(EntityNotFoundException.class, () -> {
 			PrendaEntity prendaEntity = prendaList.get(0);
 			outfitPrendaService.getPrenda(0L, prendaEntity.getId());
 		});
 	}
-	
+
 	/**
 	 * Prueba para obtener un Prenda no asociado a un Outfit.
 	 *
 	 */
 	@Test
 	void testGetNotAssociatedPrenda() {
-		assertThrows(IllegalOperationException.class, ()->{
+		assertThrows(IllegalOperationException.class, () -> {
 			OutfitEntity newOutfit = factory.manufacturePojo(OutfitEntity.class);
 			entityManager.persist(newOutfit);
 			PrendaEntity prenda = factory.manufacturePojo(PrendaEntity.class);
@@ -215,13 +212,13 @@ public class OutfitPrendaServiceTest {
 			nuevaLista.add(entity);
 		}
 		outfitPrendaService.replacePrendas(outfit.getId(), nuevaLista);
-		
+
 		List<PrendaEntity> authorEntities = outfitPrendaService.getPrendas(outfit.getId());
 		for (PrendaEntity aNuevaLista : nuevaLista) {
 			assertTrue(authorEntities.contains(aNuevaLista));
 		}
 	}
-	
+
 	/**
 	 * Prueba para actualizar los Prendas de un Outfit.
 	 *
@@ -236,33 +233,32 @@ public class OutfitPrendaServiceTest {
 			nuevaLista.add(entity);
 		}
 		outfitPrendaService.replacePrendas(outfit.getId(), nuevaLista);
-		
+
 		List<PrendaEntity> authorEntities = outfitPrendaService.getPrendas(outfit.getId());
 		for (PrendaEntity aNuevaLista : nuevaLista) {
 			assertTrue(authorEntities.contains(aNuevaLista));
 		}
 	}
-	
-	
+
 	/**
 	 * Prueba para actualizar los Prendas de un Outfit que no existe.
 	 *
 	 * @throws EntityNotFoundException
 	 */
 	@Test
-	void testReplacePrendasInvalidOutfit(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testReplacePrendasInvalidOutfit() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			List<PrendaEntity> nuevaLista = new ArrayList<>();
 			for (int i = 0; i < 3; i++) {
 				PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
-				entity.getOutfits().add(outfit);		
+				entity.getOutfits().add(outfit);
 				entityManager.persist(entity);
 				nuevaLista.add(entity);
 			}
 			outfitPrendaService.replacePrendas(0L, nuevaLista);
 		});
 	}
-	
+
 	/**
 	 * Prueba para actualizar los Prendaes que no existen de un Outfit.
 	 *
@@ -270,7 +266,7 @@ public class OutfitPrendaServiceTest {
 	 */
 	@Test
 	void testReplaceInvalidPrendas() {
-		assertThrows(EntityNotFoundException.class, ()->{
+		assertThrows(EntityNotFoundException.class, () -> {
 			List<PrendaEntity> nuevaLista = new ArrayList<>();
 			PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
 			entity.setId(0L);
@@ -278,19 +274,19 @@ public class OutfitPrendaServiceTest {
 			outfitPrendaService.replacePrendas(outfit.getId(), nuevaLista);
 		});
 	}
-	
+
 	/**
 	 * Prueba para actualizar un Prenda de un Outfit que no existe.
 	 *
 	 * @throws EntityNotFoundException
 	 */
 	@Test
-	void testReplacePrendasInvalidPrenda(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testReplacePrendasInvalidPrenda() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			List<PrendaEntity> nuevaLista = new ArrayList<>();
 			for (int i = 0; i < 3; i++) {
 				PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
-				entity.getOutfits().add(outfit);		
+				entity.getOutfits().add(outfit);
 				entityManager.persist(entity);
 				nuevaLista.add(entity);
 			}
@@ -309,37 +305,26 @@ public class OutfitPrendaServiceTest {
 		}
 		assertTrue(outfitPrendaService.getPrendas(outfit.getId()).isEmpty());
 	}
-	
+
 	/**
 	 * Prueba desasociar un Prenda que no existe con un Outfit.
 	 *
 	 */
 	@Test
-	void testRemoveInvalidPrenda(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testRemoveInvalidPrenda() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			outfitPrendaService.removePrenda(outfit.getId(), 0L);
 		});
 	}
-	
+
 	/**
 	 * Prueba desasociar un Prenda con un Outfit que no existe.
 	 *
 	 */
 	@Test
-	void testRemoveAuthorInvalidOutfit(){
-		assertThrows(EntityNotFoundException.class, ()->{
+	void testRemoveAuthorInvalidOutfit() {
+		assertThrows(EntityNotFoundException.class, () -> {
 			outfitPrendaService.removePrenda(0L, prendaList.get(0).getId());
 		});
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
