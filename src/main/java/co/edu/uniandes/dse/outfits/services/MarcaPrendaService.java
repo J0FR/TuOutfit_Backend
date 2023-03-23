@@ -33,18 +33,20 @@ public class MarcaPrendaService {
      */
     @Transactional
     public PrendaEntity addPrenda(Long marcaId, Long prendaId) throws EntityNotFoundException {
-        log.info("Inicia proceso de asociar el marca con id = {0} a la prenda con id = " + marcaId, prendaId);
-        Optional<MarcaEntity> prendaEntity = marcaRepository.findById(marcaId);
-        if (prendaEntity.isEmpty())
+        log.info("Inicia proceso de asociar el marca con id = {0} a la prenda con id = {0}" + marcaId, prendaId);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        Optional<PrendaEntity> comentarioEntity = prendaRepository.findById(prendaId);
-        if (comentarioEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+        Optional<PrendaEntity> prendaEntity = prendaRepository.findById(prendaId);
+        if (prendaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
-        prendaEntity.get().addPrenda(comentarioEntity.get());
-        log.info("Termina proceso de asociar el marca con id = {0} a la prenda con id = {1}", marcaId, prendaId);
-        return comentarioEntity.get();
+        marcaEntity.get().addPrenda(prendaEntity.get());
+        prendaEntity.get().setMarca(marcaEntity.get());
+
+        log.info("Termina proceso de asociar el marca con id = {0} a la prenda con id = {0}", marcaId, prendaId);
+        return prendaEntity.get();
     }
 
     /**
@@ -123,7 +125,7 @@ public class MarcaPrendaService {
         for (PrendaEntity prenda : prendas) {
             Optional<PrendaEntity> cambio = prendaRepository.findById(prenda.getId());
             if (cambio.isEmpty())
-                throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+                throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
             if (!marcaEntity.get().getPrendas().contains(cambio.get()))
                 marcaEntity.get().getPrendas().add(cambio.get());

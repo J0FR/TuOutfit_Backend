@@ -42,9 +42,9 @@ public class MarcaPrendaController {
      */
     @PostMapping(value = "/{marcaId}/prenda/{prendaId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public PrendaDetailDTO addPrenda(@PathVariable("prendaId") Long prendaId, @PathVariable("marcaId") Long marcaId)
+    public PrendaDetailDTO addPrenda(@PathVariable("marcaId") Long marcaId, @PathVariable("prendaId") Long prendaId)
             throws EntityNotFoundException {
-        PrendaEntity prendaEntity = marcaPrendaService.addPrenda(prendaId, marcaId);
+        PrendaEntity prendaEntity = marcaPrendaService.addPrenda(marcaId, prendaId);
         return modelMapper.map(prendaEntity, PrendaDetailDTO.class);
     }
 
@@ -59,8 +59,8 @@ public class MarcaPrendaController {
      */
     @GetMapping(value = "/{marcaId}/prenda/{prendaId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public PrendaDetailDTO getPrenda(@PathVariable("prendaId") Long prendaId,
-            @PathVariable("marcaId") Long marcaId)
+    public PrendaDetailDTO getPrenda(@PathVariable("marcaId") Long marcaId,
+            @PathVariable("prendaId") Long prendaId)
             throws IllegalOperationException, EntityNotFoundException {
         PrendaEntity prendaEntity = marcaPrendaService.getPrenda(marcaId, prendaId);
         return modelMapper.map(prendaEntity, PrendaDetailDTO.class);
@@ -100,7 +100,7 @@ public class MarcaPrendaController {
      *         marca. Si no hay ninguno retorna una lista vacía.
      * @throws co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException
      */
-    @GetMapping(value = "/{marcaId}/prenda")
+    @GetMapping(value = "/{marcaId}/marcas")
     @ResponseStatus(code = HttpStatus.OK)
     public List<PrendaDetailDTO> getPrendas(@PathVariable("marcaId") Long marcaId)
             throws EntityNotFoundException {
@@ -119,8 +119,8 @@ public class MarcaPrendaController {
      */
     @DeleteMapping(value = "/{marcaId}/prenda/{prendaId}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void removePrenda(@PathVariable("prendaId") Long prendaId,
-            @PathVariable("marcaId") Long marcaId)
+    public void removePrenda(@PathVariable("marcaId") Long marcaId,
+            @PathVariable("prendaId") Long prendaId)
             throws EntityNotFoundException {
         marcaPrendaService.removePrenda(marcaId, prendaId);
     }
