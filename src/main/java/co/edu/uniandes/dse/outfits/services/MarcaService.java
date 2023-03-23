@@ -28,9 +28,10 @@ public class MarcaService {
     PrendaRepository prendaRepository;
 
     /**
-     * Agrupa las validaciones de que no sean nulos o vacíos para los atributos de marca
+     * Agrupa las validaciones de que no sean nulos o vacíos para los atributos de
+     * marca
      * 
-     * @param marca     Entidad que se quiere revisar
+     * @param marca Entidad que se quiere revisar
      */
     private void validarNulos(MarcaEntity marca) throws IllegalOperationException {
         if (marca.getNombre() == null || marca.getNombre().equals(""))
@@ -41,10 +42,6 @@ public class MarcaService {
             throw new IllegalOperationException("La marca no tiene un URL de logo valido");
         if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
             throw new IllegalOperationException("La marca no tiene detalles de la marca valido");
-        if (marca.getTiendas_fisicas() == null || marca.getTiendas_fisicas().isEmpty())
-            throw new IllegalOperationException("La marca no tiene tiendas fisicas");
-        if (marca.getPrendas() == null || marca.getPrendas().isEmpty())
-            throw new IllegalOperationException("La marca no tiene prendas");
     }
 
     @Transactional
@@ -52,7 +49,7 @@ public class MarcaService {
         log.info("Inicia proceso de creación de la marca");
 
         validarNulos(marca);
-        
+
         log.info("Termina proceso de creación de la marca");
         return marcaRepository.save(marca);
     }
@@ -80,7 +77,7 @@ public class MarcaService {
         log.info("Inicia proceso de actualizar la marca con id = {0}", marcaId);
         Optional<MarcaEntity> outfitEntity = marcaRepository.findById(marcaId);
         if (outfitEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
         validarNulos(marca);
 
@@ -94,7 +91,7 @@ public class MarcaService {
         log.info("Inicia proceso de borrar la marca con id = {0}", marcaId);
         Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
         if (marcaEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
         if (!marcaEntity.get().getPrendas().isEmpty()) {
             throw new IllegalOperationException("La marca tiene prendas asociados");
         }

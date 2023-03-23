@@ -3,6 +3,8 @@ package co.edu.uniandes.dse.outfits.services;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -14,12 +16,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
-import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
-import co.edu.uniandes.dse.outfits.services.MarcaPrendaService;
+import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
@@ -136,9 +136,138 @@ public class MarcaPrendaServiceTest {
 	}
 
 	@Test
+	void testGetPrenda() throws EntityNotFoundException, IllegalOperationException {
+		MarcaEntity entity = marcaList.get(0);
+		PrendaEntity prendaEntity = prendasList.get(0);
+		PrendaEntity response = marcaPrendaService.getPrenda(entity.getId(), prendaEntity.getId());
+
+		assertEquals(prendaEntity.getId(), response.getId());
+		assertEquals(prendaEntity.getColores(), response.getColores());
+		assertEquals(prendaEntity.getComentarios(), response.getComentarios());
+		assertEquals(prendaEntity.getGenero(), response.getGenero());
+		assertEquals(prendaEntity.getId(), response.getId());
+		assertEquals(prendaEntity.getImagen(), response.getImagen());
+		assertEquals(prendaEntity.getMarca(), response.getMarca());
+		assertEquals(prendaEntity.getNombre(), response.getNombre());
+		assertEquals(prendaEntity.getOcasiones(), response.getOcasiones());
+		assertEquals(prendaEntity.getOutfits(), response.getOutfits());
+		assertEquals(prendaEntity.getPrecio(), response.getPrecio());
+		assertEquals(prendaEntity.getRango_edad(), response.getRango_edad());
+		assertEquals(prendaEntity.getTalla(), response.getTalla());
+		assertEquals(prendaEntity.getUrl_sitio_web_compra(), response.getUrl_sitio_web_compra());
+
+	}
+
+	/**
+	 * Prueba para obtener una instancia de prenda que no existe asociada a una
+	 * marca
+	 * 
+	 * @throws EntityNotFoundException
+	 * 
+	 */
+	@Test
+	void testGetInvalidMarca() {
+		assertThrows(EntityNotFoundException.class, () -> {
+			PrendaEntity entity = prendasList.get(0);
+			marcaPrendaService.getPrenda(entity.getId(), 0L);
+		});
+	}
+
+	@Test
+	public void getPrendaNoAsociadoTest() {
+		assertThrows(IllegalOperationException.class, () -> {
+			MarcaEntity entity = marcaList.get(1);
+			PrendaEntity prendaEntity = prendasList.get(1);
+			marcaPrendaService.getPrenda(entity.getId(), prendaEntity.getId());
+		});
+	}
+
+	@Test
 	void testCeroPrendaMarca() throws EntityNotFoundException {
 		assertThrows(EntityNotFoundException.class, () -> {
 			marcaPrendaService.getPrendas(marcaList.get(1).getId());
+		});
+	}
+
+	/**
+	 * Prueba para actualizar los Prendas de un Outfit.
+	 *
+	 * @throws EntityNotFoundException
+	 */
+	@Test
+	void testUpdatePrendas() throws EntityNotFoundException {
+		List<PrendaEntity> nuevaLista = new ArrayList<>();
+		MarcaEntity marca = marcaList.get(0);
+		for (int i = 0; i < 3; i++) {
+			PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
+			entityManager.persist(entity);
+			marca.getPrendas().add(entity);
+			nuevaLista.add(entity);
+		}
+		marcaPrendaService.updatePrendas(marca.getId(), nuevaLista);
+
+		List<PrendaEntity> prendasEntities = marcaPrendaService.getPrendas(marca.getId());
+		for (PrendaEntity aNuevaLista : nuevaLista) {
+			assertTrue(prendasEntities.contains(aNuevaLista));
+		}
+	}
+
+	/**
+	 * Prueba para actualizar los Prendas de un Outfit.
+	 *
+	 * @throws EntityNotFoundException
+	 */
+	@Test
+	void testUpdatePrendas2() throws EntityNotFoundException {
+		List<PrendaEntity> nuevaLista = new ArrayList<>();
+		MarcaEntity marca = marcaList.get(0);
+		for (int i = 0; i < 3; i++) {
+			PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
+			entityManager.persist(entity);
+			nuevaLista.add(entity);
+		}
+		marcaPrendaService.updatePrendas(marca.getId(), nuevaLista);
+
+		List<PrendaEntity> prendasEntities = marcaPrendaService.getPrendas(marca.getId());
+		for (PrendaEntity aNuevaLista : nuevaLista) {
+			assertTrue(prendasEntities.contains(aNuevaLista));
+		}
+	}
+
+	/**
+	 * Prueba para actualizar los Prendas de un Outfit que no existe.
+	 *
+	 * @throws EntityNotFoundException
+	 */
+	@Test
+	void testReplacePrendasInvalidOutfit() {
+		assertThrows(EntityNotFoundException.class, () -> {
+			List<PrendaEntity> nuevaLista = new ArrayList<>();
+			MarcaEntity marca = marcaList.get(0);
+			for (int i = 0; i < 3; i++) {
+				PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
+				entity.setMarca(marca);
+				entityManager.persist(entity);
+				nuevaLista.add(entity);
+			}
+			marcaPrendaService.updatePrendas(0L, nuevaLista);
+		});
+	}
+
+	/**
+	 * Prueba para actualizar los Prendaes que no existen de un Outfit.
+	 *
+	 * @throws EntityNotFoundException
+	 */
+	@Test
+	void testReplaceInvalidPrendas() {
+		assertThrows(EntityNotFoundException.class, () -> {
+			List<PrendaEntity> nuevaLista = new ArrayList<>();
+			MarcaEntity marca = marcaList.get(0);
+			PrendaEntity entity = factory.manufacturePojo(PrendaEntity.class);
+			entity.setId(0L);
+			nuevaLista.add(entity);
+			marcaPrendaService.updatePrendas(marca.getId(), nuevaLista);
 		});
 	}
 

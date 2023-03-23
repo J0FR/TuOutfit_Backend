@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PrendaDetailDTO extends PrendaDTO {
-    private List <OutfitDTO> outfits = new ArrayList<>();
-    private List <ComentarioDTO> comentarios = new ArrayList<>();
+    private List<OutfitDTO> outfits = new ArrayList<>();
+    private List<ComentarioDTO> comentarios = new ArrayList<>();
+    private MarcaDTO marca;
 }
