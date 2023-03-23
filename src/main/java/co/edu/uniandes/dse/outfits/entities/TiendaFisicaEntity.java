@@ -15,7 +15,7 @@ public class TiendaFisicaEntity extends BaseEntity {
     private String nombre;
     private String horarios;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @PodamExclude
     private UbicacionEntity ubicacion;
 
