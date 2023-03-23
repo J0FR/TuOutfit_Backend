@@ -26,9 +26,6 @@ public class UbicacionService {
     @Transactional
     public UbicacionEntity createUbicacion(UbicacionEntity ubicacion) throws IllegalOperationException {
         log.info("Inicia proceso de creación de la ubicación");
-        if (ubicacion.getTiendaFisica() == null) {
-            throw new IllegalOperationException("La ubicación no tiene una tienda asociada");
-        }
         log.info("Termina proceso de creación de la ubicación");
         return ubicacionRepository.save(ubicacion);
     }
@@ -56,9 +53,6 @@ public class UbicacionService {
         if (ubicacionEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.UBICACION_NOT_FOUND);
         }
-        if (ubicacion.getTiendaFisica() == null) {
-            throw new IllegalOperationException("La ubicación no tiene una tienda asociada");
-        }
         ubicacion.setId(ubicacionId);
         log.info("Termina proceso de actualizar la ubicación con id = {0}", ubicacionId);
         return ubicacionRepository.save(ubicacion);
@@ -70,9 +64,6 @@ public class UbicacionService {
         Optional<UbicacionEntity> ubicacionEntity = ubicacionRepository.findById(ubicacionId);
         if (ubicacionEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.UBICACION_NOT_FOUND);
-        if (ubicacionEntity.get().getTiendaFisica() != null) {
-            throw new IllegalOperationException("La ubicación tiene una tienda asociada");
-        }
         ubicacionRepository.deleteById(ubicacionId);
         log.info("Termina proceso de borrar la ubicación con id = {0}", ubicacionId);
     }

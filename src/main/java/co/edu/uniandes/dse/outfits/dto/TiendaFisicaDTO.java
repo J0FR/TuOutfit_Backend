@@ -10,7 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TiendaFisicaDTO {
+    private Long id;
     private String nombre;
     private String horarios;
     private UbicacionDTO ubicacion;
+    private MarcaDTO marca;
 }

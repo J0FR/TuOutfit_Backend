@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MarcaDTO {
+    private Long id;
     private String nombre;
     private String url_sitio_web;
     private String logo;

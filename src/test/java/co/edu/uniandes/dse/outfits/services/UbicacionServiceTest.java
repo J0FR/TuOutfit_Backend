@@ -77,15 +77,6 @@ class UbicacionServiceTest {
     }
 
     @Test
-    void testCreateUbicacionWithNoValidTiendaFisica() {
-        assertThrows(IllegalOperationException.class, () -> {
-                UbicacionEntity newEntity = factory.manufacturePojo(UbicacionEntity.class);
-                newEntity.setTiendaFisica(null);
-                ubicacionService.createUbicacion(newEntity);
-        });
-    }
-
-    @Test
     void testGetUbicaciones() {
         List<UbicacionEntity> list = ubicacionService.getUbicaciones();
         assertEquals(ubicacionList.size(), list.size());
@@ -142,17 +133,6 @@ class UbicacionServiceTest {
     }
 
     @Test
-    void testUpdateUbicacionWithNoValidTiendaFisica() {
-        assertThrows(IllegalOperationException.class, () -> {
-            UbicacionEntity entity = ubicacionList.get(0);
-            UbicacionEntity pojoEntity = factory.manufacturePojo(UbicacionEntity.class);
-            pojoEntity.setId(entity.getId());
-            pojoEntity.setTiendaFisica(null);
-            ubicacionService.updateUbicacion(entity.getId(), pojoEntity);
-        });
-    }
-
-    @Test
     void testDeleteUbicacion() throws EntityNotFoundException, IllegalOperationException {
         UbicacionEntity entity = ubicacionList.get(1);
         ubicacionService.deleteUbicacion(entity.getId());
@@ -164,14 +144,6 @@ class UbicacionServiceTest {
     void testDeleteUbicacionInvalid() {
         assertThrows(EntityNotFoundException.class, () -> {
             ubicacionService.deleteUbicacion(0L);
-        });
-    }
-
-    @Test
-    void testDeleteUbicacionWithTiendaFisica() throws EntityNotFoundException, IllegalOperationException{
-        assertThrows(IllegalOperationException.class, () -> {
-            UbicacionEntity entity = ubicacionList.get(0);
-            ubicacionService.deleteUbicacion(entity.getId());
         });
     }
 }
