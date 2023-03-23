@@ -1,10 +1,8 @@
 package co.edu.uniandes.dse.outfits.services;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-
 import co.edu.uniandes.dse.outfits.entities.TiendaFisicaEntity;
 import co.edu.uniandes.dse.outfits.entities.UbicacionEntity;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;

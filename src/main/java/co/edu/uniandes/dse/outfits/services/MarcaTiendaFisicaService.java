@@ -2,12 +2,9 @@ package co.edu.uniandes.dse.outfits.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.TiendaFisicaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
