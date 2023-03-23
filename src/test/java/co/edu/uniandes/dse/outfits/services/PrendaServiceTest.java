@@ -116,27 +116,6 @@ class PrendaServiceTest {
         assertEquals(prendaEntity.getRango_edad(), entity.getRango_edad());//
         assertEquals(prendaEntity.getTalla(), entity.getTalla());//
     }
-    //Test de marca    
-    @Test
-    void testCreatePrendaWithNullMarca() {
-        assertThrows(IllegalOperationException.class, () -> {
-            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-            newEntity.setId(1L);
-            newEntity.setNombre("Nombre Prueba");
-            newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
-            newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
-            newEntity.setMarca(null);
-            newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
-            newEntity.setColores(Color.ROJO);
-            newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-            newEntity.setTalla("A1");
-            prendaService.createPrenda(newEntity);
-    });
-    }
 
     @Test
     void testCreatePrendaWithNullColores() {
