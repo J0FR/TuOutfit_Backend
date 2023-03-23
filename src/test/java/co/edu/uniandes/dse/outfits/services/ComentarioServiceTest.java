@@ -2,9 +2,7 @@ package co.edu.uniandes.dse.outfits.services;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
@@ -217,22 +214,6 @@ public class ComentarioServiceTest {
             comentarioService.createComentario(newEntity);
         });
     }
-
-    /* TODO */
-    // /**
-    //  * Test para crear un Comentario con una prenda y un outfit nulos
-    //  */
-    // @Test
-    // public void testCreateComentarioPrendaYOutfitNull() throws IllegalOperationException {
-    //     assertThrows(IllegalOperationException.class, () -> {
-    //         ComentarioEntity newEntity = factory.manufacturePojo(ComentarioEntity.class);
-    //         newEntity.setCalificacion(3);
-    //         newEntity.setAutor(usuarioList.get(0));
-    //         newEntity.setPrenda(null);
-    //         newEntity.setOutfit(null);
-    //         comentarioService.createComentario(newEntity);
-    //     });
-    // }
 
     /**
      * Test para crear un Comentario con un título nulo

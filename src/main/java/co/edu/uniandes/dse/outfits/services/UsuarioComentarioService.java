@@ -4,10 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
