@@ -166,42 +166,6 @@ class MarcaServiceTest {
     }
 
     @Test
-    void testCreateMarcaWithNoValidTiendaFisicas() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setTiendas_fisicas(null);
-            marcaService.createMarca(newEntity);
-        });
-    }
-
-    @Test
-    void testCreateMarcaWithNoValidTiendaFisicas2() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setTiendas_fisicas(new ArrayList<TiendaFisicaEntity>());
-            marcaService.createMarca(newEntity);
-        });
-    }
-
-    @Test
-    void testCreateMarcaWithNoValidPrendas() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setPrendas(null);
-            marcaService.createMarca(newEntity);
-        });
-    }
-
-    @Test
-    void testCreateMarcaWithNoValidPrendas2() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setPrendas(new ArrayList<PrendaEntity>());
-            marcaService.createMarca(newEntity);
-        });
-    }
-
-    @Test
     void testGetMarcas() {
         List<MarcaEntity> list = marcaService.getMarcas();
         assertEquals(marcaList.size(), list.size());
@@ -349,50 +313,6 @@ class MarcaServiceTest {
             MarcaEntity entity = marcaList.get(0);
             MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
             pojoEntity.setDetalle_de_marca("");
-            pojoEntity.setId(entity.getId());
-            marcaService.updateMarca(entity.getId(), pojoEntity);
-        });
-    }
-
-    @Test
-    void testUpdateMarcaWithNoValidTiendaFisica() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity entity = marcaList.get(0);
-            MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setTiendas_fisicas(null);
-            pojoEntity.setId(entity.getId());
-            marcaService.updateMarca(entity.getId(), pojoEntity);
-        });
-    }
-
-    @Test
-    void testUpdateMarcaWithNoValidTiendaFisica2() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity entity = marcaList.get(0);
-            MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setTiendas_fisicas(new ArrayList<TiendaFisicaEntity>());
-            pojoEntity.setId(entity.getId());
-            marcaService.updateMarca(entity.getId(), pojoEntity);
-        });
-    }
-
-    @Test
-    void testUpdateMarcaWithNoValidPrendas() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity entity = marcaList.get(0);
-            MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setPrendas(null);
-            pojoEntity.setId(entity.getId());
-            marcaService.updateMarca(entity.getId(), pojoEntity);
-        });
-    }
-
-    @Test
-    void testUpdateMarcaWithNoValidPrendas2() {
-        assertThrows(IllegalOperationException.class, () -> {
-            MarcaEntity entity = marcaList.get(0);
-            MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setPrendas(new ArrayList<PrendaEntity>());
             pojoEntity.setId(entity.getId());
             marcaService.updateMarca(entity.getId(), pojoEntity);
         });

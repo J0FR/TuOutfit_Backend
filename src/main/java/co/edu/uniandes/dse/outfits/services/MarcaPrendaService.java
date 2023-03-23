@@ -10,6 +10,7 @@ import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.ErrorMessage;
+import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.repositories.MarcaRepository;
 import co.edu.uniandes.dse.outfits.repositories.PrendaRepository;
 
@@ -32,42 +33,104 @@ public class MarcaPrendaService {
      */
     @Transactional
     public PrendaEntity addPrenda(Long marcaId, Long prendaId) throws EntityNotFoundException {
-        log.info("Inicia proceso de asociar el marca con id = {0} a la prenda con id = " + marcaId, prendaId);
-        Optional<MarcaEntity> prendaEntity = marcaRepository.findById(marcaId);
+        log.info("Inicia proceso de asociar el marca con id = {0} a la prenda con id = {0}" + marcaId, prendaId);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
+
+        Optional<PrendaEntity> prendaEntity = prendaRepository.findById(prendaId);
         if (prendaEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
-        Optional<PrendaEntity> comentarioEntity = prendaRepository.findById(prendaId);
-        if (comentarioEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+        marcaEntity.get().addPrenda(prendaEntity.get());
+        prendaEntity.get().setMarca(marcaEntity.get());
 
-        prendaEntity.get().addPrenda(comentarioEntity.get());
-        log.info("Termina proceso de asociar el marca con id = {0} a la prenda con id = {1}", marcaId, prendaId);
-        return comentarioEntity.get();
+        log.info("Termina proceso de asociar el marca con id = {0} a la prenda con id = {0}", marcaId, prendaId);
+        return prendaEntity.get();
     }
 
     /**
      *
      * Obtener los comentarios pertenecientes al id del marca dado.
      *
-     * @param marcaId id del outfit a ser buscado.
+     * @param marcaId  id de la marca a ser buscado.
+     * @param prendaId id de la prenda a ser buscada.
+     * @return los comentarios asociados.
+     * @throws EntityNotFoundException
+     * @throws IllegalOperationException
+     */
+    @Transactional
+    public PrendaEntity getPrenda(Long marcaId, Long prendaId)
+            throws EntityNotFoundException, IllegalOperationException {
+        log.info("Inicia proceso de consultar la prenda con el id = {0} de la marca con id = {0}", prendaId, marcaId);
+
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
+
+        Optional<PrendaEntity> prendaEntity = prendaRepository.findById(prendaId);
+        if (prendaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
+
+        log.info("Termina proceso de consultar la prenda con el id = {0} de la marca con id = {0}", prendaId,
+                marcaId);
+
+        if (!marcaEntity.get().getPrendas().contains(prendaEntity.get()))
+            throw new IllegalOperationException("La prenda no esta asociada a la marca");
+
+        return prendaEntity.get();
+    }
+
+    /**
+     *
+     * Obtener los comentarios pertenecientes al id del marca dado.
+     *
+     * @param marcaId id de la marca a ser buscado.
      * @return los comentarios asociados.
      * @throws EntityNotFoundException
      */
     @Transactional
     public List<PrendaEntity> getPrendas(Long marcaId) throws EntityNotFoundException {
         log.info("Inicia proceso de consultar las prendas del marca con id = {0}", marcaId);
-        Optional<MarcaEntity> outfitEntity = marcaRepository.findById(marcaId);
-        if (outfitEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        List<PrendaEntity> comentarioEntity = outfitEntity.get().getPrendas();
+        List<PrendaEntity> comentarioEntity = marcaEntity.get().getPrendas();
 
         if (comentarioEntity.isEmpty())
-            throw new EntityNotFoundException(ErrorMessage.COMENTARIO_NOT_FOUND);
+            throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
         log.info("Termina proceso de consultar las prendas del marca con id = {0}", marcaId);
         return comentarioEntity;
+    }
+
+    /**
+     * Remplazar comentarios de una Outfit
+     *
+     * @param prendas  Lista de prendas que serán las de la marca.
+     * @param outfitId El id de la marca que se quiere actualizar.
+     * @return La lista de Comentarios actualizada.
+     * @throws EntityNotFoundException Si la marca o una prenda de la lista no
+     *                                 se encuentran
+     */
+    @Transactional
+    public List<PrendaEntity> updatePrendas(Long marcaId, List<PrendaEntity> prendas)
+            throws EntityNotFoundException {
+        log.info("Inicia proceso de actualizar la marca con id = {0}", marcaId);
+        Optional<MarcaEntity> marcaEntity = marcaRepository.findById(marcaId);
+        if (marcaEntity.isEmpty())
+            throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
+
+        for (PrendaEntity prenda : prendas) {
+            Optional<PrendaEntity> cambio = prendaRepository.findById(prenda.getId());
+            if (cambio.isEmpty())
+                throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
+
+            if (!marcaEntity.get().getPrendas().contains(cambio.get()))
+                marcaEntity.get().getPrendas().add(cambio.get());
+        }
+        return getPrendas(marcaId);
     }
 
     /**
