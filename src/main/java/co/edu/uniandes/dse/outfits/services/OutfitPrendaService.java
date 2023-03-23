@@ -42,6 +42,7 @@ public class OutfitPrendaService {
 			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
 
 		outfitEntity.get().getPrendas().add(prendaEntity.get());
+		prendaEntity.get().getOutfits().add(outfitEntity.get());
 		log.info("Termina proceso de asociarle un Prenda al outfit con id = {0}", outfitId);
 		return prendaEntity.get();
 	}

@@ -97,7 +97,7 @@ public class OutfitServiceTest {
                 assertEquals(newEntity.getPrecio(), entity.getPrecio());
                 assertEquals(newEntity.getColores(), entity.getColores());
                 assertEquals(newEntity.getGenero(), entity.getGenero());
-                assertEquals(newEntity.getOcaciones(), entity.getOcaciones());
+                assertEquals(newEntity.getOcasiones(), entity.getOcasiones());
                 assertEquals(newEntity.getRango_edad(), entity.getRango_edad());
                 assertEquals(newEntity.getImagen(), entity.getImagen());
                 assertEquals(newEntity.getTalla(), entity.getTalla());
@@ -256,7 +256,7 @@ public class OutfitServiceTest {
                 assertEquals(entity.getPrecio(), resultEntity.getPrecio());
                 assertEquals(entity.getColores(), resultEntity.getColores());
                 assertEquals(entity.getGenero(), resultEntity.getGenero());
-                assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());
+                assertEquals(entity.getOcasiones(), resultEntity.getOcasiones());
                 assertEquals(entity.getRango_edad(), resultEntity.getRango_edad());
                 assertEquals(entity.getImagen(), resultEntity.getImagen());
                 assertEquals(entity.getTalla(), resultEntity.getTalla());
@@ -289,7 +289,7 @@ public class OutfitServiceTest {
                 assertEquals(pojoEntity.getPrecio(), resp.getPrecio());
                 assertEquals(pojoEntity.getColores(), resp.getColores());
                 assertEquals(pojoEntity.getGenero(), resp.getGenero());
-                assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());
+                assertEquals(pojoEntity.getOcasiones(), resp.getOcasiones());
                 assertEquals(pojoEntity.getRango_edad(), resp.getRango_edad());
                 assertEquals(pojoEntity.getImagen(), resp.getImagen());
                 assertEquals(pojoEntity.getTalla(), resp.getTalla());

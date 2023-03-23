@@ -107,7 +107,7 @@ class PrendaServiceTest {
         assertEquals(prendaEntity.getComentarios(),entity.getComentarios());//
         assertEquals(prendaEntity.getImagen(),entity.getImagen());
         assertEquals(prendaEntity.getGenero(),entity.getGenero());//
-        assertEquals(prendaEntity.getOcaciones(), entity.getOcaciones());//
+        assertEquals(prendaEntity.getOcasiones(), entity.getOcasiones());//
         assertEquals(prendaEntity.getMarca().getId(), entity.getMarca().getId());//
         assertEquals(prendaEntity.getOutfits(), entity.getOutfits());//
         assertEquals(prendaEntity.getUrl_sitio_web_compra(), entity.getUrl_sitio_web_compra());//
@@ -126,7 +126,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -147,7 +147,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -168,7 +168,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -189,7 +189,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(null);
+            newEntity.setOcasiones(null);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -210,7 +210,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -231,7 +231,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -252,7 +252,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -273,7 +273,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra(null);
@@ -293,7 +293,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("");
@@ -313,7 +313,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen(null);
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -333,7 +333,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -353,7 +353,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(null);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -389,7 +389,7 @@ class PrendaServiceTest {
     assertEquals(entity.getComentarios(),resultEntity.getComentarios());//
     assertEquals(entity.getImagen(),resultEntity.getImagen());
     assertEquals(entity.getGenero(),resultEntity.getGenero());//
-    assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());//
+    assertEquals(entity.getOcasiones(), resultEntity.getOcasiones());//
     assertEquals(entity.getMarca().getId(), resultEntity.getMarca().getId());//
     assertEquals(entity.getOutfits(), resultEntity.getOutfits());//
     assertEquals(entity.getUrl_sitio_web_compra(), resultEntity.getUrl_sitio_web_compra());//
@@ -419,7 +419,7 @@ class PrendaServiceTest {
         assertEquals(pojoEntity.getComentarios(),resp.getComentarios());//
         assertEquals(pojoEntity.getImagen(),resp.getImagen());
         assertEquals(pojoEntity.getGenero(),resp.getGenero());//
-        assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());//
+        assertEquals(pojoEntity.getOcasiones(), resp.getOcasiones());//
         assertEquals(pojoEntity.getMarca(), resp.getMarca());//
         assertEquals(pojoEntity.getOutfits(), resp.getOutfits());//
         assertEquals(pojoEntity.getUrl_sitio_web_compra(), resp.getUrl_sitio_web_compra());//
@@ -450,7 +450,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(null);
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -473,7 +473,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -496,7 +496,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -519,7 +519,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -542,7 +542,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(null);
+            newEntity.setOcasiones(null);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -565,7 +565,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -588,7 +588,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -611,7 +611,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -634,7 +634,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra(null);
@@ -656,7 +656,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("");
@@ -678,7 +678,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen(null);
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -700,7 +700,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
@@ -722,7 +722,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(null);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcaciones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrl_sitio_web_compra("link_prueba");
