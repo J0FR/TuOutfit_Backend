@@ -7,6 +7,152 @@
 	},
 	"item": [
 		{
+			"name": "Crear una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"prenda_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/prenda",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"prenda"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una prenda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/prenda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear comentario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comentario_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comentarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear comentario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comentarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comentarios"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\",\r\n    \"prendas\": null,\r\n    \"outfit\": null\r\n}"
+				}
+			]
+		},
+		{
 			"name": "Agregar un comentario a una prenda",
 			"event": [
 				{
@@ -787,78 +933,6 @@
 					"header": null,
 					"cookie": [],
 					"body": null
-				}
-			]
-		},
-		{
-			"name": "Crear comentario",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"pm.globals.set(\"comentario_id_1\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/comentarios",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"comentarios"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear comentario",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/comentarios",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"comentarios"
-							]
-						}
-					},
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\",\r\n    \"prendas\": null,\r\n    \"outfit\": null\r\n}"
 				}
 			]
 		}
