@@ -1,0 +1,1073 @@
+{
+	"info": {
+		"_postman_id": "4bde06c6-434a-4845-a66f-12bdd2066c17",
+		"name": "Outfit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498058"
+	},
+	"item": [
+		{
+			"name": "Crear un outfit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"outfit_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/outfits",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocaciones\": \"BODA\",\n    \"rango_edad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit nombre null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin nulllll.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": null,\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit nombre null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": null,\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"22-03-2023 10:49:09\",\n        \"message\": \"Se esta registrando un outfit sin nulllll.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit sin nombre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin nombre lo cual no es valido.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit sin nombre",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"22-03-2023 10:51:22\",\n        \"message\": \"Se esta registrando un outfit sin nombre lo cual no es valido.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit sin foto null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin foto.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": null,\r\n    \"nombre\": \"Outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit sin foto null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": null,\r\n    \"nombre\": \"Outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"22-03-2023 10:52:31\",\n        \"message\": \"Se esta registrando un outfit sin foto.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit sin foto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin foto.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"\",\r\n    \"nombre\": \"Outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit sin foto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"\",\r\n    \"nombre\": \"Outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"22-03-2023 10:54:04\",\n        \"message\": \"Se esta registrando un outfit sin foto.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit descripcion null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin descripcion.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": null,\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit descripcion null",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": null,\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"PRECONDITION_FAILED\",\r\n        \"timestamp\": \"22-03-2023 10:55:36\",\r\n        \"message\": \"Se esta registrando un outfit sin descripcion.\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un outfit sin descripcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"Se esta registrando un outfit sin descripcion.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un outfit sin descripcion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"outfit - 1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"22-03-2023 10:56:21\",\n        \"message\": \"Se esta registrando un outfit sin descripcion.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los outfits",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of authors > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outfits",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los outfits",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": 1,\r\n        \"descripcion\": \"Descripcion Outfit #1\",\r\n        \"imagen\": \"link\",\r\n        \"nombre\": \"Outfit #1\",\r\n        \"precio\": 1500,\r\n        \"colores\": \"ROJO\",\r\n        \"genero\": \"HOMBRE\",\r\n        \"ocaciones\": \"BODA\",\r\n        \"rango_edad\": \"BEBE\",\r\n        \"talla\": \"XS\",\r\n        \"comentarios\": [],\r\n        \"prendas\": []\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un outfit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"{{outfit_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un outfit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"{{outfit_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocaciones\": \"BODA\",\n    \"rango_edad\": \"BEBE\",\n    \"talla\": \"XS\",\n    \"comentarios\": [],\n    \"prendas\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un autor que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El outfit no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outfits/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un outfit que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:01:09\",\r\n        \"message\": \"The outfit with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Editar un outfit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1 Update\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"{{outfit_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un outfit",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"{{outfit_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": null,\r\n    \"rango_edad\": \"BEBE\",\r\n    \"imagen\": \"link\",\r\n    \"talla\": \"XS\",\r\n    \"descripcion\": \"Descripcion Outfit #1 Update\",\r\n    \"prendas\": [],\r\n    \"comentarios\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un autor que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El outfit no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/outfits/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Editar un outfit que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/outfits/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"21-02-2023 10:04:10\",\r\n        \"message\": \"The outfit with the given id was not found\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar un outfit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"{{outfit_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un outfit",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"{{outfit_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un outfit que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El outfit no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/outfits/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"outfits",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un outfit que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/outfits/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"outfits",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:05:19\",\n        \"message\": \"The outfit with the given id was not found\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
