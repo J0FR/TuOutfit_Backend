@@ -24,6 +24,8 @@ import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
 import co.edu.uniandes.dse.outfits.services.OutfitComentarioService;
 import co.edu.uniandes.dse.outfits.services.PrendaComentarioService;
 
+@RestController
+@RequestMapping("/prenda")
 public class PrendaComentarioController {
 
     @Autowired
@@ -44,9 +46,34 @@ public class PrendaComentarioController {
     @ResponseStatus(code = HttpStatus.OK)
     public ComentarioDetailDTO addComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("prendaId") Long prendaId)
             throws EntityNotFoundException {
-        ComentarioEntity comentarioEntity = prendaComentarioService.addComentario(prendaId, comentarioId);
+        ComentarioEntity comentarioEntity = prendaComentarioService.addComentario(comentarioId , prendaId);
         return modelMapper.map(comentarioEntity, ComentarioDetailDTO.class);
     }
+
+    /**
+     * Busca y devuelve el comentario con el ID recibido en la URL, relativo a una prenda.
+     *
+     * @param comentarioId El ID del comentario que se busca
+     * @param prendaId   El ID de la prenda de la cual se busca el comentario
+     * @return {@link ComentarioDetailDTO} - El comentario encontrado en la prenda.
+     * @throws EntityNotFoundException
+     * @throws IllegalOperationException
+     */
+    @PutMapping(value = "/{prendaId}/comentarios")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<ComentarioDetailDTO> addComentarios(@PathVariable("prendaId") Long prendaId, @RequestBody List<ComentarioDTO> comentarios)
+            throws EntityNotFoundException {
+        List<ComentarioEntity> comentariosEntity = modelMapper.map(comentarios, new TypeToken<List<ComentarioEntity>>() {
+            }.getType());
+        List<ComentarioEntity> comentarioList = prendaComentarioService.replaceComentarios(prendaId, comentariosEntity);
+        return modelMapper.map(comentarioList, new TypeToken<List<ComentarioDetailDTO>>() {
+            }.getType());
+    }
+          
+
+
+
+
 
     /**
      * Busca y devuelve el comentario con el ID recibido en la URL, relativo a una prenda.
@@ -60,7 +87,7 @@ public class PrendaComentarioController {
     @GetMapping(value = "/{prendaId}/comentarios/{comentarioId}")
     @ResponseStatus(code = HttpStatus.OK)
     public ComentarioDetailDTO getComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("prendaId") Long prendaId) throws EntityNotFoundException, IllegalOperationException {
-        ComentarioEntity comentarioEntity = prendaComentarioService.getComentario(prendaId, comentarioId);
+        ComentarioEntity comentarioEntity = prendaComentarioService.getComentario(comentarioId,prendaId);
         return modelMapper.map(comentarioEntity, ComentarioDetailDTO.class);
     }
 
@@ -91,7 +118,7 @@ public class PrendaComentarioController {
     @DeleteMapping(value = "/{prendaId}/comentarios/{comentarioId}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void removeComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("prendaId") Long prendaId) throws EntityNotFoundException {
-        prendaComentarioService.removeComentario(prendaId, comentarioId);
+        prendaComentarioService.removeComentario( prendaId , comentarioId);
     }
 
 

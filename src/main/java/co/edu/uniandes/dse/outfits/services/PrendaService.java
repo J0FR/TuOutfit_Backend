@@ -100,9 +100,6 @@ public class PrendaService {
         if (prendaEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
         }
-        if (prenda.getMarca()== null){
-            throw new IllegalOperationException("La prenda no tiene una marca asociada empty");
-        }
         if (prenda.getColores()== null){
             throw new IllegalOperationException("La prenda no tiene colores asociados null");
         }

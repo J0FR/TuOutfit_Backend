@@ -2,12 +2,9 @@ package co.edu.uniandes.dse.outfits.services;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +13,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
@@ -439,28 +435,6 @@ class PrendaServiceTest {
 
     // Inicia
 
-    @Test
-    void testUpdatePrendaWithNullMarca() {
-        assertThrows(IllegalOperationException.class, () -> {
-            PrendaEntity entity = prendaList.get(0);
-            PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
-            newEntity.setId(entity.getId());
-            newEntity.setId(1L);
-            newEntity.setNombre("Nombre Prueba");
-            newEntity.setComentarios(comentarioList);
-            newEntity.setImagen("foto");
-            newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
-            newEntity.setMarca(null);
-            newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
-            newEntity.setColores(Color.ROJO);
-            newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
-            newEntity.setTalla("A1");
-            prendaService.updatePrenda(entity.getId(), newEntity);
-    });
-    }
 
     @Test
     void testUpdatePrendaWithNullColores() {

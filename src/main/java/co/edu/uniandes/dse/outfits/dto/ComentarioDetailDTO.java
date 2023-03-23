@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 // TODO: se debería borrar
 public class ComentarioDetailDTO extends ComentarioDTO {
-    private PrendaDTO prendas;
+    private PrendaDTO prenda;
 	private OutfitDTO outfit;
 }
