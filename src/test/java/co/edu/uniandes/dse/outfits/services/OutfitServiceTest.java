@@ -5,12 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +16,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
@@ -97,7 +93,7 @@ public class OutfitServiceTest {
                 assertEquals(newEntity.getPrecio(), entity.getPrecio());
                 assertEquals(newEntity.getColores(), entity.getColores());
                 assertEquals(newEntity.getGenero(), entity.getGenero());
-                assertEquals(newEntity.getOcaciones(), entity.getOcaciones());
+                assertEquals(newEntity.getOcasiones(), entity.getOcasiones());
                 assertEquals(newEntity.getRango_edad(), entity.getRango_edad());
                 assertEquals(newEntity.getImagen(), entity.getImagen());
                 assertEquals(newEntity.getTalla(), entity.getTalla());
@@ -132,37 +128,6 @@ public class OutfitServiceTest {
                         outfitService.createOutfit(newEntity);
                 });
         }
-
-        // /**
-        //  * Prueba creacion oufit sin prendas.
-        //  */
-        // @Test
-        // void testCreateBookWithNoPrendas() {
-        //         assertThrows(IllegalOperationException.class, () -> {
-        //                 OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
-        //                 List<PrendaEntity> prendasListVacio = new ArrayList<>();
-        //                 newEntity.setNombre("Outfit - #1");
-        //                 newEntity.setPrendas(prendasListVacio);
-        //                 newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
-        //                 newEntity.setDescripcion("Descripcion");
-        //                 outfitService.createOutfit(newEntity);
-        //         });
-        // }
-
-        // /**
-        //  * Prueba creacion oufit con prenda null.
-        //  */
-        // @Test
-        // void testCreateOutfitWithPrendaNull() {
-        //         assertThrows(IllegalOperationException.class, () -> {
-        //                 OutfitEntity newEntity = factory.manufacturePojo(OutfitEntity.class);
-        //                 newEntity.setNombre("Outfit - #1");
-        //                 newEntity.setPrendas(null);
-        //                 newEntity.setImagen("../imagenes/imagenOutfit1.jpg");
-        //                 newEntity.setDescripcion("Descripcion");
-        //                 outfitService.createOutfit(newEntity);
-        //         });
-        // }
 
         /**
          * Prueba creacion oufit con descripcion string vacio.
@@ -256,7 +221,7 @@ public class OutfitServiceTest {
                 assertEquals(entity.getPrecio(), resultEntity.getPrecio());
                 assertEquals(entity.getColores(), resultEntity.getColores());
                 assertEquals(entity.getGenero(), resultEntity.getGenero());
-                assertEquals(entity.getOcaciones(), resultEntity.getOcaciones());
+                assertEquals(entity.getOcasiones(), resultEntity.getOcasiones());
                 assertEquals(entity.getRango_edad(), resultEntity.getRango_edad());
                 assertEquals(entity.getImagen(), resultEntity.getImagen());
                 assertEquals(entity.getTalla(), resultEntity.getTalla());
@@ -289,7 +254,7 @@ public class OutfitServiceTest {
                 assertEquals(pojoEntity.getPrecio(), resp.getPrecio());
                 assertEquals(pojoEntity.getColores(), resp.getColores());
                 assertEquals(pojoEntity.getGenero(), resp.getGenero());
-                assertEquals(pojoEntity.getOcaciones(), resp.getOcaciones());
+                assertEquals(pojoEntity.getOcasiones(), resp.getOcasiones());
                 assertEquals(pojoEntity.getRango_edad(), resp.getRango_edad());
                 assertEquals(pojoEntity.getImagen(), resp.getImagen());
                 assertEquals(pojoEntity.getTalla(), resp.getTalla());

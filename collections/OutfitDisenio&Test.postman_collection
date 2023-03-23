@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,21 +99,9 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"descripcion\": \"Descripcion Outfit #1\",\r\n        \"imagen\": \"link\",\r\n        \"nombre\": \"Outfit #1\",\r\n        \"precio\": 1500,\r\n        \"colores\": \"ROJO\",\r\n        \"genero\": \"HOMBRE\",\r\n        \"ocaciones\": \"BODA\",\r\n        \"rango_edad\": \"BEBE\",\r\n        \"talla\": \"XS\",\r\n        \"comentarios\": [],\r\n        \"prendas\": []\r\n    }\r\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/outfits",
 					"host": [
@@ -171,21 +159,9 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"foto\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"usuarios\": [],\r\n    \"comentarios\": [],\r\n    \"prendas\": []\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}",
 					"host": [
@@ -251,21 +227,9 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"foto\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"usuarios\": [],\r\n    \"comentarios\": [],\r\n    \"prendas\": []\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/outfits/0",
 					"host": [

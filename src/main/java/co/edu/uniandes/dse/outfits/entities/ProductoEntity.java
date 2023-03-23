@@ -14,7 +14,7 @@ public abstract class ProductoEntity extends BaseEntity {
     private Integer precio;
     private Color colores;
     private Genero genero;
-    private Ocacion ocaciones;
+    private Ocacion ocasiones;
     private RangoEdad rango_edad;
     private String talla;
 
