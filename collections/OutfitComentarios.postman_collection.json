@@ -89,6 +89,88 @@
 			]
 		},
 		{
+			"name": "Crear un comentario 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comentario_id_2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comentarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un comentario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comentarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comentarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Comentario Genial!\",\n    \"calificacion\": 3,\n    \"mensaje\": \"Excelente servicio!\",\n    \"prendas\": null,\n    \"outfit\": null\n}"
+				}
+			]
+		},
+		{
 			"name": "Crear un outfit",
 			"event": [
 				{
@@ -448,7 +530,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_2}}",
+					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/2",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -456,7 +538,7 @@
 						"outfits",
 						"{{outfit_id_1}}",
 						"comentarios",
-						"{{comentario_id_2}}"
+						"2"
 					]
 				}
 			},
