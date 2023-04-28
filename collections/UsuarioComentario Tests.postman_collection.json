@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "53ad589a-447a-428d-bf19-ab843265e8bb",
+		"_postman_id": "06b09283-4d8d-4c09-9b57-2d581b7cf461",
 		"name": "UsuarioComentario Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -68,10 +68,10 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -143,8 +143,8 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"No capes!\",\r\n    \"calificacion\": 2,\r\n    \"mensaje\": \"Do you remember Thunderhead? Tall, storm powers? Nice man, good with kids. Novemeber 15th of '58! As was well, another day saved, when... his cape snagged on a missile fin!\",\r\n    \"prendas\": null,\r\n    \"outfit\": null\r\n}"
 				}
@@ -216,8 +216,8 @@
 					},
 					"status": "OK",
 					"code": 200,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
 					"body": ""
 				}
@@ -282,7 +282,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 09:47:06\",\n        \"message\": \"El usuario no existe\"\n    }\n}"
 				}
@@ -347,7 +347,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 09:47:06\",\n        \"message\": \"El comentario no existe\"\n    }\n}"
 				}
@@ -410,7 +410,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": "[\n    {\n        \"titulo\": \"No capes!\",\n        \"calificacion\": 2,\n        \"mensaje\": \"Do you remember Thunderhead? Tall, storm powers? Nice man, good with kids. Novemeber 15th of '58! As was well, another day saved, when... his cape snagged on a missile fin!\",\n        \"autor\": {\n            \"nombre\": \"Edna Moda\",\n            \"genero\": \"M\",\n            \"edad\": 60,\n            \"email\": \"edna.mode@supermail.com\"\n        }\n    }\n]"
 				}
@@ -473,7 +473,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 09:14:50\",\n        \"message\": \"El usuario no existe\"\n    }\n}"
 				}
@@ -532,10 +532,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": null,
-					"header": null,
+					"_postman_previewlanguage": "Text",
+					"header": [],
 					"cookie": [],
-					"body": null
+					"body": ""
 				}
 			]
 		},
@@ -598,7 +598,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 09:16:35\",\n        \"message\": \"El usuario no existe\"\n    }\n}"
 				}
@@ -654,7 +654,7 @@
 					"status": "No Content",
 					"code": 204,
 					"_postman_previewlanguage": "json",
-					"header": null,
+					"header": [],
 					"cookie": [],
 					"body": ""
 				}
