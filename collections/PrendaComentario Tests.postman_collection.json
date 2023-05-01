@@ -1,12 +1,94 @@
 {
 	"info": {
-		"_postman_id": "cf6f4b3e-f382-4fb3-9391-ac968b1b58f5",
-		"name": "OutfitComentarios Tests",
+		"_postman_id": "39a0f83d-c3bd-4330-913f-48b5c8f75476",
+		"name": "PrendaComentario Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Crear un comentario",
+			"name": "Crear una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"prenda_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prenda",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una prenda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/prenda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"FORMAL\",\n    \"rango_edad\": \"BEBE\",\n    \"imagen\": \"foto\",\n    \"talla\": \"XS\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear comentario",
 			"event": [
 				{
 					"listen": "test",
@@ -47,7 +129,7 @@
 			},
 			"response": [
 				{
-					"name": "Crear un comentario",
+					"name": "Crear comentario",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
@@ -70,8 +152,6 @@
 							]
 						}
 					},
-					"status": "Created",
-					"code": 201,
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
@@ -88,171 +168,7 @@
 			]
 		},
 		{
-			"name": "Crear un comentario 2",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"pm.globals.set(\"comentario_id_2\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/comentarios",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"comentarios"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear un comentario",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/comentarios",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"comentarios"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Comentario Genial!\",\n    \"calificacion\": 3,\n    \"mensaje\": \"Excelente servicio!\",\n    \"prendas\": null,\n    \"outfit\": null\n}"
-				}
-			]
-		},
-		{
-			"name": "Crear un outfit",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var data = pm.response.json()\r",
-							"pm.globals.set(\"outfit_id_1\", data.id);\r",
-							"\r",
-							"pm.test(\"Status code is 201\", function () {\r",
-							"   pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseUrl}}/outfits",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"outfits"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear un outfit",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/outfits",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"outfits"
-							]
-						}
-					},
-					"status": "Created",
-					"code": 201,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocaciones\": \"BODA\",\n    \"rango_edad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Agregar un comentario a un outfit",
+			"name": "Agregar un comentario a una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -270,13 +186,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_1}}",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
 						"{{comentario_id_1}}"
 					]
@@ -284,18 +200,18 @@
 			},
 			"response": [
 				{
-					"name": "Agregar un comentario a un outfit",
+					"name": "Agregar un comentario a una prenda",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id}}/comentarios/{{comentario_id_1}}",
+							"raw": "{{baseURL}}/prenda/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id}}",
+								"prenda",
+								"{{prenda_id_1}}",
 								"comentarios",
 								"{{comentario_id_1}}"
 							]
@@ -314,12 +230,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Comentario Genial!\",\n    \"calificacion\": 3,\n    \"mensaje\": \"Excelente servicio!\",\n    \"prendas\": null,\n    \"outfit\": {\n        \"id\": 1,\n        \"descripcion\": \"Descripcion Outfit #1\",\n        \"imagen\": \"link\",\n        \"nombre\": \"Outfit #1\",\n        \"precio\": 1500,\n        \"colores\": \"ROJO\",\n        \"genero\": \"HOMBRE\",\n        \"ocaciones\": \"BODA\",\n        \"rango_edad\": \"BEBE\",\n        \"talla\": \"XS\",\n        \"prendas\": [],\n        \"comentarios\": [\n            {\n                \"id\": 1,\n                \"titulo\": \"Comentario Genial!\",\n                \"calificacion\": 3,\n                \"mensaje\": \"Excelente servicio!\"\n            }\n        ]\n    }\n}"
+					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rango_edad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}\r\n\r\n\r\n    }\r\n\r\n\t\t\t\t\t\t\t\r\n} "
 				}
 			]
 		},
 		{
-			"name": "Agregar un comentario que no existe a un outfit",
+			"name": "Agrega un comentario que no existe a una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -342,13 +258,13 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/0",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
 						"0"
 					]
@@ -356,12 +272,22 @@
 			},
 			"response": [
 				{
-					"name": "Agregar un comentario que no existe a un outfit",
+					"name": "Agrega un comentario que no existe a una prenda",
 					"originalRequest": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
+								"comentarios",
+								"0"
+							]
 						}
 					},
 					"status": "Not Found",
@@ -377,12 +303,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"12-03-2023 01:44:33\",\n        \"message\": \"El comentario no existe\"\n    }\n}"
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:15:29\",\n        \"message\": \"El comentario con el id dado no fue encontrado\"\n    }\n}"
 				}
 			]
 		},
 		{
-			"name": "Obtener un comentario de un outfit",
+			"name": "Obtener un comentario de una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -400,13 +326,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_1}}",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
 						"{{comentario_id_1}}"
 					]
@@ -414,18 +340,19 @@
 			},
 			"response": [
 				{
-					"name": "Obtener un comentario de un outfit",
+					"name": "Obtener un comentario de una prenda",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_1}}",
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id_1}}",
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
 								"comentarios",
 								"{{comentario_id_1}}"
 							]
@@ -444,12 +371,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 2,\n    \"titulo\": \"Comentario Genial!\",\n    \"calificacion\": 3,\n    \"mensaje\": \"Excelente servicio!\",\n    \"prendas\": null,\n    \"outfit\": {\n        \"id\": 1,\n        \"descripcion\": \"Descripcion Outfit #1\",\n        \"imagen\": \"link\",\n        \"nombre\": \"Outfit #1\",\n        \"precio\": 1500,\n        \"colores\": \"ROJO\",\n        \"genero\": \"HOMBRE\",\n        \"ocaciones\": \"BODA\",\n        \"rango_edad\": \"BEBE\",\n        \"talla\": \"XS\"\n    }\n}"
+					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rango_edad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}\r\n\r\n    }"
 				}
 			]
 		},
 		{
-			"name": "Obtener un comentario que no existe de un outfit",
+			"name": "Obtener un comentario que no existe de una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -461,7 +388,7 @@
 							"\r",
 							"pm.test(\"Get expected error message\", function () {\r",
 							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"El comentario no existe\");\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La prenda no existe\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -472,13 +399,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/0",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/0",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
 						"0"
 					]
@@ -486,12 +413,29 @@
 			},
 			"response": [
 				{
-					"name": "Obtener un comentario que no existe de un outfit",
+					"name": "Obtener un comentario que no existe de una prenda",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": ""
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
+								"comentarios",
+								"0"
+							]
 						}
 					},
 					"status": "Not Found",
@@ -507,12 +451,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"12-03-2023 01:57:06\",\n        \"message\": \"El comentario no existe\"\n    }\n}"
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:17:39\",\n        \"message\": \"El comentario con el id dado no fue encontrado\"\n    }\n}"
 				}
 			]
 		},
 		{
-			"name": "Obtener un comentario que no está asociado a un outfit",
+			"name": "Obtener un comentario que no esta asociado a una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -524,7 +468,7 @@
 							"\r",
 							"pm.test(\"Get expected error message\", function () {\r",
 							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"The comentario is not associated to the Outfit\");\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El comentario no pertenece a la prenda\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -535,26 +479,43 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/2",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/{{comentario_id_2}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
-						"2"
+						"{{comentario_id_2}}"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener un comentario que no está asociado a un outfit",
+					"name": "Obtener un comentario que no esta asociado a una prenda",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": ""
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/{{comentario_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
+								"comentarios",
+								"{{comentario_id_2}}"
+							]
 						}
 					},
 					"status": "Precondition Failed",
@@ -570,12 +531,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"12-03-2023 02:03:07\",\n        \"message\": \"The book is not associated to the Outfit\"\n    }\n}"
+					"body": "{\n    \"apierror\": {\n        \"status\": \"PRECONDITION_FAILED\",\n        \"timestamp\": \"21-02-2023 10:19:03\",\n        \"message\": \"El comentario no esta asociado a la prenda\"\n    }\n}"
 				}
 			]
 		},
 		{
-			"name": "Obtener los comentarios de un outfit",
+			"name": "Obtener los comentarios de una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -598,31 +559,39 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Obtener los comentarios de un outfit",
+					"name": "Obtener los comentarios de una prenda",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id_1}}",
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
 								"comentarios"
 							]
 						}
@@ -640,12 +609,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 2,\n        \"titulo\": \"Comentario Genial!\",\n        \"calificacion\": 3,\n        \"mensaje\": \"Excelente servicio!\",\n        \"prendas\": null,\n        \"outfit\": {\n            \"id\": 2,\n            \"descripcion\": \"Descripcion Outfit #1\",\n            \"imagen\": \"link\",\n            \"nombre\": \"Outfit #1\",\n            \"precio\": 1500,\n            \"colores\": \"ROJO\",\n            \"genero\": \"HOMBRE\",\n            \"ocaciones\": \"BODA\",\n            \"rango_edad\": \"BEBE\",\n            \"talla\": \"XS\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"titulo\": \"Comentario Genial!\",\n        \"calificacion\": 3,\n        \"mensaje\": \"Excelente servicio!\",\n        \"prendas\": null,\n        \"outfit\": {\n            \"id\": 2,\n            \"descripcion\": \"Descripcion Outfit #1\",\n            \"imagen\": \"link\",\n            \"nombre\": \"Outfit #1\",\n            \"precio\": 1500,\n            \"colores\": \"ROJO\",\n            \"genero\": \"HOMBRE\",\n            \"ocaciones\": \"BODA\",\n            \"rango_edad\": \"BEBE\",\n            \"talla\": \"XS\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"titulo\": \"Comentario Genial!\",\n        \"calificacion\": 3,\n        \"mensaje\": \"Excelente servicio!\",\n        \"prendas\": null,\n        \"outfit\": {\n            \"id\": 2,\n            \"descripcion\": \"Descripcion Outfit #1\",\n            \"imagen\": \"link\",\n            \"nombre\": \"Outfit #1\",\n            \"precio\": 1500,\n            \"colores\": \"ROJO\",\n            \"genero\": \"HOMBRE\",\n            \"ocaciones\": \"BODA\",\n            \"rango_edad\": \"BEBE\",\n            \"talla\": \"XS\"\n        }\n    }\n]"
+					"body": "[{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rango_edad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"}\r\n    },\r\n     {\r\n        \"id\": 3,\r\n        \"titulo\": \"Comentario Genial!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excelente servicio!\",\r\n        \"outfits\":null,\r\n        \"prenda\":{\r\n            \"id\": 1,\r\n            \"nombre\":\"prenda1\",\r\n            \"rango_edad\":\"BEBE\",\r\n            \"foto\":\"foto\",\r\n            \"talla\":\"XS\",\r\n            \"genero\":\"HOMBRE\",\r\n            \"precio\": 10,\r\n            \"colores\": \"ROJO\",\r\n            \"ocaciones\": \"FIESTA\",\r\n            \"imagen\":\"imagen\",\r\n            \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n        }\r\n     }\r\n    \r\n    ]"
 				}
 			]
 		},
 		{
-			"name": "Asociar comentarios a un outfit",
+			"name": "Asociar comentarios a una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -664,7 +633,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"titulo\": \"C3l!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excel3rvicio!\"\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"titulo\": \"Comentario Genial!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excelente servicio!\"\r\n    }\r\n]\r\n\r\n\r\n",
+					"raw": "[\r\n    {\"id\":1,\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    },\r\n    {\r\n    \"id\":2,\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -672,31 +641,48 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Asociar comentarios a un outfit",
+					"name": "Asociar comentarios a una prenda",
 					"originalRequest": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\"id\":{{new_id_c}},\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    },\r\n    {\r\n    \"id\":{{new_id_c2}},\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id_1}}",
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
 								"comentarios"
 							]
 						}
@@ -714,12 +700,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"titulo\": \"C3l!\",\n        \"calificacion\": 3,\n        \"mensaje\": \"Excel3rvicio!\",\n        \"prendas\": null,\n        \"outfit\": null\n    },\n    {\n        \"id\": 2,\n        \"titulo\": \"Comentario Genial!\",\n        \"calificacion\": 3,\n        \"mensaje\": \"Excelente servicio!\",\n        \"prendas\": null,\n        \"outfit\": null\n    }\n]"
+					"body": "[\r\n    {\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null},\r\n    {\r\n        \"id\": 3,\r\n        \"titulo\": \"Comentario Genial!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excelente servicio!\",\r\n        \"outfits\":null\r\n    }\r\n]"
 				}
 			]
 		},
 		{
-			"name": "Asociar comentarios que no existen a un outfit",
+			"name": "Asociar comentarios que no existen a una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -743,7 +729,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"titulo\": \"C3l!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excel3rvicio!\"\r\n    }\r\n]\r\n",
+					"raw": "[\r\n    {\"id\":0,\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -751,26 +737,33 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Asociar comentarios que no existen a un outfit",
+					"name": "Asociar comentarios que no existen a una prenda",
 					"originalRequest": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"id\": 0,\r\n        \"titulo\": \"C3l!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excel3rvicio!\"\r\n    }\r\n]\r\n",
+							"raw": "[\r\n    {\"id\":0,\r\n            \"titulo\": \"titulo1\",\r\n            \"calificacion\":4,\r\n            \"mensaje\":\"mensaje1\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -778,13 +771,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios",
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id_1}}",
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
 								"comentarios"
 							]
 						}
@@ -802,12 +796,12 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"12-03-2023 03:01:48\",\n        \"message\": \"El comentario no existe\"\n    }\n}"
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:25:21\",\n        \"message\": \"El comentario con el id dado no fue encontrado\"\n    }\n}"
 				}
 			]
 		},
 		{
-			"name": "Borrar un comentario de un outfit",
+			"name": "Borrar un comentario de una prenda",
 			"event": [
 				{
 					"listen": "test",
@@ -825,13 +819,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_1}}",
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
-						"{{outfit_id_1}}",
+						"prenda",
+						"{{prenda_id_1}}",
 						"comentarios",
 						"{{comentario_id_1}}"
 					]
@@ -839,18 +833,19 @@
 			},
 			"response": [
 				{
-					"name": "Borrar un comentario de un outfit",
+					"name": "Borrar un comentario de una prenda",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/outfits/{{outfit_id_1}}/comentarios/{{comentario_id_1}}",
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/{{comentario_id_1}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
-								"{{outfit_id_1}}",
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
 								"comentarios",
 								"{{comentario_id_1}}"
 							]
@@ -858,15 +853,23 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": "Text",
-					"header": [],
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
 					"cookie": [],
 					"body": ""
 				}
 			]
 		},
 		{
-			"name": "Borrar un comentario a un outfit que no existe",
+			"name": "Borrar un comentario de una prenda que no existe",
 			"event": [
 				{
 					"listen": "test",
@@ -878,7 +881,7 @@
 							"\r",
 							"pm.test(\"Get expected error message\", function () {\r",
 							"   var data = pm.response.json();\r",
-							"   pm.expect(data.apierror.message).to.eql(\"El outfit no existe\");\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La prenda no existe\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -889,12 +892,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/outfits/0/comentarios/{{comentario_id_1}}",
+					"raw": "{{baseUrl}}/prenda/0/comentarios/{{comentario_id_1}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"outfits",
+						"prenda",
 						"0",
 						"comentarios",
 						"{{comentario_id_1}}"
@@ -903,17 +906,18 @@
 			},
 			"response": [
 				{
-					"name": "Borrar un comentario a un outfit que no existe",
+					"name": "Borrar un comentario de una prenda que no existe",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/outfits/0/comentarios/{{comentario_id_1}}",
+							"raw": "{{baseURL}}/api/prendas/0/comentarios/{{comentario_id_1}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"outfits",
+								"api",
+								"prendas",
 								"0",
 								"comentarios",
 								"{{comentario_id_1}}"
@@ -933,7 +937,87 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 06:43:54\",\n        \"message\": \"El outfit no existe\"\n    }\n}"
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar un comentario que no existe de una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"El comentario no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}/comentarios/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"{{prenda_id_1}}",
+						"comentarios",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar un comentario que no existe de una prenda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/prendas/{{prenda_id_1}}/comentarios/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"prendas",
+								"{{prenda_id_1}}",
+								"comentarios",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
 				}
 			]
 		}
