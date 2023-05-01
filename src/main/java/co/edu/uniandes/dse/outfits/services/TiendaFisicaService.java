@@ -82,12 +82,6 @@ public class TiendaFisicaService {
         if (tiendaFisicaEntity.isEmpty()) {
             throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
         }
-        if (tiendaFisicaEntity.get().getUbicacion() != null) {
-            throw new IllegalOperationException("La tienda física tiene una ubicación asociada");
-        }
-        if (tiendaFisicaEntity.get().getMarca() != null) {
-            throw new IllegalOperationException("La tienda física tiene una marca asociada");
-        }
         tiendaFisicaRepository.deleteById(tiendaFisicaId);
         log.info("Termina proceso de borrar la tienda física con id = {0}", tiendaFisicaId);
     }
