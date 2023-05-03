@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a221b178-7549-49f9-99fc-10ebd0d50091",
+		"_postman_id": "9c8b0368-8669-4c84-8967-157a26c0bf89",
 		"name": "MarcaPrendas Tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25534557"
 	},
 	"item": [
 		{
@@ -13,7 +14,7 @@
 					"script": {
 						"exec": [
 							"var data = pm.response.json()\r",
-							"pm.globals.set(\"prenda_id_1\", data.id);\r",
+							"pm.globals.set(\"prenda_id\", data.id);\r",
 							"\r",
 							"pm.test(\"Status code is 201\", function () {\r",
 							"   pm.response.to.have.status(201);\r",
@@ -95,7 +96,7 @@
 					"script": {
 						"exec": [
 							"var data = pm.response.json()\r",
-							"pm.globals.set(\"marca_id_1\", data.id);\r",
+							"pm.globals.set(\"marca_id\", data.id);\r",
 							"\r",
 							"pm.test(\"Status code is 201\", function () {\r",
 							"   pm.response.to.have.status(201);\r",
@@ -188,7 +189,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id_1}}",
+					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -196,7 +197,7 @@
 						"marcas",
 						"{{marca_id}}",
 						"prenda",
-						"{{prenda_id_1}}"
+						"{{prenda_id}}"
 					]
 				}
 			},
@@ -336,7 +337,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id_1}}",
+					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -344,7 +345,7 @@
 						"marcas",
 						"{{marca_id}}",
 						"prenda",
-						"{{prenda_id_1}}"
+						"{{prenda_id}}"
 					]
 				}
 			},
@@ -788,7 +789,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id_1}}",
+					"raw": "{{baseUrl}}/marcas/{{marca_id}}/prenda/{{prenda_id}}",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -796,7 +797,7 @@
 						"marcas",
 						"{{marca_id}}",
 						"prenda",
-						"{{prenda_id_1}}"
+						"{{prenda_id}}"
 					]
 				}
 			},
