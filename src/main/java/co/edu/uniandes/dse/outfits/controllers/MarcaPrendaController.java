@@ -54,7 +54,8 @@ public class MarcaPrendaController {
      *
      * @param prendaId El ID de la prenda que se busca
      * @param marcaId  El ID de la marca del cual se busca la prenda
-     * @return {@link PrendaDetailDTO} - La prenda se encontrado en la marca.
+     * @return {@link PrendaDetailDTO} - La prenda especifica asociaada con la
+     *         marca.
      * @throws EntityNotFoundException
      */
     @GetMapping(value = "/{marcaId}/prenda/{prendaId}")
@@ -74,8 +75,7 @@ public class MarcaPrendaController {
      * @param marcaId El ID de la marca al cual se le va a asociar la lista de
      *                prendas
      * @param prendas JSONArray {@link PrendaDTO} - La lista de prendas
-     *                que se desea
-     *                guardar.
+     *                que se desea asociar.
      * @return JSONArray {@link PrendaDetailDTO} - La lista actualizada.
      * @throws EntityNotFoundException
      */
@@ -100,7 +100,7 @@ public class MarcaPrendaController {
      *         marca. Si no hay ninguno retorna una lista vacía.
      * @throws co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException
      */
-    @GetMapping(value = "/{marcaId}/marcas")
+    @GetMapping(value = "/{marcaId}/prenda")
     @ResponseStatus(code = HttpStatus.OK)
     public List<PrendaDetailDTO> getPrendas(@PathVariable("marcaId") Long marcaId)
             throws EntityNotFoundException {
