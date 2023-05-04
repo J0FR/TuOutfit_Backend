@@ -32,18 +32,20 @@ public class TiendaFisicaUbicacionController {
     private TiendaFisicaUbicacionService tiendaFisicaUbicacionService;
 
     @Autowired
-	private ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     @PutMapping(value = "/{idTiendaFisica}/ubicacion")
     @ResponseStatus(code = HttpStatus.OK)
-    public UbicacionDTO addUbicacion(@PathVariable("idTiendaFisica") Long idTiendaFisica, @RequestBody Long idUbicacion) throws EntityNotFoundException {
+    public UbicacionDTO addUbicacion(@PathVariable("idTiendaFisica") Long idTiendaFisica, @RequestBody Long idUbicacion)
+            throws EntityNotFoundException {
         UbicacionEntity tiendaFisicaEntity = tiendaFisicaUbicacionService.addUbicacion(idTiendaFisica, idUbicacion);
         return modelMapper.map(tiendaFisicaEntity, UbicacionDTO.class);
     }
 
     @GetMapping(value = "/{idTiendaFisica}/ubicacion")
     @ResponseStatus(code = HttpStatus.OK)
-    public UbicacionDTO getUbicacion(@PathVariable("idTiendaFisica") Long idTiendaFisica, @RequestBody Long idUbicacion) throws EntityNotFoundException, IllegalOperationException {
+    public UbicacionDTO getUbicacion(@PathVariable("idTiendaFisica") Long idTiendaFisica, @RequestBody Long idUbicacion)
+            throws EntityNotFoundException, IllegalOperationException {
         UbicacionEntity tiendaFisicaEntity = tiendaFisicaUbicacionService.getUbicacion(idTiendaFisica, idUbicacion);
         return modelMapper.map(tiendaFisicaEntity, UbicacionDTO.class);
     }
