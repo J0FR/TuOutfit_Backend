@@ -1,12 +1,95 @@
 {
 	"info": {
-		"_postman_id": "cf6f4b3e-f382-4fb3-9391-ac968b1b58f5",
-		"name": "OutfitComentarios Tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "68464585-d838-4c98-b989-6ccb82188f58",
+		"name": "OutfitComentarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498058"
 	},
 	"item": [
 		{
 			"name": "Crear un comentario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comentario_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/comentarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un comentario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Comentario Genial!\",\r\n    \"calificacion\": 3,\r\n    \"mensaje\": \"Excelente servicio!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comentarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comentarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Comentario Genial!\",\n    \"calificacion\": 3,\n    \"mensaje\": \"Excelente servicio!\",\n    \"prendas\": null,\n    \"outfit\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un comentario Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -359,10 +442,7 @@
 					"name": "Agregar un comentario que no existe a un outfit",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"status": "Not Found",
 					"code": 404,
@@ -489,10 +569,7 @@
 					"name": "Obtener un comentario que no existe de un outfit",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"status": "Not Found",
 					"code": 404,
@@ -552,10 +629,7 @@
 					"name": "Obtener un comentario que no está asociado a un outfit",
 					"originalRequest": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
+						"header": []
 					},
 					"status": "Precondition Failed",
 					"code": 412,
@@ -858,10 +932,10 @@
 					},
 					"status": "No Content",
 					"code": 204,
-					"_postman_previewlanguage": "Text",
-					"header": [],
+					"_postman_previewlanguage": null,
+					"header": null,
 					"cookie": [],
-					"body": ""
+					"body": null
 				}
 			]
 		},
