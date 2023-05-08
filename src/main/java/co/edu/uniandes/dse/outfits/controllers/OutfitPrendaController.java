@@ -85,6 +85,7 @@ public class OutfitPrendaController {
 		}.getType());
 	}
 
+
 	/**
 	 * Busca y devuelve todos los prendas que existen en un outfit.
 	 *
