@@ -87,7 +87,7 @@ public class PrendaComentarioController {
     @GetMapping(value = "/{prendaId}/comentarios/{comentarioId}")
     @ResponseStatus(code = HttpStatus.OK)
     public ComentarioDetailDTO getComentario(@PathVariable("comentarioId") Long comentarioId, @PathVariable("prendaId") Long prendaId) throws EntityNotFoundException, IllegalOperationException {
-        ComentarioEntity comentarioEntity = prendaComentarioService.getComentario(comentarioId,prendaId);
+        ComentarioEntity comentarioEntity = prendaComentarioService.getComentario(prendaId,comentarioId);
         return modelMapper.map(comentarioEntity, ComentarioDetailDTO.class);
     }
 

@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "75f7821b-001a-4af9-a86f-12170f29a598",
+		"_postman_id": "c413c4b5-e782-492a-90a5-c4c62ba4bf14",
 		"name": "Prenda Tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25533201"
 	},
 	"item": [
 		{
