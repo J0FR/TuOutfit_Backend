@@ -1,15 +1,9 @@
 {
 	"info": {
-<<<<<<<< HEAD:collections/Outfit Tests.postman_collection.json
-		"_postman_id": "e7ab6b26-c254-48cd-a135-d620050ca1cb",
-		"name": "Outfit Tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-========
 		"_postman_id": "3c3da3a6-9e24-4f57-869b-ee4149f548f6",
 		"name": "Ubicacion Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25496058"
->>>>>>>> master:collections/UbicacionTests.postman_collection.json
 	},
 	"item": [
 		{
