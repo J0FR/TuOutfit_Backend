@@ -130,6 +130,7 @@ public class MarcaPrendaService {
             if (!marcaEntity.get().getPrendas().contains(cambio.get()))
                 marcaEntity.get().getPrendas().add(cambio.get());
         }
+        log.info("Termina proceso de aztualizar la marca con id = {0}", marcaId);
         return getPrendas(marcaId);
     }
 

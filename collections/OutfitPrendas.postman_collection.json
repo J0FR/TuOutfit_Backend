@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c879e16c-16bd-4fe7-a613-14aa6800a7a2",
-		"name": "OutfitPrendas Tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "799f179f-7273-40e4-9e58-d9e4869acc5d",
+		"name": "OutfitPrendas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25498058"
 	},
 	"item": [
 		{
@@ -773,7 +774,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n    \"id\": 1,\r\n    \"nombre\": \"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"imagen\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\r\n    },\r\n    {\r\n    \"id\": 2,\r\n    \"nombre\": \"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"imagen\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\r\n    }\r\n]\r\n\r\n\r\n",
+					"raw": "[\r\n    {\r\n    \"id\": {{prenda_id_1}},\r\n    \"nombre\": \"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"imagen\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\r\n    },\r\n    {\r\n    \"id\": {{prenda_id_2}},\r\n    \"nombre\": \"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"FORMAL\",\r\n    \"rango_edad\": \"BEBE\",\r\n    \"imagen\": \"foto\",\r\n    \"talla\": \"XS\",\r\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\r\n    }\r\n]\r\n\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

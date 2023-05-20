@@ -65,7 +65,7 @@ public class MarcaController {
      * petición y se regresa un objeto identico con un id auto-generado por la base
      * de datos.
      *
-     * @param MarcaDetailDTO {@link MarcaDetailDTO} - La marca que se desea guardar.
+     * @param marcaDetailDTO {@link MarcaDetailDTO} - La marca que se desea guardar.
      * @return JSON {@link MarcaDetailDTO} - La marca guardada con el atributo id
      *         autogenerado.
      * @throws IllegalOperationException
@@ -82,9 +82,11 @@ public class MarcaController {
      * Actualiza la marca con el id recibido en la URL con la información que se
      * recibe en el cuerpo de la petición.
      *
-     * @param id    Identificador de la marca que se desea actualizar. Este debe ser
-     *              una cadena de dígitos.
-     * @param marca {@link MarcaDetailDTO} El outfit que se desea guardar.
+     * @param id             Identificador de la marca que se desea actualizar. Este
+     *                       debe ser
+     *                       una cadena de dígitos.
+     * @param marcaDetailDTO {@link MarcaDetailDTO} La nueva marca que quiere
+     *                       guardar.
      * @throws IllegalOperationException
      */
     @PutMapping(value = "/{id}")

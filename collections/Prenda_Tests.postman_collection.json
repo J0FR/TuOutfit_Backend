@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "c413c4b5-e782-492a-90a5-c4c62ba4bf14",
+		"name": "Prenda Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25533201"
+	},
+	"item": [
+		{
+			"name": "Crear una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"prenda_id_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prenda",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una prenda",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/prenda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"FORMAL\",\n    \"rango_edad\": \"BEBE\",\n    \"imagen\": \"foto\",\n    \"talla\": \"XS\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las prendas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of prendas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todas las prendas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/prenda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"prenda1\",\n        \"rango_edad\": \"BEBE\",\n        \"foto\": \"foto\",\n        \"talla\": \"XS\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": \"ROJO\",\n        \"ocaciones\": \"FIESTA\",\n        \"imagen\": \"imagen\",\n        \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"{{prenda_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una prenda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/prenda/{{prenda_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"{{prenda_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rango_edad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"ocaciones\": \"FIESTA\",\n    \"imagen\": \"imagen\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una prenda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La prenda no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una prenda que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/prenda/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"La prenda con el id dado no fue encontrada\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"{{prenda_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una prenda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/prenda/{{prenda_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"{{prenda_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"ocaciones\": \"FIESTA\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\",\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una prenda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La prenda no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/prenda/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una prenda que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/prenda/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"21-02-2023 10:01:09\",\n        \"message\": \"The author with the given id was not found\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar una prenda",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda/{{prenda_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"{{prenda_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una prenda",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/prenda/{{prenda_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"{{prenda_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Borrar una prenda que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.apierror.message).to.eql(\"La prenda no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/prenda/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"prenda",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar una prenda que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/prenda/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"prenda",
+								"0"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apierror\": {\n        \"status\": \"NOT_FOUND\",\n        \"timestamp\": \"22-03-2023 07:44:52\",\n        \"message\": \"La prenda no existe\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
