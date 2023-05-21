@@ -23,3 +23,11 @@ INSERT INTO TIENDA_FISICA_ENTITY VALUES(1, 'Tienda 1', 'Direccion 1', 1, 1);
 INSERT INTO TIENDA_FISICA_ENTITY VALUES(2, 'Tienda 2', 'Direccion 2', 2, 2);
 INSERT INTO TIENDA_FISICA_ENTITY VALUES(3, 'Tienda 3', 'Direccion 3', 3, 3);
 INSERT INTO TIENDA_FISICA_ENTITY VALUES(4, 'Tienda 4', 'Direccion 4', 1, 4);
+
+INSERT INTO USUARIO_ENTITY VALUES(1, 60, 'edna.mode@supersecret.com', 'M', 'Edna Mode');
+INSERT INTO USUARIO_ENTITY VALUES(2, 45, 'mrincredible@supersecret.com', 'H', 'Bob Parr');
+INSERT INTO USUARIO_ENTITY VALUES(3, 40, 'elasti_girl@supermail.us', 'M', 'Helen Parr');
+
+INSERT INTO COMENTARIO_ENTITY VALUES(1, 4, 'I never look back, darling. It distracts from the now.', 'Ednas pep talk', 1, 2, null);
+INSERT INTO COMENTARIO_ENTITY VALUES(2, 5, 'The best for the best', 'Bomb voyage!', 2, 3, null);
+INSERT INTO COMENTARIO_ENTITY VALUES(3, 1, 'Meta-Man. Express elevator. Dynaguy, snag on takeoff. Splashdown, sucked into a vortex.', 'No capes!', 1, null, 3);
