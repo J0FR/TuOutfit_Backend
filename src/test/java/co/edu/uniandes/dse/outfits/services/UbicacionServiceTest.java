@@ -59,21 +59,18 @@ class UbicacionServiceTest {
             entityManager.persist(tiendaFisicaEntity);
             tiendaFisicaList.add(tiendaFisicaEntity);
         }
-        ubicacionList.get(0).setTiendaFisica(tiendaFisicaList.get(0));
         tiendaFisicaList.get(0).setUbicacion(ubicacionList.get(0));
     }
 
     @Test
     void testCreateUbicacion() throws EntityNotFoundException, IllegalOperationException {
         UbicacionEntity ubicacionEntity = factory.manufacturePojo(UbicacionEntity.class);
-        ubicacionEntity.setTiendaFisica(tiendaFisicaList.get(0));
         UbicacionEntity result = ubicacionService.createUbicacion(ubicacionEntity);
         assertNotNull(result);
         UbicacionEntity entity = entityManager.find(UbicacionEntity.class, result.getId());
         assertEquals(ubicacionEntity.getId(), entity.getId());
         assertEquals(ubicacionEntity.getLatitud(), entity.getLatitud());
         assertEquals(ubicacionEntity.getLongitud(), entity.getLongitud());
-        assertEquals(ubicacionEntity.getTiendaFisica().getId(), entity.getTiendaFisica().getId());
     }
 
     @Test
@@ -99,7 +96,6 @@ class UbicacionServiceTest {
         assertEquals(entity.getId(), resultEntity.getId());
         assertEquals(entity.getLatitud(), resultEntity.getLatitud());
         assertEquals(entity.getLongitud(), resultEntity.getLongitud());
-        assertEquals(entity.getTiendaFisica().getId(), resultEntity.getTiendaFisica().getId());
     }
 
     @Test
@@ -114,7 +110,6 @@ class UbicacionServiceTest {
         UbicacionEntity entity = ubicacionList.get(0);
         UbicacionEntity pojoEntity = factory.manufacturePojo(UbicacionEntity.class);
         pojoEntity.setId(entity.getId());
-        pojoEntity.setTiendaFisica(entity.getTiendaFisica());
         ubicacionService.updateUbicacion(entity.getId(), pojoEntity);
 
         UbicacionEntity resp = entityManager.find(UbicacionEntity.class, entity.getId());

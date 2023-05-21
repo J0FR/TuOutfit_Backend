@@ -58,7 +58,6 @@ public class TiendaFisicaUbicacionServiceTest {
         marca = factory.manufacturePojo(MarcaEntity.class);
         entityManager.persist(marca);
 
-        ubicacion.setTiendaFisica(tiendaFisica);
         tiendaFisica.setUbicacion(ubicacion);
         tiendaFisica.setMarca(marca);
     }
