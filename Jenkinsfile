@@ -16,7 +16,23 @@ pipeline {
                url: 'https://github.com/Uniandes-isis2603/' + env.GIT_REPO
             
          }
-      }      
+      }
+      stage('GitInspector') { 
+         steps {
+            withCredentials([usernamePassword(credentialsId: env.GIT_CREDENTIAL_ID, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+               sh 'mkdir -p code-analyzer-report'
+               sh """ curl --request POST --url https://code-analyzer.virtual.uniandes.edu.co/analyze --header "Content-Type: application/json" --data '{"repo_url":"git@github.com:Uniandes-isis2603/bookstore-front.git", "access_token": "${GIT_PASSWORD}" }' > code-analyzer-report/index.html """   
+            }
+            publishHTML (target: [
+               allowMissing: false,
+               alwaysLinkToLastBuild: false,
+               keepAll: true,
+               reportDir: 'code-analyzer-report',
+               reportFiles: 'index.html',
+               reportName: "GitInspector"
+            ])
+         }
+      }
       stage('Build') {
          // Build artifacts
          steps {
