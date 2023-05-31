@@ -45,7 +45,7 @@ public class TiendaFisicaController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public TiendaFisicaDTO create(@RequestBody TiendaFisicaDTO tiendaFisicaDTO) throws IllegalOperationException, EntityNotFoundException {
+    public TiendaFisicaDTO create(@RequestBody TiendaFisicaDTO tiendaFisicaDTO) throws IllegalOperationException {
             TiendaFisicaEntity tiendaFisicaEntity = tiendaFisicaService.createTiendaFisica(modelMapper.map(tiendaFisicaDTO, TiendaFisicaEntity.class));
             return modelMapper.map(tiendaFisicaEntity, TiendaFisicaDTO.class);
     }

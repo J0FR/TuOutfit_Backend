@@ -51,7 +51,7 @@ public class PrendaController {
         
         @PostMapping
         @ResponseStatus(code = HttpStatus.CREATED)
-        public PrendaDTO create(@RequestBody PrendaDTO prendaDTO) throws IllegalOperationException, EntityNotFoundException{
+        public PrendaDTO create(@RequestBody PrendaDTO prendaDTO) throws IllegalOperationException {
             PrendaEntity prendaEntity = prendaService.createPrenda(modelMapper.map(prendaDTO, PrendaEntity.class));
             return modelMapper.map(prendaEntity, PrendaDTO.class);   
         } 

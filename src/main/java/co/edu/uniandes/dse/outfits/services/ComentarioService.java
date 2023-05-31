@@ -35,7 +35,6 @@ public class ComentarioService {
         else if (comentarioEntity.getMensaje() == null) {
             throw new IllegalOperationException("Mensaje faltante");
         }
-        // TODO: ambos podrían no ser nulos
         else if (comentarioEntity.getOutfit() != null && comentarioEntity.getPrenda() != null) {
             throw new IllegalOperationException("Solo se puede comentar una prenda o un outfit");
         }

@@ -46,7 +46,7 @@ public class UbicacionController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public UbicacionDTO create(@RequestBody UbicacionDTO ubicacionDTO) throws IllegalOperationException, EntityNotFoundException {
+    public UbicacionDTO create(@RequestBody UbicacionDTO ubicacionDTO) throws IllegalOperationException {
             UbicacionEntity ubicacionEntity = ubicacionService.createUbicacion(modelMapper.map(ubicacionDTO, UbicacionEntity.class));
             return modelMapper.map(ubicacionEntity, UbicacionDTO.class);
     }

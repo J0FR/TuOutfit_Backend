@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocasiones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -231,7 +231,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}\r\n\r\n\r\n    }\r\n\r\n\t\t\t\t\t\t\t\r\n} "
+					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocasiones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}\r\n\r\n\r\n    }\r\n\r\n\t\t\t\t\t\t\t\r\n} "
 				}
 			]
 		},
@@ -372,7 +372,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}\r\n\r\n    }"
+					"body": "{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocasiones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}\r\n\r\n    }"
 				}
 			]
 		},
@@ -690,7 +690,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocaciones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"}\r\n    },\r\n     {\r\n        \"id\": 3,\r\n        \"titulo\": \"Comentario Genial!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excelente servicio!\",\r\n        \"outfits\":null,\r\n        \"prenda\":{\r\n            \"id\": 1,\r\n            \"nombre\":\"prenda1\",\r\n            \"rangoEdad\":\"BEBE\",\r\n            \"foto\":\"foto\",\r\n            \"talla\":\"XS\",\r\n            \"genero\":\"HOMBRE\",\r\n            \"precio\": 10,\r\n            \"colores\": \"ROJO\",\r\n            \"ocaciones\": \"FIESTA\",\r\n            \"imagen\":\"imagen\",\r\n            \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n        }\r\n     }\r\n    \r\n    ]"
+					"body": "[{\r\n    \"id\": 1,\r\n    \"titulo\": \"titulo1\",\r\n    \"calificacion\":4,\r\n    \"mensaje\":\"mensaje1\",\r\n    \"outfits\":null,\r\n    \"prenda\":{\r\n        \"id\": 1,\r\n        \"nombre\":\"prenda1\",\r\n        \"rangoEdad\":\"BEBE\",\r\n        \"foto\":\"foto\",\r\n        \"talla\":\"XS\",\r\n        \"genero\":\"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": \"ROJO\",\r\n        \"ocasiones\": \"FIESTA\",\r\n        \"imagen\":\"imagen\",\r\n        \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"}\r\n    },\r\n     {\r\n        \"id\": 3,\r\n        \"titulo\": \"Comentario Genial!\",\r\n        \"calificacion\": 3,\r\n        \"mensaje\": \"Excelente servicio!\",\r\n        \"outfits\":null,\r\n        \"prenda\":{\r\n            \"id\": 1,\r\n            \"nombre\":\"prenda1\",\r\n            \"rangoEdad\":\"BEBE\",\r\n            \"foto\":\"foto\",\r\n            \"talla\":\"XS\",\r\n            \"genero\":\"HOMBRE\",\r\n            \"precio\": 10,\r\n            \"colores\": \"ROJO\",\r\n            \"ocasiones\": \"FIESTA\",\r\n            \"imagen\":\"imagen\",\r\n            \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n        }\r\n     }\r\n    \r\n    ]"
 				}
 			]
 		},
