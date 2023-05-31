@@ -15,11 +15,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
-import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.entities.TiendaFisicaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
-import javassist.expr.NewArray;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 

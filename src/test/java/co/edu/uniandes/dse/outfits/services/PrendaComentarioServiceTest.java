@@ -20,7 +20,6 @@ import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
-import co.edu.uniandes.dse.outfits.services.PrendaComentarioService;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 

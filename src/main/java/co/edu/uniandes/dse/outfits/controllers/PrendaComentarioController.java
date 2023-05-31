@@ -21,7 +21,6 @@ import co.edu.uniandes.dse.outfits.dto.ComentarioDetailDTO;
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
-import co.edu.uniandes.dse.outfits.services.OutfitComentarioService;
 import co.edu.uniandes.dse.outfits.services.PrendaComentarioService;
 
 @RestController

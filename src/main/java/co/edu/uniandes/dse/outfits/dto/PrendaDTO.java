@@ -1,6 +1,5 @@
 package co.edu.uniandes.dse.outfits.dto;
 
-import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import lombok.Getter;
 import lombok.Setter;
 
