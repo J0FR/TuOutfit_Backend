@@ -105,7 +105,7 @@ public class TiendaFisicaServiceTest {
     }
 
     @Test
-    void testGetTiendasFisicas() {
+    void testgetTiendasFisicas() {
         List<TiendaFisicaEntity> list = tiendaFisicaService.getTiendasFisicas();
         assertEquals(tiendaFisicaList.size(), list.size());
         for (TiendaFisicaEntity entity : list) {

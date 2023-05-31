@@ -12,7 +12,7 @@ public class OutfitDTO {
     private Color colores;
     private Genero genero;
     private Ocasion ocasiones;
-    private RangoEdad rango_edad;
+    private RangoEdad rangoEdad;
     private String imagen;
     private String talla;
     private String descripcion;

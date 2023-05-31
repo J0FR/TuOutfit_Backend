@@ -12,10 +12,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
-import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
@@ -77,7 +75,7 @@ public class PrendaMarcaServiceTest {
     private void compareMarcaEntity(MarcaEntity a, MarcaEntity b) throws EntityNotFoundException {
         assertEquals(a.getId(), b.getId());
         assertEquals(a.getNombre(), b.getNombre());
-        assertEquals(a.getUrl_sitio_web(), b.getUrl_sitio_web());
+        assertEquals(a.getUrlSitioWeb(), b.getUrlSitioWeb());
 
     }
 

@@ -47,4 +47,29 @@ public abstract class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+
+	/**
+	 * Sobreescritura de la función equals
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		BaseEntity other = (BaseEntity) o;
+		return id != null && id.equals(other.id);
+	}
+
+
+	/**
+	 * Sobreescritura de la función de hash
+	 */
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
 }

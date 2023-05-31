@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"nombre_marca\",\r\n    \"url_sitio_web\": \"www.marca.com\",\r\n    \"logo\": \"logo_marca.png\",\r\n    \"detalle_de_marca\": \"detalle\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"nombre_marca\",\r\n    \"urlSitioWeb\": \"www.marca.com\",\r\n    \"logo\": \"logo_marca.png\",\r\n    \"detalleDeMarca\": \"detalle\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

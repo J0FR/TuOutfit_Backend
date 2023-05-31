@@ -41,7 +41,7 @@ public class MarcaTiendaFisicaService {
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        marcaEntity.get().getTiendas_fisicas().add(tiendaFisicaEntity.get());
+        marcaEntity.get().getTiendasFisicas().add(tiendaFisicaEntity.get());
         log.info("Termina proceso de asociarle una tienda fisica a la marca con id = {0}", marcaId);
         return tiendaFisicaEntity.get();
     }
@@ -59,7 +59,7 @@ public class MarcaTiendaFisicaService {
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
         log.info("Termina proceso de consultar una tienda fisica de la marca con id = {0}", marcaId);
-        if (!marcaEntity.get().getTiendas_fisicas().contains(tiendaFisicaEntity.get()))
+        if (!marcaEntity.get().getTiendasFisicas().contains(tiendaFisicaEntity.get()))
             throw new IllegalOperationException("La tienda no esta asociada con la marca");
 
         return tiendaFisicaEntity.get();
@@ -72,13 +72,13 @@ public class MarcaTiendaFisicaService {
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        List<TiendaFisicaEntity> tiendaFisicaEntities = marcaEntity.get().getTiendas_fisicas();
+        List<TiendaFisicaEntity> tiendaFisicaEntities = marcaEntity.get().getTiendasFisicas();
 
         if (tiendaFisicaEntities.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
 
         log.info("Finaliza proceso de consultar todas las tiendas fisicas de la marca con id = {0}", marcaId);
-        return marcaEntity.get().getTiendas_fisicas();
+        return marcaEntity.get().getTiendasFisicas();
     }
 
     @Transactional
@@ -94,8 +94,8 @@ public class MarcaTiendaFisicaService {
             if (cambio.isEmpty())
                 throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);
 
-            if (!marcaEntity.get().getTiendas_fisicas().contains(cambio.get()))
-                marcaEntity.get().getTiendas_fisicas().add(cambio.get());
+            if (!marcaEntity.get().getTiendasFisicas().contains(cambio.get()))
+                marcaEntity.get().getTiendasFisicas().add(cambio.get());
         }
         log.info("Termina proceso de actualizar la marca con id = {0}", marcaId);
         return getTiendasFisicas(marcaId);
@@ -108,7 +108,7 @@ public class MarcaTiendaFisicaService {
         if (marcaEntity.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.MARCA_NOT_FOUND);
 
-        List<TiendaFisicaEntity> tiendaFisicaEntity = marcaEntity.get().getTiendas_fisicas();
+        List<TiendaFisicaEntity> tiendaFisicaEntity = marcaEntity.get().getTiendasFisicas();
         Optional<TiendaFisicaEntity> tiendaFisicaToFind = tiendaFisicaRepository.findById(tiendaFisicaId);
         if (tiendaFisicaToFind.isEmpty())
             throw new EntityNotFoundException(ErrorMessage.TIENDA_FISICA_NOT_FOUND);

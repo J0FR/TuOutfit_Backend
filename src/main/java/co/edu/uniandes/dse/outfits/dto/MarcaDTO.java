@@ -12,7 +12,7 @@ import lombok.Setter;
 public class MarcaDTO {
     private Long id;
     private String nombre;
-    private String url_sitio_web;
+    private String urlSitioWeb;
     private String logo;
-    private String detalle_de_marca;
+    private String detalleDeMarca;
 }

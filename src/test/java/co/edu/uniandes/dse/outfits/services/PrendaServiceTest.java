@@ -106,10 +106,10 @@ class PrendaServiceTest {
         assertEquals(prendaEntity.getOcasiones(), entity.getOcasiones());//
         assertEquals(prendaEntity.getMarca().getId(), entity.getMarca().getId());//
         assertEquals(prendaEntity.getOutfits(), entity.getOutfits());//
-        assertEquals(prendaEntity.getUrl_sitio_web_compra(), entity.getUrl_sitio_web_compra());//
+        assertEquals(prendaEntity.getUrlSitioWebCompra(), entity.getUrlSitioWebCompra());//
         assertEquals(prendaEntity.getColores(), entity.getColores());//
         assertEquals(prendaEntity.getPrecio(), entity.getPrecio());//
-        assertEquals(prendaEntity.getRango_edad(), entity.getRango_edad());//
+        assertEquals(prendaEntity.getRangoEdad(), entity.getRangoEdad());//
         assertEquals(prendaEntity.getTalla(), entity.getTalla());//
     }
 
@@ -125,10 +125,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(null);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
@@ -146,10 +146,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
@@ -167,10 +167,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
@@ -188,10 +188,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(null);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
@@ -209,10 +209,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(null);
+            newEntity.setRangoEdad(null);
             newEntity.setTalla("A1");
             prendaService.createPrenda(newEntity);
     });
@@ -230,10 +230,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla(null);
             prendaService.createPrenda(newEntity);
     });
@@ -251,10 +251,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("");
             prendaService.createPrenda(newEntity);
     });
@@ -272,10 +272,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra(null);
+            newEntity.setUrlSitioWebCompra(null);
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }
@@ -292,10 +292,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("");
+            newEntity.setUrlSitioWebCompra("");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }
@@ -312,10 +312,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }
@@ -332,10 +332,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }
@@ -352,10 +352,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.createPrenda(newEntity);
     });
     }
@@ -388,10 +388,10 @@ class PrendaServiceTest {
     assertEquals(entity.getOcasiones(), resultEntity.getOcasiones());//
     assertEquals(entity.getMarca().getId(), resultEntity.getMarca().getId());//
     assertEquals(entity.getOutfits(), resultEntity.getOutfits());//
-    assertEquals(entity.getUrl_sitio_web_compra(), resultEntity.getUrl_sitio_web_compra());//
+    assertEquals(entity.getUrlSitioWebCompra(), resultEntity.getUrlSitioWebCompra());//
     assertEquals(entity.getColores(), resultEntity.getColores());//
     assertEquals(entity.getPrecio(), resultEntity.getPrecio());//
-    assertEquals(entity.getRango_edad(), resultEntity.getRango_edad());//
+    assertEquals(entity.getRangoEdad(), resultEntity.getRangoEdad());//
 
    }
    @Test
@@ -418,10 +418,10 @@ class PrendaServiceTest {
         assertEquals(pojoEntity.getOcasiones(), resp.getOcasiones());//
         assertEquals(pojoEntity.getMarca(), resp.getMarca());//
         assertEquals(pojoEntity.getOutfits(), resp.getOutfits());//
-        assertEquals(pojoEntity.getUrl_sitio_web_compra(), resp.getUrl_sitio_web_compra());//
+        assertEquals(pojoEntity.getUrlSitioWebCompra(), resp.getUrlSitioWebCompra());//
         assertEquals(pojoEntity.getColores(), resp.getColores());//
         assertEquals(pojoEntity.getPrecio(), resp.getPrecio());//
-        assertEquals(pojoEntity.getRango_edad(), resp.getRango_edad());//
+        assertEquals(pojoEntity.getRangoEdad(), resp.getRangoEdad());//
 }
     
     @Test
@@ -450,10 +450,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(null);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -473,10 +473,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -496,10 +496,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -519,10 +519,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(null);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("A1");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -542,10 +542,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(null);
+            newEntity.setRangoEdad(null);
             newEntity.setTalla("A1");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -565,10 +565,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla(null);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -588,10 +588,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             newEntity.setTalla("");
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
@@ -611,10 +611,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra(null);
+            newEntity.setUrlSitioWebCompra(null);
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
     }
@@ -633,10 +633,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("");
+            newEntity.setUrlSitioWebCompra("");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
     }
@@ -655,10 +655,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
     }
@@ -677,10 +677,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
     }
@@ -699,10 +699,10 @@ class PrendaServiceTest {
             newEntity.setOcasiones(Ocacion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
-            newEntity.setUrl_sitio_web_compra("link_prueba");
+            newEntity.setUrlSitioWebCompra("link_prueba");
             newEntity.setColores(Color.ROJO);
             newEntity.setPrecio(20000);
-            newEntity.setRango_edad(RangoEdad.ADOLECENTE);
+            newEntity.setRangoEdad(RangoEdad.ADOLECENTE);
             prendaService.updatePrenda(entity.getId(), newEntity);
     });
     }

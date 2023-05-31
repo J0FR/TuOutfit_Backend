@@ -159,7 +159,7 @@ public class ComentarioUsuarioServiceTest {
     void testGetUsuarioInvalidComentario() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
             // obtiene el usuario del comentario
-            UsuarioEntity ultimoUsuarioEntity =     comentarioUsuarioService.getUsuario(0L);
+            UsuarioEntity ultimoUsuarioEntity = comentarioUsuarioService.getUsuario(0L);
         });
     }
 

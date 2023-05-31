@@ -22,9 +22,9 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class MarcaEntity extends BaseEntity {
 
     private String nombre;
-    private String url_sitio_web;
+    private String urlSitioWeb;
     private String logo; /* No es string sino es imagen */
-    private String detalle_de_marca;
+    private String detalleDeMarca;
 
 
     @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
@@ -33,10 +33,9 @@ public class MarcaEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
     @PodamExclude
-    private List<TiendaFisicaEntity> tiendas_fisicas = new ArrayList<>();
+    private List<TiendaFisicaEntity> tiendasFisicas = new ArrayList<>();
 
     public void addPrenda(PrendaEntity prenda) {
         prendas.add(prenda);
     }
-
 }

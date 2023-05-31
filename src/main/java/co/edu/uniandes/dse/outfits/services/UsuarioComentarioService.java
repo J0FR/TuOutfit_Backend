@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
 import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
-import co.edu.uniandes.dse.outfits.entities.ComentarioEntity;
-import co.edu.uniandes.dse.outfits.entities.UsuarioEntity;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.ErrorMessage;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;

@@ -1,6 +1,5 @@
 package co.edu.uniandes.dse.outfits.dto;
 
-import co.edu.uniandes.dse.outfits.entities.MarcaEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,10 +12,10 @@ public class PrendaDTO {
     private Color colores;
     private Genero genero;
     private Ocasion ocasiones;
-    private RangoEdad rango_edad;
+    private RangoEdad rangoEdad;
     private String imagen;
     private String talla;
-    private String url_sitio_web_compra;
+    private String urlSitioWebCompra;
 
     public enum Color {
         ROJO,

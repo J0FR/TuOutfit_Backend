@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FORMAL\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"FORMAL\",\n    \"rango_edad\": \"BEBE\",\n    \"imagen\": \"foto\",\n    \"talla\": \"XS\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"FORMAL\",\n    \"rangoEdad\": \"BEBE\",\n    \"imagen\": \"foto\",\n    \"talla\": \"XS\",\n    \"urlSitioWebCompra\": \"urlSitioWebCompra.com\"\n}"
 				}
 			]
 		},
@@ -152,7 +152,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"prenda1\",\n        \"rango_edad\": \"BEBE\",\n        \"foto\": \"foto\",\n        \"talla\": \"XS\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": \"ROJO\",\n        \"ocaciones\": \"FIESTA\",\n        \"imagen\": \"imagen\",\n        \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"prenda1\",\n        \"rangoEdad\": \"BEBE\",\n        \"foto\": \"foto\",\n        \"talla\": \"XS\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": \"ROJO\",\n        \"ocaciones\": \"FIESTA\",\n        \"imagen\": \"imagen\",\n        \"urlSitioWebCompra\": \"urlSitioWebCompra.com\"\n    }\n]"
 				}
 			]
 		},
@@ -222,7 +222,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rango_edad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"ocaciones\": \"FIESTA\",\n    \"imagen\": \"imagen\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rangoEdad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": \"ROJO\",\n    \"ocaciones\": \"FIESTA\",\n    \"imagen\": \"imagen\",\n    \"urlSitioWebCompra\": \"urlSitioWebCompra.com\"\n}"
 				}
 			]
 		},
@@ -321,7 +321,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -369,7 +369,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"ocaciones\": \"FIESTA\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\",\r\n}\r\n"
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"ROJO\",\r\n    \"ocaciones\": \"FIESTA\",\r\n    \"imagen\":\"imagen2\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\",\r\n}\r\n"
 				}
 			]
 		},
@@ -398,7 +398,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"S\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": \"NEGRO\",\r\n    \"ocasiones\": \"CASUAL\",\r\n    \"imagen\":\"imagen2\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -90,7 +90,7 @@ public class ComentarioPrendaServiceTest {
      */
     private void comparePrendaEntity(PrendaEntity a, PrendaEntity b) throws EntityNotFoundException {
         assertEquals(a.getId(), b.getId());
-        assertEquals(a.getUrl_sitio_web_compra(), b.getUrl_sitio_web_compra());
+        assertEquals(a.getUrlSitioWebCompra(), b.getUrlSitioWebCompra());
     }
 
     /**
