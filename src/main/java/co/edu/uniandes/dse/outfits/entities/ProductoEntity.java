@@ -17,7 +17,7 @@ public abstract class ProductoEntity extends BaseEntity {
     protected Integer precio;
     protected Color colores;
     protected Genero genero;
-    protected Ocacion ocasiones;
+    protected Ocasion ocasiones;
     protected RangoEdad rangoEdad;
     protected String talla;
 
@@ -41,14 +41,14 @@ public abstract class ProductoEntity extends BaseEntity {
 
     public enum RangoEdad {
         BEBE,
-        NIÑO,
+        NINHO,
         ADOLECENTE,
         JOVEN,
         ADULTO,
         ABUELOS
     }
 
-    public enum Ocacion {
+    public enum Ocasion {
         BODA,
         FIESTA,
         CENA,

@@ -19,7 +19,7 @@ import co.edu.uniandes.dse.outfits.entities.OutfitEntity;
 import co.edu.uniandes.dse.outfits.entities.PrendaEntity;
 import co.edu.uniandes.dse.outfits.entities.ProductoEntity.Color;
 import co.edu.uniandes.dse.outfits.entities.ProductoEntity.Genero;
-import co.edu.uniandes.dse.outfits.entities.ProductoEntity.Ocacion;
+import co.edu.uniandes.dse.outfits.entities.ProductoEntity.Ocasion;
 import co.edu.uniandes.dse.outfits.entities.ProductoEntity.RangoEdad;
 import co.edu.uniandes.dse.outfits.exceptions.EntityNotFoundException;
 import co.edu.uniandes.dse.outfits.exceptions.IllegalOperationException;
@@ -122,7 +122,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -143,7 +143,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -164,7 +164,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -177,7 +177,7 @@ class PrendaServiceTest {
     }
 
     @Test
-    void testCreatePrendaWithNullOcaciones() {
+    void testCreatePrendaWithNullOcasiones() {
         assertThrows(IllegalOperationException.class, () -> {
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
             newEntity.setId(1L);
@@ -206,7 +206,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -227,7 +227,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -248,7 +248,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -269,7 +269,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra(null);
@@ -289,7 +289,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("");
@@ -309,7 +309,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen(null);
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -329,7 +329,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -349,7 +349,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(null);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -447,7 +447,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -470,7 +470,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -493,7 +493,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -506,7 +506,7 @@ class PrendaServiceTest {
     }
 
     @Test
-    void testUpdatePrendaWithNullOcaciones() {
+    void testUpdatePrendaWithNullOcasiones() {
         assertThrows(IllegalOperationException.class, () -> {
             PrendaEntity entity = prendaList.get(0);
             PrendaEntity newEntity = factory.manufacturePojo(PrendaEntity.class);
@@ -539,7 +539,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -562,7 +562,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -585,7 +585,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -608,7 +608,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra(null);
@@ -630,7 +630,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("");
@@ -652,7 +652,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen(null);
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -674,7 +674,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(comentarioList);
             newEntity.setImagen("");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");
@@ -696,7 +696,7 @@ class PrendaServiceTest {
             newEntity.setComentarios(null);
             newEntity.setImagen("foto");
             newEntity.setGenero(Genero.HOMBRE);
-            newEntity.setOcasiones(Ocacion.BODA);
+            newEntity.setOcasiones(Ocasion.BODA);
             newEntity.setMarca(marcaList.get(0));
             newEntity.setOutfits(outfitList);
             newEntity.setUrlSitioWebCompra("link_prueba");

@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocaciones\": \"BODA\",\n    \"rangoEdad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"BODA\",\n    \"rangoEdad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
 				}
 			]
 		},
@@ -111,7 +111,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+					"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,7 +136,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocaciones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
+							"raw": "{\r\n    \"descripcion\": \"Descripcion Outfit #1\",\r\n    \"imagen\": \"link\",\r\n    \"nombre\": \"Outfit #1\",\r\n    \"precio\": 1500,\r\n    \"colores\": \"ROJO\",\r\n    \"genero\": \"HOMBRE\",\r\n    \"ocasiones\": \"BODA\",\r\n    \"rangoEdad\": \"BEBE\",\r\n    \"talla\": \"XS\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -166,7 +166,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocaciones\": \"BODA\",\n    \"rangoEdad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"descripcion\": \"Descripcion Outfit #1\",\n    \"imagen\": \"link\",\n    \"nombre\": \"Outfit #1\",\n    \"precio\": 1500,\n    \"colores\": \"ROJO\",\n    \"genero\": \"HOMBRE\",\n    \"ocasiones\": \"BODA\",\n    \"rangoEdad\": \"BEBE\",\n    \"talla\": \"XS\"\n}"
 				}
 			]
 		},
@@ -218,7 +218,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocasiones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -300,7 +300,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocasiones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

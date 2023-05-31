@@ -37,7 +37,7 @@ public class OutfitDTO {
 
     public enum RangoEdad {
         BEBE,
-        NIÑO,
+        NINHO,
         ADOLECENTE,
         JOVEN,
         ADULTO,

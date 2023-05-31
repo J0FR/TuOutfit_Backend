@@ -71,7 +71,7 @@ public class UsuarioController {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public UsuarioDTO create(@RequestBody UsuarioDTO usuarioDTO) 
-        throws IllegalOperationException, EntityNotFoundException {
+        throws IllegalOperationException {
         UsuarioEntity usuarioEntity = usuarioService.createUsuario
             (modelMapper.map(usuarioDTO, UsuarioEntity.class));
         return modelMapper.map(usuarioEntity, UsuarioDTO.class);

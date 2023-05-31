@@ -80,13 +80,12 @@ public class PrendaOutfitService {
 
 		if (outfitEntity.isEmpty())
 			throw new EntityNotFoundException(ErrorMessage.OUTFIT_NOT_FOUND);
-		log.info("Termina proceso de consultar un outfit de la prenda con id = {0}", prendaId);
-
-        if (!prendaEntity.get().getOutfits().contains(outfitEntity.get()))
+			
+		if (!prendaEntity.get().getOutfits().contains(outfitEntity.get()))
 			throw new IllegalOperationException("The Prenda is not associated to the outfit");
 		
+		log.info("Termina proceso de consultar un outfit de la prenda con id = {0}", prendaId);
 		return outfitEntity.get();
-
 	}
 
 	@Transactional
