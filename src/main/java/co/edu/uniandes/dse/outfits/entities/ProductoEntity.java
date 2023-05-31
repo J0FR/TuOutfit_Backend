@@ -2,6 +2,9 @@ package co.edu.uniandes.dse.outfits.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Objects;
+
 import javax.persistence.MappedSuperclass;
 
 @Getter
@@ -9,14 +12,14 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class ProductoEntity extends BaseEntity {
 
-    private String imagen;
-    private String nombre;
-    private Integer precio;
-    private Color colores;
-    private Genero genero;
-    private Ocacion ocasiones;
-    private RangoEdad rangoEdad;
-    private String talla;
+    protected String imagen;
+    protected String nombre;
+    protected Integer precio;
+    protected Color colores;
+    protected Genero genero;
+    protected Ocacion ocasiones;
+    protected RangoEdad rangoEdad;
+    protected String talla;
 
     public enum Color {
         ROJO,
@@ -52,5 +55,27 @@ public abstract class ProductoEntity extends BaseEntity {
         CASUAL,
         FORMAL,
         GRADO
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProductoEntity other = (ProductoEntity) o;
+
+        // los IDs son únicos en la tabla de la clase
+        return Objects.equals(id, other.id);      
+    }
+
+    
+    @Override
+    public int hashCode() {
+        // los IDs son únicos en la tabla de la clase
+        return Objects.hash(id);
     }
 }
