@@ -46,7 +46,7 @@ public abstract class BaseEntity {
 	@PodamExclude
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	protected Long id;
 
 
 	/**

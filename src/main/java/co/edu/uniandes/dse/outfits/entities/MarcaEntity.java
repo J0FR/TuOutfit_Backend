@@ -2,6 +2,7 @@ package co.edu.uniandes.dse.outfits.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,6 +35,29 @@ public class MarcaEntity extends BaseEntity {
     @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
     @PodamExclude
     private List<TiendaFisicaEntity> tiendasFisicas = new ArrayList<>();
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MarcaEntity other = (MarcaEntity) o;
+
+        // los IDs son únicos en la tabla de la clase
+        return Objects.equals(id, other.id);      
+    }
+
+
+    @Override
+    public int hashCode() {
+        // los IDs son únicos en la tabla de la clase
+        return Objects.hash(id);
+    }
+
 
     public void addPrenda(PrendaEntity prenda) {
         prendas.add(prenda);
