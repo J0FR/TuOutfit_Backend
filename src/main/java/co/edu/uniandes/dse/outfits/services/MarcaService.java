@@ -36,11 +36,11 @@ public class MarcaService {
     private void validarNulos(MarcaEntity marca) throws IllegalOperationException {
         if (marca.getNombre() == null || marca.getNombre().equals(""))
             throw new IllegalOperationException("La marca no tiene un nombre valido");
-        if (marca.getUrl_sitio_web() == null || marca.getUrl_sitio_web().equals(""))
-            throw new IllegalOperationException("La marca no tiene un URL_Sitio_Web valido");
+        if (marca.getUrlSitioWeb() == null || marca.getUrlSitioWeb().equals(""))
+            throw new IllegalOperationException("La marca no tiene un urlSitioWeb valido");
         if (marca.getLogo() == null || marca.getLogo().equals(""))
             throw new IllegalOperationException("La marca no tiene un URL de logo valido");
-        if (marca.getDetalle_de_marca() == null || marca.getDetalle_de_marca().equals(""))
+        if (marca.getDetalleDeMarca() == null || marca.getDetalleDeMarca().equals(""))
             throw new IllegalOperationException("La marca no tiene detalles de la marca valido");
     }
 
@@ -95,7 +95,7 @@ public class MarcaService {
         if (!marcaEntity.get().getPrendas().isEmpty()) {
             throw new IllegalOperationException("La marca tiene prendas asociados");
         }
-        if (!marcaEntity.get().getTiendas_fisicas().isEmpty()) {
+        if (!marcaEntity.get().getTiendasFisicas().isEmpty()) {
             throw new IllegalOperationException("La marca tiene Tiendas fisicas asociados");
         }
 

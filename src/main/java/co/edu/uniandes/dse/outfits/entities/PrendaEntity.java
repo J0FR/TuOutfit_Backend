@@ -18,7 +18,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class PrendaEntity extends ProductoEntity {
 
-    private String url_sitio_web_compra;
+    private String urlSitioWebCompra;
 
     @OneToMany(mappedBy = "prenda", fetch = FetchType.LAZY)
     @PodamExclude
@@ -30,7 +30,7 @@ public class PrendaEntity extends ProductoEntity {
 
     @ManyToMany
     @PodamExclude
-    private List<PrendaEntity> prendas_asociadas = new ArrayList<>();
+    private List<PrendaEntity> prendasAsociadas = new ArrayList<>();
 
     @ManyToOne
     @PodamExclude
@@ -40,8 +40,4 @@ public class PrendaEntity extends ProductoEntity {
     public void addComentario(ComentarioEntity comentario) {
         comentarios.add(comentario);
     }
-
-
-    
-
 }

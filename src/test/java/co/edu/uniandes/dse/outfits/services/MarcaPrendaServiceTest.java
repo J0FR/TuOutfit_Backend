@@ -152,9 +152,9 @@ public class MarcaPrendaServiceTest {
 		assertEquals(prendaEntity.getOcasiones(), response.getOcasiones());
 		assertEquals(prendaEntity.getOutfits(), response.getOutfits());
 		assertEquals(prendaEntity.getPrecio(), response.getPrecio());
-		assertEquals(prendaEntity.getRango_edad(), response.getRango_edad());
+		assertEquals(prendaEntity.getRangoEdad(), response.getRangoEdad());
 		assertEquals(prendaEntity.getTalla(), response.getTalla());
-		assertEquals(prendaEntity.getUrl_sitio_web_compra(), response.getUrl_sitio_web_compra());
+		assertEquals(prendaEntity.getUrlSitioWebCompra(), response.getUrlSitioWebCompra());
 
 	}
 

@@ -74,14 +74,14 @@ class MarcaServiceTest {
             prendasList.add(prendaEntity);
         }
 
-        marcaList.get(0).setTiendas_fisicas(tiendaFisicaList);
+        marcaList.get(0).setTiendasFisicas(tiendaFisicaList);
         marcaList.get(0).setPrendas(prendasList);
     }
 
     @Test
     void testCreateOutfit() throws EntityNotFoundException, IllegalOperationException {
         MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-        newEntity.setTiendas_fisicas(tiendaFisicaList);
+        newEntity.setTiendasFisicas(tiendaFisicaList);
         newEntity.setPrendas(prendasList);
         MarcaEntity result = marcaService.createMarca(newEntity);
         assertNotNull(result);
@@ -89,8 +89,8 @@ class MarcaServiceTest {
         assertEquals(newEntity.getId(), entity.getId());
         assertEquals(newEntity.getNombre(), entity.getNombre());
         assertEquals(newEntity.getLogo(), entity.getLogo());
-        assertEquals(newEntity.getUrl_sitio_web(), entity.getUrl_sitio_web());
-        assertEquals(newEntity.getDetalle_de_marca(), entity.getDetalle_de_marca());
+        assertEquals(newEntity.getUrlSitioWeb(), entity.getUrlSitioWeb());
+        assertEquals(newEntity.getDetalleDeMarca(), entity.getDetalleDeMarca());
     }
 
     @Test
@@ -112,19 +112,19 @@ class MarcaServiceTest {
     }
 
     @Test
-    void testCreateMarcaWithNoValidURL_sitio_web() {
+    void testCreateMarcaWithNoValidurlSitioWeb() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setUrl_sitio_web(null);
+            newEntity.setUrlSitioWeb(null);
             marcaService.createMarca(newEntity);
         });
     }
 
     @Test
-    void testCreateMarcaWithNoValidURL_sitio_web2() {
+    void testCreateMarcaWithNoValidurlSitioWeb2() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setUrl_sitio_web("");
+            newEntity.setUrlSitioWeb("");
             marcaService.createMarca(newEntity);
         });
     }
@@ -151,7 +151,7 @@ class MarcaServiceTest {
     void testCreateMarcaWithNoValidDetalleDeMarca() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setDetalle_de_marca(null);
+            newEntity.setDetalleDeMarca(null);
             marcaService.createMarca(newEntity);
         });
     }
@@ -160,7 +160,7 @@ class MarcaServiceTest {
     void testCreateMarcaWithNoValidDetalleDeMarca2() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity newEntity = factory.manufacturePojo(MarcaEntity.class);
-            newEntity.setDetalle_de_marca("");
+            newEntity.setDetalleDeMarca("");
             marcaService.createMarca(newEntity);
         });
     }
@@ -187,10 +187,10 @@ class MarcaServiceTest {
         assertNotNull(resultEntity);
         assertEquals(entity.getId(), resultEntity.getId());
         assertEquals(entity.getNombre(), resultEntity.getNombre());
-        assertEquals(entity.getUrl_sitio_web(), resultEntity.getUrl_sitio_web());
+        assertEquals(entity.getUrlSitioWeb(), resultEntity.getUrlSitioWeb());
         assertEquals(entity.getLogo(), resultEntity.getLogo());
-        assertEquals(entity.getDetalle_de_marca(), resultEntity.getDetalle_de_marca());
-        assertEquals(entity.getTiendas_fisicas(), resultEntity.getTiendas_fisicas());
+        assertEquals(entity.getDetalleDeMarca(), resultEntity.getDetalleDeMarca());
+        assertEquals(entity.getTiendasFisicas(), resultEntity.getTiendasFisicas());
         assertEquals(entity.getPrendas(), resultEntity.getPrendas());
 
     }
@@ -207,17 +207,17 @@ class MarcaServiceTest {
         MarcaEntity entity = marcaList.get(0);
         MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
         pojoEntity.setId(entity.getId());
-        pojoEntity.setTiendas_fisicas(tiendaFisicaList);
+        pojoEntity.setTiendasFisicas(tiendaFisicaList);
         pojoEntity.setPrendas(prendasList);
         marcaService.updateMarca(entity.getId(), pojoEntity);
 
         MarcaEntity resp = entityManager.find(MarcaEntity.class, entity.getId());
         assertEquals(pojoEntity.getId(), resp.getId());
         assertEquals(pojoEntity.getNombre(), resp.getNombre());
-        assertEquals(pojoEntity.getUrl_sitio_web(), resp.getUrl_sitio_web());
+        assertEquals(pojoEntity.getUrlSitioWeb(), resp.getUrlSitioWeb());
         assertEquals(pojoEntity.getLogo(), resp.getLogo());
-        assertEquals(pojoEntity.getDetalle_de_marca(), resp.getDetalle_de_marca());
-        assertEquals(pojoEntity.getTiendas_fisicas(), resp.getTiendas_fisicas());
+        assertEquals(pojoEntity.getDetalleDeMarca(), resp.getDetalleDeMarca());
+        assertEquals(pojoEntity.getTiendasFisicas(), resp.getTiendasFisicas());
         assertEquals(pojoEntity.getPrendas(), resp.getPrendas());
     }
 
@@ -253,22 +253,22 @@ class MarcaServiceTest {
     }
 
     @Test
-    void testUpdateMarcaWithNoValidURL_Sitio_Web() {
+    void testUpdateMarcaWithNoValidurlSitioWeb() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity entity = marcaList.get(0);
             MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setUrl_sitio_web(null);
+            pojoEntity.setUrlSitioWeb(null);
             pojoEntity.setId(entity.getId());
             marcaService.updateMarca(entity.getId(), pojoEntity);
         });
     }
 
     @Test
-    void testUpdateMarcaWithNoValidURL_Sitio_Web2() {
+    void testUpdateMarcaWithNoValidurlSitioWeb2() {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity entity = marcaList.get(0);
             MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setUrl_sitio_web("");
+            pojoEntity.setUrlSitioWeb("");
             pojoEntity.setId(entity.getId());
             marcaService.updateMarca(entity.getId(), pojoEntity);
         });
@@ -301,7 +301,7 @@ class MarcaServiceTest {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity entity = marcaList.get(0);
             MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setDetalle_de_marca(null);
+            pojoEntity.setDetalleDeMarca(null);
             pojoEntity.setId(entity.getId());
             marcaService.updateMarca(entity.getId(), pojoEntity);
         });
@@ -312,7 +312,7 @@ class MarcaServiceTest {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity entity = marcaList.get(0);
             MarcaEntity pojoEntity = factory.manufacturePojo(MarcaEntity.class);
-            pojoEntity.setDetalle_de_marca("");
+            pojoEntity.setDetalleDeMarca("");
             pojoEntity.setId(entity.getId());
             marcaService.updateMarca(entity.getId(), pojoEntity);
         });
@@ -346,7 +346,7 @@ class MarcaServiceTest {
     void testDeleteMarcaWithTiendasFisicas() throws EntityNotFoundException, IllegalOperationException {
         assertThrows(IllegalOperationException.class, () -> {
             MarcaEntity entity = marcaList.get(0);
-            entity.setTiendas_fisicas(tiendaFisicaList);
+            entity.setTiendasFisicas(tiendaFisicaList);
             marcaService.deleteMarca(entity.getId());
         });
     }

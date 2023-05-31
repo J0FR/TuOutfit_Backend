@@ -75,7 +75,7 @@ public class PrendaMarcaServiceTest {
     private void compareMarcaEntity(MarcaEntity a, MarcaEntity b) throws EntityNotFoundException {
         assertEquals(a.getId(), b.getId());
         assertEquals(a.getNombre(), b.getNombre());
-        assertEquals(a.getUrl_sitio_web(), b.getUrl_sitio_web());
+        assertEquals(a.getUrlSitioWeb(), b.getUrlSitioWeb());
 
     }
 

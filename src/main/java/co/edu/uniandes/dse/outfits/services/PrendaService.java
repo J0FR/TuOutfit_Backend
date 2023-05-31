@@ -47,7 +47,7 @@ public class PrendaService {
         if (prendaEntity.getOcasiones() == null){
             throw new IllegalOperationException("La prenda no tiene una ocasion asociada null");
         }
-        if (prendaEntity.getRango_edad()== null){
+        if (prendaEntity.getRangoEdad()== null){
             throw new IllegalOperationException("La prenda no tiene un rando de edad asociado null");
         }
         if (prendaEntity.getTalla() == null){
@@ -56,10 +56,10 @@ public class PrendaService {
         if (prendaEntity.getTalla().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una talla asociada empty");
         }
-        if (prendaEntity.getUrl_sitio_web_compra()== null){
+        if (prendaEntity.getUrlSitioWebCompra()== null){
             throw new IllegalOperationException("La prenda no tiene un URL asociado null");
         }
-        if (prendaEntity.getUrl_sitio_web_compra().equals("")){
+        if (prendaEntity.getUrlSitioWebCompra().equals("")){
             throw new IllegalOperationException("La prenda no tiene un URL asociado empty");
         }
         if (prendaEntity.getImagen()== null){
@@ -112,7 +112,7 @@ public class PrendaService {
         if (prenda.getOcasiones() == null){
             throw new IllegalOperationException("La prenda no tiene una ocasion asociada null");
         }
-        if (prenda.getRango_edad()== null){
+        if (prenda.getRangoEdad()== null){
             throw new IllegalOperationException("La prenda no tiene un rando de edad asociado null");
         }
         if (prenda.getTalla() == null){
@@ -121,10 +121,10 @@ public class PrendaService {
         if (prenda.getTalla().isEmpty()){
             throw new IllegalOperationException("La prenda no tiene una talla asociada empty");
         }
-        if (prenda.getUrl_sitio_web_compra()== null){
+        if (prenda.getUrlSitioWebCompra()== null){
             throw new IllegalOperationException("La prenda no tiene un URL asociado null");
         }
-        if (prenda.getUrl_sitio_web_compra().equals("")){
+        if (prenda.getUrlSitioWebCompra().equals("")){
             throw new IllegalOperationException("La prenda no tiene un URL asociado empty");
         }
         if (prenda.getImagen()== null){

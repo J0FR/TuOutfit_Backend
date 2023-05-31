@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}"
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}"
 				}
 			]
 		},
@@ -162,7 +162,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"McDonalds\",\n        \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\n        \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n        \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\",\n        \"prendas\": [],\n        \"tiendas_Fisicas\": []\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"McDonalds\",\n        \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\n        \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n        \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\",\n        \"prendas\": [],\n        \"tiendasFisicas\": []\n    }\n]"
 				}
 			]
 		},
@@ -237,7 +237,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"nombre\": \"McDonalds\",\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\",\n    \"prendas\": [],\n    \"tiendas_Fisicas\": []\n}"
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"McDonalds\",\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\",\n    \"prendas\": [],\n    \"tiendasFisicas\": []\n}"
 				}
 			]
 		},
@@ -329,7 +329,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -355,7 +355,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,7 +386,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\",\r\n    \"tiendasFisicas\": [],\r\n    \"prendas\": []\r\n}"
+					"body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\",\r\n    \"tiendasFisicas\": [],\r\n    \"prendas\": []\r\n}"
 				}
 			]
 		},
@@ -415,7 +415,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos y hamburguesa\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

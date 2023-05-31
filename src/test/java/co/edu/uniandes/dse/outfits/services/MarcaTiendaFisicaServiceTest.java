@@ -61,7 +61,7 @@ public class MarcaTiendaFisicaServiceTest {
             MarcaEntity marcaEntity = factory.manufacturePojo(MarcaEntity.class);
             entityManager.persist(marcaEntity);
             if (i == 0) {
-                marcaEntity.setTiendas_fisicas(tiendaFisicaList);
+                marcaEntity.setTiendasFisicas(tiendaFisicaList);
             }
             marcaList.add(marcaEntity);
         }
@@ -115,11 +115,11 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws EntityNotFoundException
      */
     @Test
-    void testGetTiendasFisicas() throws EntityNotFoundException {
+    void testgetTiendasFisicas() throws EntityNotFoundException {
         MarcaEntity entity = marcaList.get(0);
         List<TiendaFisicaEntity> resultEntity = marcaTiendaFisicaService.getTiendasFisicas(entity.getId());
         assertNotNull(resultEntity);
-        assertEquals(entity.getTiendas_fisicas(), resultEntity);
+        assertEquals(entity.getTiendasFisicas(), resultEntity);
     }
 
     /**
@@ -128,7 +128,7 @@ public class MarcaTiendaFisicaServiceTest {
      * @throws EntityNotFoundException
      */
     @Test
-    void testGetTiendasFisicasInvalidMarca() throws EntityNotFoundException {
+    void testgetTiendasFisicasInvalidMarca() throws EntityNotFoundException {
         assertThrows(EntityNotFoundException.class, () -> {
             marcaTiendaFisicaService.getTiendasFisicas(0L);
         });
@@ -207,7 +207,7 @@ public class MarcaTiendaFisicaServiceTest {
     public void testRemoveTiendaFisica() throws EntityNotFoundException {
         marcaTiendaFisicaService.removeTiendaFisica(marcaList.get(0).getId(), tiendaFisicaList.get(0).getId());
         MarcaEntity marca = entityManager.find(MarcaEntity.class, marcaList.get(0).getId());
-        assertEquals(tiendaFisicaList.get(0).getId(), marca.getTiendas_fisicas().get(0).getId());
+        assertEquals(tiendaFisicaList.get(0).getId(), marca.getTiendasFisicas().get(0).getId());
     }
 
     /**

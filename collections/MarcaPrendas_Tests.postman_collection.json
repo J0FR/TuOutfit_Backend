@@ -29,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rango_edad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": [],\n    \"ocaciones\": [],\n    \"imagen\": \"imagen\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rangoEdad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": [],\n    \"ocaciones\": [],\n    \"imagen\": \"imagen\",\n    \"urlSitioWebCompra\": \"urlSitioWebCompra.com\"\n}"
 				}
 			]
 		},
@@ -111,7 +111,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,7 +136,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}",
+							"raw": "{\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -166,7 +166,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rango_edad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": [],\n    \"ocaciones\": [],\n    \"imagen\": \"imagen\",\n    \"url_sitio_web_compra\": \"url_sitio_web_compra.com\"\n}"
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"prenda1\",\n    \"rangoEdad\": \"BEBE\",\n    \"foto\": \"foto\",\n    \"talla\": \"XS\",\n    \"genero\": \"HOMBRE\",\n    \"precio\": 10,\n    \"colores\": [],\n    \"ocaciones\": [],\n    \"imagen\": \"imagen\",\n    \"urlSitioWebCompra\": \"urlSitioWebCompra.com\"\n}"
 				}
 			]
 		},
@@ -193,7 +193,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -218,7 +218,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
+							"raw": "{\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -248,7 +248,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"McDonalds\",\r\n    \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}"
+					"body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"McDonalds\",\r\n    \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n    \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n    \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n}"
 				}
 			]
 		},
@@ -324,7 +324,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "\n{\n        \"id\":2,\n        \"nombre\": \"prenda1\",\n        \"rango_edad\": \"BEBE\",\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": [],\n        \"ocaciones\": [],\n        \"imagen\": \"imagen\",\n        \"url_sitio_web_compra\": \"url_sitio_web_compra.com\",\n        \"outfit\": null,\n        \"marca\": {\n                \"id\": 1,\n                \"nombre\": \"McDonalds\",\n                \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n                \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\n                }\n\n}"
+					"body": "\n{\n        \"id\":2,\n        \"nombre\": \"prenda1\",\n        \"rangoEdad\": \"BEBE\",\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": [],\n        \"ocaciones\": [],\n        \"imagen\": \"imagen\",\n        \"urlSitioWebCompra\": \"urlSitioWebCompra.com\",\n        \"outfit\": null,\n        \"marca\": {\n                \"id\": 1,\n                \"nombre\": \"McDonalds\",\n                \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n                \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\n                }\n\n}"
 				}
 			]
 		},
@@ -463,7 +463,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "\r\n{\r\n        \"id\":2,\r\n        \"nombre\": \"prenda1\",\r\n        \"rango_edad\": \"BEBE\",\r\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\r\n        \"genero\": \"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": [],\r\n        \"ocaciones\": [],\r\n        \"imagen\": \"imagen\",\r\n        \"url_sitio_web_compra\": \"url_sitio_web_compra.com\",\r\n        \"outfits\": [],\r\n        \"marca\": {\r\n                \"id\": 1,\r\n                \"nombre\": \"McDonalds\",\r\n                \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\r\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n                \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n                }\r\n\r\n}"
+					"body": "\r\n{\r\n        \"id\":2,\r\n        \"nombre\": \"prenda1\",\r\n        \"rangoEdad\": \"BEBE\",\r\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\r\n        \"genero\": \"HOMBRE\",\r\n        \"precio\": 10,\r\n        \"colores\": [],\r\n        \"ocaciones\": [],\r\n        \"imagen\": \"imagen\",\r\n        \"urlSitioWebCompra\": \"urlSitioWebCompra.com\",\r\n        \"outfits\": [],\r\n        \"marca\": {\r\n                \"id\": 1,\r\n                \"nombre\": \"McDonalds\",\r\n                \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\r\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\r\n                \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\r\n                }\r\n\r\n}"
 				}
 			]
 		},
@@ -677,7 +677,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\":2,\n        \"nombre\": \"prenda1\",\n        \"rango_edad\": \"BEBE\",\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": [],\n        \"ocaciones\": [],\n        \"imagen\": \"imagen\",\n        \"url_sitio_web_compra\": \"url_sitio_web_compra.com\",\n        \"outfits\": [],\n        \"marca\": {\n                \"id\": 1,\n                \"nombre\": \"McDonalds\",\n                \"url_sitio_web\": \"https://www.mcdonalds.com.co\",\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n                \"detalle_de_marca\": \"somos la primera marca en generar ropa en base de pepinillos\"\n                }\n\n    }\n]"
+					"body": "[\n    {\n        \"id\":2,\n        \"nombre\": \"prenda1\",\n        \"rangoEdad\": \"BEBE\",\n        \"foto\": \"https://www.google.com/ureqwedasjk&#$RF1fafadsfjdsak\",\n        \"genero\": \"HOMBRE\",\n        \"precio\": 10,\n        \"colores\": [],\n        \"ocaciones\": [],\n        \"imagen\": \"imagen\",\n        \"urlSitioWebCompra\": \"urlSitioWebCompra.com\",\n        \"outfits\": [],\n        \"marca\": {\n                \"id\": 1,\n                \"nombre\": \"McDonalds\",\n                \"urlSitioWeb\": \"https://www.mcdonalds.com.co\",\n                \"logo\": \"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tailorbrands.com%2Fes%2Flogo\",\n                \"detalleDeMarca\": \"somos la primera marca en generar ropa en base de pepinillos\"\n                }\n\n    }\n]"
 				}
 			]
 		},
@@ -701,7 +701,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n}\r\n]",
+					"raw": "[\r\n{\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n}\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -728,7 +728,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n    \"id\": {{new_id_p}},\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n    },\r\n    {\r\n    \"id\": {{new_id_p2}},\r\n    \"nombre\":\"prenda3\",\r\n    \"rango_edad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n    \"id\": {{new_id_p}},\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n    },\r\n    {\r\n    \"id\": {{new_id_p2}},\r\n    \"nombre\":\"prenda3\",\r\n    \"rangoEdad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -760,7 +760,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\r\n    {\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    },\r\n    {\r\n    \"id\": 2,\r\n    \"nombre\":\"prenda3\",\r\n    \"rango_edad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    }\r\n]"
+					"body": "[\r\n    {\r\n    \"id\": 1,\r\n    \"nombre\":\"prenda1\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    },\r\n    {\r\n    \"id\": 2,\r\n    \"nombre\":\"prenda3\",\r\n    \"rangoEdad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    }\r\n]"
 				}
 			]
 		},
@@ -789,7 +789,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rango_edad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\"\r\n    }\r\n]",
+					"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\":\"prenda1\",\r\n    \"precio\": 10,\r\n    \"colores\":\"ROJO\",\r\n    \"genero\":\"HOMBRE\",\r\n    \"ocasiones\":\"FIESTA\",\r\n    \"rangoEdad\":\"BEBE\",\r\n    \"imagen\":\"foto\",\r\n    \"talla\":\"XS\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\"\r\n    }\r\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -816,7 +816,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\":\"prenda3\",\r\n    \"rango_edad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"url_sitio_web_compra\":\"url_sitio_web_compra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n    \"id\": 0,\r\n    \"nombre\":\"prenda3\",\r\n    \"rangoEdad\":\"ADULTO\",\r\n    \"foto\":\"foto\",\r\n    \"talla\":\"XL\",\r\n    \"genero\":\"MUJER\",\r\n    \"precio\": 10,\r\n    \"colores\": [],\r\n    \"ocaciones\": [],\r\n    \"imagen\":\"imagen\",\r\n    \"urlSitioWebCompra\":\"urlSitioWebCompra.com\",\r\n    \"outfits\": [],\r\n    \"marca\": {}\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
