@@ -127,8 +127,10 @@ public class MarcaPrendaService {
             if (cambio.isEmpty())
                 throw new EntityNotFoundException(ErrorMessage.PRENDA_NOT_FOUND);
 
-            if (!marcaEntity.get().getPrendas().contains(cambio.get()))
+            if (!marcaEntity.get().getPrendas().contains(cambio.get())) {
                 marcaEntity.get().getPrendas().add(cambio.get());
+                cambio.get().setMarca(marcaEntity.get());
+            }
         }
         log.info("Termina proceso de aztualizar la marca con id = {0}", marcaId);
         return getPrendas(marcaId);
