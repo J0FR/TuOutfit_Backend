@@ -43,8 +43,14 @@ public class UsuarioOutfitService {
             throw new EntityNotFoundException(ErrorMessage.USUARIO_NOT_FOUND);
 
         usuarioEntity.get().getFavoritos().add(outfitEntity.get());
+        outfitEntity.get().getUsuarios().add(usuarioEntity.get());
         log.info("Termina proceso de asociarle un outfit al usuario con id = {0}", usuarioId);
         return outfitEntity.get();
+
+
+
+
+
     }
 
     @Transactional
